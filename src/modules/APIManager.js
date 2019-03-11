@@ -45,7 +45,7 @@ export default {
         })
         .then(results => results.json())
     },
-    update: (db, newObject, id) => {
+    edit: (db, newObject, id) => {
         return fetch(`${RemoteURL}/${db}/${id}`, {
             method: "PUT",
             headers: {

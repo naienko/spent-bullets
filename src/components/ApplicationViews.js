@@ -14,25 +14,28 @@ export default class ApplicationView extends Component {
         calibers: [],
         brands: [],
         stacks: [],
-        brandsCalibers: []
+        brandCalibers: []
     };
 
     componentDidMount() {
         const newState = {};
         //fetch the data here
-        APIManager.getAll(users)
+        APIManager.getAll("users")
             .then(users => newState.users = users)
-            .then(() => APIManager.getAll(stacks))
+            .then(() => APIManager.getAll("stacks"))
             .then(stacks => newState.stacks = stacks)
             
-            .then(() => APIManager.getAll(calibers))
+            .then(() => APIManager.getAll("calibers"))
             .then(calibers => newState.calibers = calibers)
             
-            .then(() => APIManager.getAll(brands))
+            .then(() => APIManager.getAll("brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => this.setState(newState))
+            .then(() => APIManager.getAll("brandCalibers"))
+            .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
+            .then(() => this.setState(newState))
+            .then(() => console.log("State is:", this.state))
         //re-rendering will happen
     };
 
@@ -46,7 +49,12 @@ export default class ApplicationView extends Component {
             <React.Fragment>
                 <Route path="/login" component={Login} />
                 <Route exact path="/" render={(props) => {
-                    return <StorageCloset />
+                    return <StorageCloset {...props} 
+                        users={this.state.users} 
+                        stacks={this.state.stacks} 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers} />
                 }} />
 
                 {/*     
