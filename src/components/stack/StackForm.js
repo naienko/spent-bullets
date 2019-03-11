@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
 
 export default class StackForm extends Component {
     //set empty local state
@@ -45,23 +47,24 @@ export default class StackForm extends Component {
                         //if yes, add brandCaliberId to stack object
                         stack.brandCaliberId = res.id;
                     }
+                    console.log(stack)
+                    //add stack object to the stacks table in the db using the passed-in function
+                    this.props.addStack(stack)
+                        .then(this.props.history.push("/"))
                 })
         } else {
             alert("Please complete the form!")
         }
 
-        //add stack object to the stacks table in the db using the passed-in function
-        this.props.addStack(stack)
-            .then(this.props.history.push("/"))
     }
 
     render() {
         return (
             <div id="dashboard">
-            <Form>
+            <Form onSubmit={this.createNewStack}>
                 <Form.Group controlId="brandId">
                     <Form.Label>Brand</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control as="select" onChange={this.handleFieldChange}>
                         <option>Choose a brand</option>
                         { this.props.brands.map(brand => 
                             <option key={brand.id} id={brand.id}>{brand.brand}</option>
@@ -70,13 +73,20 @@ export default class StackForm extends Component {
                 </Form.Group>
                 <Form.Group controlId="caliberId">
                     <Form.Label>Caliber</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control onChange={this.handleFieldChange} as="select">
                         <option>Choose a caliber</option>
                         { this.props.calibers.map(caliber => 
                             <option key={caliber.id} id={caliber.id}>{caliber.caliber}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
+                <Form.Group controlId="stackAmt" as={Row}>
+                    <Form.Label className="m-sm-2">
+                        How many?
+                    </Form.Label>
+                    < onChange={this.handleFieldChange} id="stackAmt" strict min={0} className="form-control" />
+                </Form.Group>
+                <Button variant="success" type="submit">Submit</Button>
             </Form>
              </div>
         )
