@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
 
 export default class StackForm extends Component {
     //set empty local state
@@ -45,12 +44,11 @@ export default class StackForm extends Component {
                             .then(id => stack.brandCaliberId = id)
                     } else {
                         //if yes, add brandCaliberId to stack object
-                        stack.brandCaliberId = res.id;
+                        stack.brandCaliberId = res[0].id;
                     }
-                    console.log(stack)
                     //add stack object to the stacks table in the db using the passed-in function
                     this.props.addStack(stack)
-                        .then(this.props.history.push("/"))
+                        .then(() => this.props.history.push("/"))
                 })
         } else {
             alert("Please complete the form!")
@@ -67,7 +65,7 @@ export default class StackForm extends Component {
                     <Form.Control as="select" onChange={this.handleFieldChange}>
                         <option>Choose a brand</option>
                         { this.props.brands.map(brand => 
-                            <option key={brand.id} id={brand.id}>{brand.brand}</option>
+                            <option key={brand.id} value={brand.id}>{brand.brand}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
@@ -76,15 +74,15 @@ export default class StackForm extends Component {
                     <Form.Control onChange={this.handleFieldChange} as="select">
                         <option>Choose a caliber</option>
                         { this.props.calibers.map(caliber => 
-                            <option key={caliber.id} id={caliber.id}>{caliber.caliber}</option>
+                            <option key={caliber.id} value={caliber.id}>{caliber.caliber}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="stackAmt" as={Row}>
+                <Form.Group controlId="stackAmt">
                     <Form.Label className="m-sm-2">
                         How many?
                     </Form.Label>
-                    < onChange={this.handleFieldChange} id="stackAmt" strict min={0} className="form-control" />
+                    <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                 </Form.Group>
                 <Button variant="success" type="submit">Submit</Button>
             </Form>

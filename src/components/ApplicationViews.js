@@ -44,7 +44,7 @@ export default class ApplicationView extends Component {
 
     //add/edit/delete functions go here, to be sent as props to appropriate routes
     addStack = newStack => {
-        APIManager.add("stacks", newStack)
+        return APIManager.add("stacks", newStack)
             .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
             .then(stacks => this.setState({ stacks: stacks }))
     }
@@ -80,7 +80,8 @@ export default class ApplicationView extends Component {
                     brands={this.state.brands} 
                     calibers={this.state.calibers}
                     brandCalibers={this.state.brandCalibers}
-                    addStack={this.addStack} />
+                    addStack={this.addStack} 
+                    addBCLink={this.addBCLink} />
 
                 {/*     
     
