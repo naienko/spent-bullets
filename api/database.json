@@ -1,0 +1,15 @@
+{
+    "users": [
+        {
+            "username": "",
+            "email": "",
+            "display_name": "",
+            "password": "",
+            "id": 1
+        }
+    ],
+    "stacks": [],
+    "calibers": [],
+    "brands": [],
+    "brandCalibers": []
+}
