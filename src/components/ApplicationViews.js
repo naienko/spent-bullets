@@ -7,6 +7,8 @@ import Login from "./auth/Login";
 import StorageCloset from "./StorageCloset";
 import APIManager from "../modules/APIManager";
 
+import StackForm from "./stack/StackForm";
+
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
     state = {
@@ -41,6 +43,23 @@ export default class ApplicationView extends Component {
     };
 
     //add/edit/delete functions go here, to be sent as props to appropriate routes
+    addStack = newStack => {
+        APIManager.add("stacks", newStack)
+            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(stacks => this.setState({ stacks: stacks }))
+    }
+    addBCLink = newLink => {
+        let newId = null;
+        return APIManager.add("brandCalibers", newLink)
+        .then((newLink) => {
+            newId = newLink.id;
+            return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
+        })
+        .then(res => {
+                this.setState({ brandCalibers: res }) 
+                return newId;
+        })
+    }
 
     render() {
         return (
@@ -49,14 +68,6 @@ export default class ApplicationView extends Component {
             //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
                 <Route path="/login" component={Login} />
-                {/* <Route exact path="/" render={(props) => {
-                    return <StorageCloset {...props} 
-                        users={this.state.users} 
-                        stacks={this.state.stacks} 
-                        brands={this.state.brands} 
-                        calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers} />
-                }} /> */}
 
                 <AuthRoute path="/" Destination={StorageCloset}
                         users={this.state.users} 
@@ -64,8 +75,14 @@ export default class ApplicationView extends Component {
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers} />
+                
+                <AuthRoute path="/stack/new" Destination={StackForm} 
+                    brands={this.state.brands} 
+                    calibers={this.state.calibers}
+                    brandCalibers={this.state.brandCalibers}
+                    addStack={this.addStack} />
+
                 {/*     
-                <AuthRoute path="/stack/new" Destination={StackForm} addStack={this.addStack} />
     
                 <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} /> */}
             </React.Fragment>
