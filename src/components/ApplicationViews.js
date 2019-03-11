@@ -48,17 +48,22 @@ export default class ApplicationView extends Component {
             //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
                 <Route path="/login" component={Login} />
-                <Route exact path="/" render={(props) => {
+                {/* <Route exact path="/" render={(props) => {
                     return <StorageCloset {...props} 
                         users={this.state.users} 
                         stacks={this.state.stacks} 
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers} />
-                }} />
+                }} /> */}
 
+                <AuthRoute path="/" Destination={StorageCloset}
+                        users={this.state.users} 
+                        stacks={this.state.stacks} 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers} />
                 {/*     
-                <AuthRoute path="/" Destination={StorageCloset} /*some props here />
                 <AuthRoute path="/stack/new" Destination={StackForm} addStack={this.addStack} />
     
                 <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} /> */}

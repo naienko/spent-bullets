@@ -77,19 +77,19 @@ export default class Login extends Component {
     render() {
         return (
             //hope I used Reactstrap right here ...
-            <Form onSubmit={this.handleLogin}>
+            <Form onSubmit={this.handleLogin} className="m-sm-3">
                 <h1>Please sign in</h1>
-                <Form.Group controlId="formLoginEmail">
+                <Form.Group controlId="formLoginUser">
                     <Form.Label>
-                        Email address
+                        Username
                     </Form.Label>
-                    <Form.Control type="email" onChange={this.handleFieldChange} id="email" placeholder="Email address" required autoFocus />
+                    <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
                 </Form.Group>
                 <Form.Group controlId="formLoginPwd">
                     <Form.Label>
                         Password
                     </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required />
+                    <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
                 </Form.Group>
                 <Button variant="primary" type="submit">Sign in</Button>
             </Form>
