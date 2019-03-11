@@ -28,20 +28,23 @@ export default class StackForm extends Component {
             amount: this.state.stackAmt,
         }
         //check for matching brandCaliber object
+        //allow new combos? -- no unless admin, see stretch goal notes
         if (this.state.brandId && this.state.caliberId) {
             APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
                 res => {
                     if (!res.length) {
+                        alert("This combination doesn't exist in the database!")
                         //if no, create new brandCaliber object as well
-                        const brandCaliber = {
-                            brandId: this.state.brandId,
-                            caliberId: this.state.caliberId
-                        }
-                        //add it to the brandCalibers table in the db
-                        this.props.addBCLink(brandCaliber)
-                        //get the newly added object's id
-                        //add that id as brandCaliberId to stack object
-                            .then(id => stack.brandCaliberId = id)
+                        //create toast for new brand/caliber combo
+                        // const brandCaliber = {
+                        //     brandId: this.state.brandId,
+                        //     caliberId: this.state.caliberId
+                        // }
+                        // //add it to the brandCalibers table in the db
+                        // this.props.addBCLink(brandCaliber)
+                        // //get the newly added object's id
+                        // //add that id as brandCaliberId to stack object
+                        //     .then(id => stack.brandCaliberId = id)
                     } else {
                         //if yes, add brandCaliberId to stack object
                         stack.brandCaliberId = res[0].id;

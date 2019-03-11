@@ -51,20 +51,21 @@ export default class ApplicationView extends Component {
     addBCLink = newLink => {
         let newId = null;
         return APIManager.add("brandCalibers", newLink)
-        .then((newLink) => {
-            newId = newLink.id;
-            return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
-        })
-        .then(res => {
+            .then((newLink) => {
+                newId = newLink.id;
+                return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
+            })
+            .then(res => {
                 this.setState({ brandCalibers: res }) 
                 return newId;
         })
     }
 
     deleteStack = id => {
+        //insert double-check function here
         return APIManager.delete(id, "stacks")
-        .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
-        .then(stacks => this.setState({ stacks: stacks }))
+            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(stacks => this.setState({ stacks: stacks }))
     }
 
     render() {

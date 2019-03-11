@@ -30,7 +30,7 @@ export default class StorageCloset extends Component {
                         <ButtonGroup>
                             <Button variant="success">Update</Button>
                             <Button variant="danger" onClick={() => this.props.deleteStack(stack.id)
-                                .then(() => this.props.history.push("/"))}>Delete</Button>
+                                .then(() => this.props.history.push("/"))}>Remove</Button>
                         </ButtonGroup>
                     </Card.Body>
                 </Card>
