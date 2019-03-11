@@ -1,15 +1,60 @@
 {
     "users": [
         {
-            "username": "",
-            "email": "",
-            "display_name": "",
-            "password": "",
+            "username": "naienko",
+            "email": "naienko@gmail.com",
+            "display_name": "Panya",
+            "password": "oddballwife",
             "id": 1
         }
     ],
     "stacks": [],
-    "calibers": [],
-    "brands": [],
-    "brandCalibers": []
+    "calibers": [
+        {
+            "caliber": ".22",
+            "id": 1
+        },
+        {
+            "caliber": ".22 LR",
+            "id": 2
+        },
+        {
+            "caliber": ".380",
+            "id": 3
+        },
+        {
+            "caliber": ".40 S&W",
+            "id": 4
+        },
+        {
+            "caliber": "9mm",
+            "id": 5
+        }
+    ],
+    "brands": [
+        {
+            "brand": "Remington",
+            "id": 1
+        },
+        {
+            "brand": "Hornady",
+            "id": 2
+        },
+        {
+            "brand": "Winchester",
+            "id": 3
+        }
+    ],
+    "brandCalibers": [
+        {
+            "brandId": 3,
+            "caliberId": 3,
+            "id": 1
+        },
+        {
+            "brandId": 3,
+            "caliberId": 4,
+            "id": 2
+        }
+    ]
 }
