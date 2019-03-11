@@ -61,6 +61,12 @@ export default class ApplicationView extends Component {
         })
     }
 
+    deleteStack = id => {
+        return APIManager.delete(id, "stacks")
+        .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+        .then(stacks => this.setState({ stacks: stacks }))
+    }
+
     render() {
         return (
             //routes go here
@@ -70,11 +76,12 @@ export default class ApplicationView extends Component {
                 <Route path="/login" component={Login} />
 
                 <AuthRoute path="/" Destination={StorageCloset}
-                        users={this.state.users} 
-                        stacks={this.state.stacks} 
-                        brands={this.state.brands} 
-                        calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers} />
+                    users={this.state.users} 
+                    stacks={this.state.stacks} 
+                    brands={this.state.brands} 
+                    calibers={this.state.calibers}
+                    brandCalibers={this.state.brandCalibers}
+                    deleteStack={this.deleteStack} />
                 
                 <AuthRoute path="/stack/new" Destination={StackForm} 
                     brands={this.state.brands} 
