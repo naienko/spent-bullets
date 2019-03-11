@@ -8,20 +8,25 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 export default class StorageCloset extends Component {
     render () {
+        console.log(this.props.stacks)
         return (
         <div id="dashboard" className="d-flex flex-row m-sm-3">
         { /* data goes here  */ }
-            <CardDeck>
-                <Card>
+        <CardDeck>
+        { this.props.stacks.map(stack =>     
+                <Card key={stack.id}>
                     <Card.Body className="text-center">
-                        <Card.Subtitle>
-                            caliber
-                        </Card.Subtitle>
                         <Card.Title>
-                            amount
+                            {stack.amount} <span className="text-muted small">count</span>
                         </Card.Title>
                         <Card.Text>
-                            brand
+                            { this.props.brands.find(
+                                brand => brand.id === stack.brandCaliber.brandId
+                            ).brand }
+                            {" "}
+                            { this.props.calibers.find(
+                                caliber => caliber.id === stack.brandCaliber.caliberId
+                            ).caliber }
                         </Card.Text>
                         <ButtonGroup>
                             <Button variant="success">Update</Button>
@@ -29,6 +34,7 @@ export default class StorageCloset extends Component {
                         </ButtonGroup>
                     </Card.Body>
                 </Card>
+            )}
             </CardDeck>
             </div>
         )

@@ -22,7 +22,8 @@ export default class ApplicationView extends Component {
         //fetch the data here
         APIManager.getAll("users")
             .then(users => newState.users = users)
-            .then(() => APIManager.getAll("stacks"))
+
+            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
             .then(stacks => newState.stacks = stacks)
             
             .then(() => APIManager.getAll("calibers"))
@@ -31,7 +32,7 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getAll("brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => APIManager.getAll("brandCalibers"))
+            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers"))
             .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
             .then(() => this.setState(newState))

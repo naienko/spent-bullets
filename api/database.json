@@ -8,7 +8,20 @@
             "id": 1
         }
     ],
-    "stacks": [],
+    "stacks": [
+        {
+            "id": 1,
+            "userId": 1,
+            "brandCaliberId": 1,
+            "amount": "500"
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "brandCaliberId": 2,
+            "amount": "349"
+        }
+    ],
     "calibers": [
         {
             "caliber": ".22",
