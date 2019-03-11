@@ -23,18 +23,19 @@ export default class ApplicationView extends Component {
         return (
             //routes go here
             // maybe a route to look at an individual stack? why?
-
-            <Route exact path="/" render={(props) => {
-                return <StorageCloset />
-            }} />
-
-            <Route exact path="/stack/new" render={(props) => {
-                return <StackForm addStack={this.addStack} />
-            }} />
-
-            <Route exact path="/stack/:stackId(\d+)/update" render={(props) => {
-                return <StackUpdate updateStack={this.updateStack} />
-            }} />
+            <React.Fragment>
+                <Route exact path="/" render={(props) => {
+                    return <StorageCloset />
+                }} />
+    
+                <Route exact path="/stack/new" render={(props) => {
+                    return <StackForm addStack={this.addStack} />
+                }} />
+    
+                <Route exact path="/stack/:stackId(\d+)/update" render={(props) => {
+                    return <StackUpdate updateStack={this.updateStack} />
+                }} />
+            </React.Fragment>
         )
     }
 }
