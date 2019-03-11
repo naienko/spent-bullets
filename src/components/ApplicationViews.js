@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
+import AuthRoute from "./auth/AuthRoute";
+import Login from "./auth/Login";
+
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
     state = {
@@ -9,13 +12,13 @@ export default class ApplicationView extends Component {
         brands: [],
         stacks: [],
         brandsCalibers: []
-    }
+    };
 
     componentDidMount() {
-        // fetch the data here
-        // then fill state
+        //fetch the data here
+        //then fill state
         //re-rendering will happen
-    }
+    };
 
     //add/edit/delete functions go here, to be sent as props to appropriate routes
 
@@ -23,19 +26,16 @@ export default class ApplicationView extends Component {
         return (
             //routes go here
             // maybe a route to look at an individual stack? why?
+            //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
-                <Route exact path="/" render={(props) => {
-                    return <StorageCloset />
-                }} />
+                <Route path="/login" component={Login} />
+
+                <AuthRoute path="/" Destination={StorageCloset} /*some props here */ />
     
-                <Route exact path="/stack/new" render={(props) => {
-                    return <StackForm addStack={this.addStack} />
-                }} />
+                <AuthRoute path="/stack/new" Destination={StackForm} addStack={this.addStack} />
     
-                <Route exact path="/stack/:stackId(\d+)/update" render={(props) => {
-                    return <StackUpdate updateStack={this.updateStack} />
-                }} />
+                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} />
             </React.Fragment>
         )
-    }
-}
+    };
+};
