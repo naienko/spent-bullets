@@ -4,13 +4,12 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-// import "./StorageCloset.css"
+import "./StorageCloset.css"
 
 export default class StorageCloset extends Component {
     render () {
-        console.log(this.props.stacks)
         return (
-        <div id="dashboard" className="d-flex flex-row m-sm-3">
+        <div id="dashboard" className="d-flex flex-row">
         { /* data goes here  */ }
         <CardDeck>
         { this.props.stacks.map(stack =>     
