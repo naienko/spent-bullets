@@ -4,6 +4,8 @@ import { Route } from "react-router-dom";
 import AuthRoute from "./auth/AuthRoute";
 import Login from "./auth/Login";
 
+import StorageCloset from "./StorageCloset";
+
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
     state = {
@@ -29,12 +31,15 @@ export default class ApplicationView extends Component {
             //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
                 <Route path="/login" component={Login} />
+                <Route exact path="/" render={(props) => {
+                    return <StorageCloset />
+                }} />
 
-                <AuthRoute path="/" Destination={StorageCloset} /*some props here */ />
-    
+                {/*     
+                <AuthRoute path="/" Destination={StorageCloset} /*some props here />
                 <AuthRoute path="/stack/new" Destination={StackForm} addStack={this.addStack} />
     
-                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} />
+                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} /> */}
             </React.Fragment>
         )
     };
