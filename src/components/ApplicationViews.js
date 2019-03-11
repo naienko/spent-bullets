@@ -5,6 +5,7 @@ import AuthRoute from "./auth/AuthRoute";
 import Login from "./auth/Login";
 
 import StorageCloset from "./StorageCloset";
+import APIManager from "../modules/APIManager";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -17,7 +18,20 @@ export default class ApplicationView extends Component {
     };
 
     componentDidMount() {
+        const newState = {};
         //fetch the data here
+        APIManager.getAll(users)
+            .then(users => newState.users = users)
+            .then(() => APIManager.getAll(stacks))
+            .then(stacks => newState.stacks = stacks)
+            
+            .then(() => APIManager.getAll(calibers))
+            .then(calibers => newState.calibers = calibers)
+            
+            .then(() => APIManager.getAll(brands))
+            .then(brands => newState.brands = brands)
+
+            .then(() => this.setState(newState))
         //then fill state
         //re-rendering will happen
     };
