@@ -77,6 +77,7 @@ export default class Login extends Component {
     render() {
         return (
             //hope I used Reactstrap right here ...
+            <div id="dashboard">
             <Form onSubmit={this.handleLogin} className="m-sm-3">
                 <h1>Please sign in</h1>
                 <Form.Group controlId="formLoginUser">
@@ -93,6 +94,7 @@ export default class Login extends Component {
                 </Form.Group>
                 <Button variant="primary" type="submit">Sign in</Button>
             </Form>
+            </div>
         )
     }
 }
