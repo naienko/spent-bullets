@@ -20,6 +20,12 @@
       "amount": 35,
       "brandCaliberId": 1,
       "id": 3
+    },
+    {
+      "userId": 1,
+      "amount": 1005,
+      "brandCaliberId": 3,
+      "id": 4
     }
   ],
   "calibers": [
@@ -68,6 +74,26 @@
       "brandId": 3,
       "caliberId": 4,
       "id": 2
+    },
+    {
+      "brandId": 1,
+      "caliberId": 1,
+      "id": 3
+    },
+    {
+      "brandId": 1,
+      "caliberId": 2,
+      "id": 4
+    },
+    {
+      "brandId": 1,
+      "caliberId": 3,
+      "id": 5
+    },
+    {
+      "brandId": 1,
+      "caliberId": 4,
+      "id": 6
     }
   ]
 }
