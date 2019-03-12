@@ -46,12 +46,24 @@ export default class StackForm extends Component {
                         // //add that id as brandCaliberId to stack object
                         //     .then(id => stack.brandCaliberId = id)
                     } else {
-                        //if yes, add brandCaliberId to stack object
-                        stack.brandCaliberId = res[0].id;
+                        //if yes, check for pre-existing matching stack
+                        if (!this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)) {
+                            //if no, add brandCaliberId to stack object
+                            stack.brandCaliberId = res[0].id;
+                            //add stack object to the stacks table in the db using the passed-in function
+                            this.props.addStack(stack)
+                                .then(() => this.props.history.push("/"))
+                        } else {
+                            console.log("stack already exists")
+                            const oldStack = this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)
+                            //if yes, add amount to old stack
+                            stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
+                            stack.id = oldStack.id;
+                            //update stack object in the stacks table in the db using the passed-in function
+                            this.props.updateStack(stack)
+                                .then(() => this.props.history.push("/"))
+                        }
                     }
-                    //add stack object to the stacks table in the db using the passed-in function
-                    this.props.addStack(stack)
-                        .then(() => this.props.history.push("/"))
                 })
         } else {
             alert("Please complete the form!")

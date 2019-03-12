@@ -91,17 +91,18 @@ export default class ApplicationView extends Component {
                     deleteStack={this.deleteStack} />
                 
                 <AuthRoute path="/stack/new" Destination={StackForm} 
+                    stacks={this.state.stacks} 
                     brands={this.state.brands} 
                     calibers={this.state.calibers}
                     brandCalibers={this.state.brandCalibers}
                     addStack={this.addStack} 
+                    updateStack={this.updateStack} 
                     addBCLink={this.addBCLink} />
 
                 <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} 
                     brands={this.state.brands} 
                     calibers={this.state.calibers}
                     brandCalibers={this.state.brandCalibers}
-                    addStack={this.addStack} 
                     updateStack={this.updateStack} />
 
             </React.Fragment>
