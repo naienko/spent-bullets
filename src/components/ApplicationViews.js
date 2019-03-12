@@ -29,10 +29,10 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
             .then(stacks => newState.stacks = stacks)
             
-            .then(() => APIManager.getAll("calibers"))
+            .then(() => APIManager.getQuery("_sort=caliber&_order=asc", "calibers"))
             .then(calibers => newState.calibers = calibers)
             
-            .then(() => APIManager.getAll("brands"))
+            .then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
             .then(brands => newState.brands = brands)
 
             .then(() => APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers"))
