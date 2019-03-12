@@ -6,6 +6,13 @@
       "display_name": "Panya",
       "password": "oddballwife",
       "id": 1
+    },
+    {
+      "username": "oddball",
+      "password": "st00pid79",
+      "email": "oddball79@gmail.com",
+      "display_name": "Michael",
+      "id": 2
     }
   ],
   "stacks": [
@@ -22,8 +29,8 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "amount": 1005,
+      "userId": 2,
+      "amount": 1480,
       "brandCaliberId": 3,
       "id": 4
     }

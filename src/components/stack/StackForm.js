@@ -67,7 +67,6 @@ export default class StackForm extends Component {
                             stack.id = oldStack.id;
                             //update stack object in the stacks table in the db using the passed-in function
                             this.props.updateStack(stack)
-                                //.then(() => this.props.history.push("/"))
                                 .then(
                                     setTimeout(() => {
                                         this.props.history.push("/")
