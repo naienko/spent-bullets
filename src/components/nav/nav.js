@@ -6,6 +6,10 @@ import Col from "react-bootstrap/Col";
 import "./nav.css"
 
 export default class NavBar extends Component {
+    logout = () => {
+        sessionStorage.clear("credentials")
+    }
+    
     render() {
         return (
             <Navbar fixed="top" className="shadow" id="nav" variant="dark" bg="dark">
@@ -27,7 +31,7 @@ export default class NavBar extends Component {
                     </Col>
                     <Col md="auto">
                     <Nav.Item>
-                        <Nav.Link>Logout</Nav.Link>
+                        <Nav.Link onClick={this.logout}>Logout</Nav.Link>
                     </Nav.Item>
                     </Col>
                 </Nav>
