@@ -68,6 +68,12 @@ export default class ApplicationView extends Component {
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
+    updateStack = updatedStack => {
+        return APIManager.update("stacks", updatedStack, updatedStack.id)
+            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(stacks => this.setState({ stacks: stacks }))
+    }
+
     render() {
         return (
             //routes go here

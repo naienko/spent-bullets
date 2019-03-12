@@ -10,7 +10,6 @@ export default class StackUpdate extends Component {
         brandCaliberId: "",
         brandName: "",
         caliberName: "",
-        plusOrMinus: "",
         stackOldAmt: ""
     }
     
@@ -20,32 +19,30 @@ export default class StackUpdate extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
-    
+
     updateTheStack = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
+
         let stackAmt = null;
-        if (this.state.plusOrMinus === "plus") {
+        if (event.target.id === "plus") {
             stackAmt = parseInt(this.state.stackOldAmt) + parseInt(this.state.stackAmt)
-        } else if (this.state.plusOrMinus === "minus") {
+        } else if (event.target.id === "minus") {
             stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
         }
-        console.log(stackAmt)
         //construct the stack object
         const updatedStack = {
             amount: stackAmt,
             id: this.props.match.params.stackId
         }
-        console.log(updatedStack)
-        // this.props.updateStack(updatedStack)
-        //     .then(() => this.props.history.push("/"))
+        this.props.updateStack(updatedStack)
+            .then(() => this.props.history.push("/"))
     }
     
     componentDidMount() {
         APIManager.getOne(this.props.match.params.stackId, "stacks")
         .then(stack => {
             let bcId = this.props.brandCalibers.find(bcLink => stack.brandCaliberId === bcLink.id)
-            console.log("brand and caliber is:", bcId)
             this.setState({
                 stackOldAmt: stack.amount,
                 brandCaliberId: stack.brandCaliberId,
@@ -58,7 +55,7 @@ export default class StackUpdate extends Component {
     render() {
         return (
             <div id="dashboard">
-                <div className="text-center h3">{this.state.brandName} {this.state.caliberName}</div>
+                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName}</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
                         <Form.Label className="m-sm-2">
@@ -67,7 +64,9 @@ export default class StackUpdate extends Component {
                         <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                     </Form.Group>
                     <div className="text-center">
-                        <Button variant="success" onClick={() => {this.setState({plusOrMinus: "plus"}); this.updateTheStack;}}>Add</Button> <Button variant="danger" onClick={() => {this.setState({plusOrMinus: "minus"}); this.updateTheStack;}}>>Remove</Button>
+                        <Button variant="success" id="plus" onClick={this.updateTheStack}>Add</Button>
+                        
+                         <Button variant="danger" id="minus" onClick={this.updateTheStack}>Remove</Button>
                     </div>
                 </Form>
             </div>
