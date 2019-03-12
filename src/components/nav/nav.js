@@ -20,6 +20,11 @@ export default class NavBar extends Component {
                         <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
                     </Nav.Item>
                     </Col>
+                    <Col>
+                        <Nav.Item className="text-light m-sm-2">
+                            Welcome user
+                        </Nav.Item>
+                    </Col>
                     <Col md="auto">
                     <Nav.Item>
                         <Nav.Link>Logout</Nav.Link>
