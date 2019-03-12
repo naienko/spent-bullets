@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
-import AuthRoute from "./auth/AuthRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
@@ -86,14 +85,17 @@ export default class ApplicationView extends Component {
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
 
-                <AuthRoute path="/" Destination={StorageCloset}
-                    users={this.state.users} 
-                    stacks={this.state.stacks} 
-                    brands={this.state.brands} 
-                    calibers={this.state.calibers}
-                    brandCalibers={this.state.brandCalibers}
-                    deleteStack={this.deleteStack} />
-                
+                <Route path="/" render={(props) => {
+                    return <StorageCloset
+                        users={this.state.users} 
+                        stacks={this.state.stacks} 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        deleteStack={this.deleteStack}
+                     />
+                }} />
+{/*                 
                 <AuthRoute path="/stack/new" Destination={StackForm} 
                     stacks={this.state.stacks} 
                     brands={this.state.brands} 
@@ -107,7 +109,7 @@ export default class ApplicationView extends Component {
                     brands={this.state.brands} 
                     calibers={this.state.calibers}
                     brandCalibers={this.state.brandCalibers}
-                    updateStack={this.updateStack} />
+                    updateStack={this.updateStack} /> */}
 
             </React.Fragment>
         )

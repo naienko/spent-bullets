@@ -33,11 +33,10 @@ export default class Login extends Component {
                     //store the input data in sessionStorage (like a cookie)
                     //consider a checkbox for localStorage?
                         sessionStorage.setItem("credentials", parseInt(user[0].id))
+                        this.props.setAuth()
                     }
                 }
             )
-            //return to the component they were trying to view in the first place
-            this.props.history.go(0);
         } else {
             //if the user didn't fill all fields, warn
             alert("Please Fill Out Form!")
