@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 
 import AuthRoute from "./auth/AuthRoute";
 import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 import StorageCloset from "./StorageCloset";
 import APIManager from "../modules/APIManager";
@@ -81,6 +82,7 @@ export default class ApplicationView extends Component {
             //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
                 <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
 
                 <AuthRoute path="/" Destination={StorageCloset}
                     users={this.state.users} 

@@ -6,6 +6,13 @@
       "display_name": "Panya",
       "password": "oddballwife",
       "id": 1
+    },
+    {
+      "username": "oddball",
+      "password": "st00pid79",
+      "email": "oddball79@gmail.com",
+      "display_name": "Michael",
+      "id": 2
     }
   ],
   "stacks": [

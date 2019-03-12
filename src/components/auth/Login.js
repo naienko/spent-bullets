@@ -33,7 +33,6 @@ export default class Login extends Component {
                     //store the input data in sessionStorage (like a cookie)
                     //consider a checkbox for localStorage?
                         sessionStorage.setItem("credentials", parseInt(user[0].id))
-                        this.props.setAuth()
                     }
                 }
             )
@@ -47,25 +46,29 @@ export default class Login extends Component {
 
     render() {
         return (
-            //hope I used Reactstrap right here ...
-            <div id="dashboard">
-            <Form onSubmit={this.handleLogin} className="m-sm-3">
-                <h1>Please sign in</h1>
-                <Form.Group controlId="formLoginUser">
-                    <Form.Label>
-                        Username
-                    </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
-                </Form.Group>
-                <Form.Group controlId="formLoginPwd">
-                    <Form.Label>
-                        Password
-                    </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
-                </Form.Group>
-                <Button variant="primary" type="submit">Sign in</Button>
-            </Form>
-            </div>
+            <React.Fragment>
+                <Form onSubmit={this.handleLogin} className="m-sm-3">
+                    <h1>Please sign in</h1>
+                    <Form.Group controlId="username">
+                        <Form.Label>
+                            Username
+                        </Form.Label>
+                        <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
+                    </Form.Group>
+                    <Form.Group controlId="password">
+                        <Form.Label>
+                            Password
+                        </Form.Label>
+                        <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
+                    </Form.Group>
+                    <Form.Group className="text-right">
+                        <Button variant="primary" type="submit">Sign in</Button>
+                    </Form.Group>
+                </Form>
+                <div className="text-center">
+                    Not a member yet? <Button variant="secondary" onClick={() => this.props.history.push("/register")}>Register</Button>
+                </div>
+            </React.Fragment>
         )
     }
 }

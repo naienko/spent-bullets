@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 import APIManager from "../../modules/APIManager";
 
@@ -41,8 +42,8 @@ export default class Register extends Component {
             //if it doesn't exist, create new user and set sessionStorage
                     APIManager.add("users", newUser).then(user => {
                         sessionStorage.setItem("credentials", parseInt(user.id))
-                        this.props.setAuth()
-                        })
+                    })
+                        .then(this.props.history.push("/"))
                 }
             })
         } else {
@@ -54,8 +55,7 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div id="dashboard">
-                <Form onSubmit={this.handleRegister} className="m-sm-3">
+            <Form onSubmit={this.handleRegister} className="m-sm-3">
                 <h1>Please register</h1>
                 <Form.Group controlId="username">
                     <Form.Label>
@@ -77,13 +77,14 @@ export default class Register extends Component {
                 </Form.Group>
                 <Form.Group controlId="display_name">
                     <Form.Label>
-                        Password
+                        Display Name
                     </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
+                    <Form.Control onChange={this.handleFieldChange} type="text" placeholder="the name you want displayed" />
                 </Form.Group>
-                <Button variant="primary" type="submit">Register</Button>
+                <Form.Group className="text-right">
+                    <Button variant="primary" type="submit">Register</Button>
+                </Form.Group>
             </Form>
-            </div>
         )
     }
 }

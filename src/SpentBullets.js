@@ -6,7 +6,7 @@ export default class SpentBullets extends Component {
     render() {
         return(
             <React.Fragment>
-                <NavBar />
+                { sessionStorage.getItem("credentials") ? <NavBar /> : "" }
                 <ApplicationView />
             </React.Fragment>
         )
