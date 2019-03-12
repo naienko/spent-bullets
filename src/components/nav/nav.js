@@ -12,17 +12,17 @@ export default class NavBar extends Component {
         return (
             <Navbar fixed="top" className="shadow" id="nav" variant="dark" bg="dark">
                 <Nav fill variant="pills">
-                    <Col>
+                    <Col md="auto">
                     <Nav.Item>
                         <Nav.Link href="/">Home</Nav.Link>
                     </Nav.Item>
                     </Col>
-                    <Col>
+                    <Col md="auto">
                     <Nav.Item>
                         <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
                     </Nav.Item>
                     </Col>
-                    <Col>
+                    <Col md="auto">
                     <Nav.Item>
                         <Nav.Link>Logout</Nav.Link>
                     </Nav.Item>
