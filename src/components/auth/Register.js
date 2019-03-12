@@ -54,7 +54,36 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div>the form goes here</div>
+            <div id="dashboard">
+                <Form onSubmit={this.handleRegister} className="m-sm-3">
+                <h1>Please register</h1>
+                <Form.Group controlId="username">
+                    <Form.Label>
+                        Username
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} placeholder="Username" required autoFocus />
+                </Form.Group>
+                <Form.Group controlId="password">
+                    <Form.Label>
+                        Password
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
+                </Form.Group>
+                <Form.Group controlId="email">
+                    <Form.Label>
+                        E-mail
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} type="email" placeholder="E-mail" />
+                </Form.Group>
+                <Form.Group controlId="display_name">
+                    <Form.Label>
+                        Password
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
+                </Form.Group>
+                <Button variant="primary" type="submit">Register</Button>
+            </Form>
+            </div>
         )
     }
 }
