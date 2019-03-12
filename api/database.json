@@ -14,6 +14,12 @@
       "amount": "2354",
       "brandCaliberId": 2,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "amount": 35,
+      "brandCaliberId": 1,
+      "id": 3
     }
   ],
   "calibers": [

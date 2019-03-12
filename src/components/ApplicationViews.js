@@ -8,6 +8,7 @@ import StorageCloset from "./StorageCloset";
 import APIManager from "../modules/APIManager";
 
 import StackForm from "./stack/StackForm";
+import StackUpdate from "./stack/StackUpdateForm";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -62,8 +63,13 @@ export default class ApplicationView extends Component {
     }
 
     deleteStack = id => {
-        //insert double-check function here
         return APIManager.delete(id, "stacks")
+            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(stacks => this.setState({ stacks: stacks }))
+    }
+
+    updateStack = updatedStack => {
+        return APIManager.update("stacks", updatedStack, updatedStack.id)
             .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
             .then(stacks => this.setState({ stacks: stacks }))
     }
@@ -91,9 +97,13 @@ export default class ApplicationView extends Component {
                     addStack={this.addStack} 
                     addBCLink={this.addBCLink} />
 
-                {/*     
-    
-                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} updateStack={this.updateStack} /> */}
+                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} 
+                    brands={this.state.brands} 
+                    calibers={this.state.calibers}
+                    brandCalibers={this.state.brandCalibers}
+                    addStack={this.addStack} 
+                    updateStack={this.updateStack} />
+
             </React.Fragment>
         )
     };
