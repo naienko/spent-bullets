@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export default class StackForm extends Component {
     //set empty local state
@@ -54,14 +57,22 @@ export default class StackForm extends Component {
                             this.props.addStack(stack)
                                 .then(() => this.props.history.push("/"))
                         } else {
-                            console.log("stack already exists")
+                            toast.success("This stack already exists! Updating the count for you ...", {
+                                position: toast.POSITION.TOP_CENTER,
+                                autoClose: 3000
+                            })
                             const oldStack = this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)
                             //if yes, add amount to old stack
                             stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                             stack.id = oldStack.id;
                             //update stack object in the stacks table in the db using the passed-in function
                             this.props.updateStack(stack)
-                                .then(() => this.props.history.push("/"))
+                                //.then(() => this.props.history.push("/"))
+                                .then(
+                                    setTimeout(() => {
+                                        this.props.history.push("/")
+                                    }, 3500)
+                                )
                         }
                     }
                 })
@@ -74,6 +85,7 @@ export default class StackForm extends Component {
     render() {
         return (
             <div id="dashboard">
+            <ToastContainer />
             <Form onSubmit={this.createNewStack}>
                 <Form.Group controlId="brandId">
                     <Form.Label>Brand</Form.Label>
