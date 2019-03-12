@@ -17,6 +17,7 @@ export default class SpentBullets extends Component {
     }
 
     render() {
+        console.log("props are:", this.props)
         return (
             <React.Fragment>
                 <IsAuth isAuthenticated={this.isAuthenticated} setAuth={this.setAuth} />
