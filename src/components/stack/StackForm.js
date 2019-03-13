@@ -3,10 +3,11 @@ import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
+import { withRouter } from "react-router";
 
 import "react-toastify/dist/ReactToastify.css";
 
-export default class StackForm extends Component {
+class StackForm extends Component {
     //set empty local state
     state = {
         stackAmt: "",
@@ -116,3 +117,5 @@ export default class StackForm extends Component {
         )
     }
 }
+
+export default withRouter(StackForm)

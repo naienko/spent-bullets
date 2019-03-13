@@ -11,7 +11,7 @@ export default class IsAuth extends Component {
                     <UserAccessLayer {...this.props} />
                 ) : (
                    // else jump to Login
-                    <Login {...this.props} />
+                    ""
                 )}
             </React.Fragment>
         )

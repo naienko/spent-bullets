@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import APIManager from "../../modules/APIManager";
 
-export default class Login extends Component {
+class Login extends Component {
     //empty state to start with, to store input fields in
     state = {
         username: "",
@@ -70,4 +71,6 @@ export default class Login extends Component {
             </React.Fragment>
         )
     }
-}
+};
+
+export default withRouter(Login);

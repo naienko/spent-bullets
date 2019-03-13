@@ -83,7 +83,7 @@ export default class ApplicationView extends Component {
                 
                 <Route path="/register" component={Register} />
 
-                <Route path="/" render={(props) => {
+                <Route exact path="/" render={(props) => {
                     return <StorageCloset
                         users={this.state.users} 
                         stacks={this.state.stacks} 
