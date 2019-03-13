@@ -22,7 +22,6 @@ export default class UserAccessLayer extends Component {
     }
 
     render() {
-        // use WithRouter to pass props.history to NavBar
         return (
             <React.Fragment>
                 <NavBar setAuth={this.props.setAuth} activeUser={this.state.activeUser} />

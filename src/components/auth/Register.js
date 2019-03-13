@@ -43,6 +43,7 @@ export default class Register extends Component {
                     APIManager.add("users", newUser).then(user => {
                         sessionStorage.setItem("credentials", parseInt(user.id))
                         this.props.setAuth()
+                        this.props.history.push("/")
                     })
                 }
             })

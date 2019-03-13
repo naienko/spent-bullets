@@ -79,9 +79,9 @@ export default class ApplicationView extends Component {
             //routes go here
             // maybe a route to look at an individual stack? why?
             <React.Fragment>
-                <Route path="/login" component={Login} />
+                <Route exact path="/login" component={Login} />
                 
-                <Route path="/register" component={Register} />
+                <Route exact path="/register" component={Register} />
 
                 <Route exact path="/" render={(props) => {
                     return <StorageCloset

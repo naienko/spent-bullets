@@ -53,13 +53,13 @@ class Login extends Component {
                         <Form.Label>
                             Username
                         </Form.Label>
-                        <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
+                        <Form.Control onChange={this.handleFieldChange} placeholder="Username" required autoFocus />
                     </Form.Group>
                     <Form.Group controlId="password">
                         <Form.Label>
                             Password
                         </Form.Label>
-                        <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
+                        <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="text-right">
                         <Button variant="primary" type="submit">Sign in</Button>
