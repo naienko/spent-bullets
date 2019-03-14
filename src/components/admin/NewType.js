@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router";
 
-export default class NewType extends Component {
+import APIManager from "../../modules/APIManager";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
+class NewType extends Component {
 
     //create empty local state
     state = {
@@ -22,17 +28,37 @@ export default class NewType extends Component {
         event.preventDefault()
         //construct the stack object
         const brandCaliber = {
-            brandId: this.state.brandId,
-            caliberId: this.state.caliberId
+            brandId: parseInt(this.state.brandId),
+            caliberId: parseInt(this.state.caliberId)
         }
-        //add it to the brandCalibers table in the db
-        this.props.addBCLink(brandCaliber)
+        //check for matching brandCaliber object
+        if (this.state.brandId && this.state.caliberId) {
+            APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
+                res => {
+                    if (!res.length) {
+                        //if no, add it to the brandCalibers table in the db
+                        toast.success("Adding new type of ammunition", {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 3000
+                        })
+                        this.props.addBCLink(brandCaliber)
+                            .then(setTimeout(() => {
+                                this.props.history.push("/")
+                            }, 3500))
+                    } else {
+                        //if yes, warn and refuse
+                        alert("This combination already exists in the database!")
+                    }
+                }
+            )
+        }
     }
 
 
     render() {
         return (
             <div id="dashboard">
+            <ToastContainer />
             <Form onSubmit={this.createNewLink}>
                 <Form.Group controlId="brandId">
                     <Form.Label>Brand</Form.Label>
@@ -57,4 +83,6 @@ export default class NewType extends Component {
             </div>
         )
     }
-}
+};
+
+export default withRouter(NewType);

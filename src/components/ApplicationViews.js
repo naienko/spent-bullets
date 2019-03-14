@@ -37,7 +37,7 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getAll("brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers"))
+            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers"))
             .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
             .then(() => this.setState(newState))
@@ -56,7 +56,7 @@ export default class ApplicationView extends Component {
         return APIManager.add("brandCalibers", newLink)
             .then((newLink) => {
                 newId = newLink.id;
-                return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
+                return APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers")
             })
             .then(res => {
                 this.setState({ brandCalibers: res }) 

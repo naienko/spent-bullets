@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import APIManager from "../../modules/APIManager";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,10 +11,8 @@ class StackForm extends Component {
     //set empty local state
     state = {
         stackAmt: "",
-        brandId: "",
-        caliberId: "",
-        userId: "",
-        stack_notes: ""
+        stack_notes: "",
+        brandCaliberId: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -30,48 +28,47 @@ class StackForm extends Component {
         //construct the stack object
         const stack = {
             userId: parseInt(sessionStorage.getItem("credentials")),
-            amount: this.state.stackAmt,
+            amount: parseInt(this.state.stackAmt),
             notes: this.state.stack_notes
         }
-        //check for matching brandCaliber object
-        //allow new combos? -- no unless admin, see stretch goal notes
-        if (this.state.brandId && this.state.caliberId && this.state.stackAmt) {
-            APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
-                res => {
-                    if (!res.length) {
-                        //if no, warn and refuse
-                        alert("This combination doesn't exist in the database!")
-                    } else {
-                        //if yes, check for pre-existing matching stack
-                        if (!this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)) {
-                            //if no, add brandCaliberId to stack object
-                            stack.brandCaliberId = res[0].id;
-                            //add stack object to the stacks table in the db using the passed-in function
-                            this.props.addStack(stack)
-                                .then(() => this.props.history.push("/"))
-                        } else {
-                            toast.success("This stack already exists! Updating the count for you ...", {
-                                position: toast.POSITION.TOP_CENTER,
-                                autoClose: 3000
-                            })
-                            const oldStack = this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)
-                            //if yes, add amount to old stack
-                            stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
-                            stack.id = oldStack.id;
-                            //update stack object in the stacks table in the db using the passed-in function
-                            this.props.updateStack(stack)
-                                .then(
-                                    setTimeout(() => {
-                                        this.props.history.push("/")
-                                    }, 3500)
-                                )
-                        }
-                    }
+
+        if (this.state.brandCaliberId && this.state.stackAmt) {
+            //check for pre-existing matching stack
+            if (!this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)) {
+                toast.success("Adding new stack!", {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000
                 })
+                //if no, add brandCaliberId to stack object
+                stack.brandCaliberId = parseInt(this.state.brandCaliberId);
+                //add stack object to the stacks table in the db using the passed-in function
+                this.props.addStack(stack)
+                .then(
+                    setTimeout(() => {
+                        this.props.history.push("/")
+                    }, 3500)
+                )
+            } else {
+                //if yes, alert
+                toast.success("This stack already exists! Updating the count for you ...", {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000
+                })
+                const oldStack = this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)
+                //and add amount to old stack
+                stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
+                stack.id = oldStack.id;
+                //update stack object in the stacks table in the db using the passed-in function
+                this.props.updateStack(stack)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )
+            }
         } else {
             alert("Please complete the form!")
         }
-
     }
 
     render() {
@@ -79,21 +76,12 @@ class StackForm extends Component {
             <div id="dashboard">
             <ToastContainer />
             <Form onSubmit={this.createNewStack}>
-                <Form.Group controlId="brandId">
-                    <Form.Label>Brand</Form.Label>
-                    <Form.Control as="select" onChange={this.handleFieldChange}>
-                        <option>Choose a brand</option>
-                        { this.props.brands.map(brand => 
-                            <option key={brand.id} value={brand.id}>{brand.brand}</option>
-                            )}
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="caliberId">
-                    <Form.Label>Caliber</Form.Label>
+                <Form.Group controlId="brandCaliberId">
+                    <Form.Label>Type</Form.Label>
                     <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a caliber</option>
-                        { this.props.calibers.map(caliber => 
-                            <option key={caliber.id} value={caliber.id}>{caliber.caliber}</option>
+                        <option>Choose a type</option>
+                        { this.props.brandCalibers.map(element => 
+                            <option key={element.id} value={element.id}>{element.caliber.caliber}, {element.brand.brand}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
