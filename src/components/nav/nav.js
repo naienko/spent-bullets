@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router"
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Dropdown from "react-bootstrap/Dropdown"
 
 import "./nav.css"
 
@@ -26,9 +27,13 @@ class NavBar extends Component {
                     </Nav.Item>
                     { this.props.activeUser.role === "admin" 
                     ? 
-                        <Nav.Item>
-                            <Nav.Link href="/admin/new">Add New Type</Nav.Link>
-                        </Nav.Item>
+                        <Dropdown as={Nav.Item}>
+                            <Dropdown.Toggle as={Nav.Link}>Admin Menu</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/admin/new">Add New Type</Dropdown.Item>
+                                <Dropdown.Item href="/admin/roles">Change User Roles</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     :
                         ""
                     }

@@ -12,6 +12,7 @@ import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
 import NewType from "./admin/NewType";
 import Profile from "./user/profile";
+import UserRoles from "./admin/UserRoles";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -86,7 +87,6 @@ export default class ApplicationView extends Component {
     render() {
         return (
             //routes go here
-            // maybe a route to look at an individual stack? why?
             <React.Fragment>
                 <Route exact path="/login" component={Login} />
                 
@@ -136,6 +136,10 @@ export default class ApplicationView extends Component {
                     return <Profile activeUser={this.props.activeUser} 
                         updateUser={this.updateUser}
                     />
+                }} />
+
+                <Route exact path="/admin/roles" render={(props) => {
+                    return <UserRoles users={this.state.users} />
                 }} />
 
             </React.Fragment>
