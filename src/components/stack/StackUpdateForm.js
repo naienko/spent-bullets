@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export default class StackUpdate extends Component {
+class StackUpdate extends Component {
     //set empty local state
     state = {
         stackAmt: "",
@@ -72,4 +73,6 @@ export default class StackUpdate extends Component {
             </div>
         )
     }
-}
+};
+
+export default withRouter(StackUpdate);

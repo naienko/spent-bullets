@@ -3,10 +3,11 @@ import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { withRouter } from "react-router";
 
 import "./StorageCloset.css"
 
-export default class StorageCloset extends Component {
+class StorageCloset extends Component {
     render () {
         return (
         <div id="dashboard" className="d-flex flex-row">
@@ -40,4 +41,6 @@ export default class StorageCloset extends Component {
             </div>
         )
     }
-}
+};
+
+export default withRouter(StorageCloset);

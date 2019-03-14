@@ -42,8 +42,9 @@ export default class Register extends Component {
             //if it doesn't exist, create new user and set sessionStorage
                     APIManager.add("users", newUser).then(user => {
                         sessionStorage.setItem("credentials", parseInt(user.id))
+                        this.props.setAuth()
+                        this.props.history.push("/")
                     })
-                        .then(this.props.history.push("/"))
                 }
             })
         } else {

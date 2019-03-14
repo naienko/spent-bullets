@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router"
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
 
 import "./nav.css"
 
-export default class NavBar extends Component {
+class NavBar extends Component {
     logout = () => {
         sessionStorage.clear("credentials")
+        this.props.setAuth()
     }
     
     render() {
@@ -26,7 +28,7 @@ export default class NavBar extends Component {
                     </Col>
                     <Col>
                         <Nav.Item className="text-light m-sm-2">
-                            Welcome user
+                            Welcome {this.props.activeUser.username}
                         </Nav.Item>
                     </Col>
                     <Col md="auto">
@@ -39,3 +41,5 @@ export default class NavBar extends Component {
         )
     }
 }
+
+export default withRouter(NavBar)

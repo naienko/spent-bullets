@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import APIManager from "../../modules/APIManager";
 
-export default class Login extends Component {
+class Login extends Component {
     //empty state to start with, to store input fields in
     state = {
         username: "",
@@ -33,11 +34,10 @@ export default class Login extends Component {
                     //store the input data in sessionStorage (like a cookie)
                     //consider a checkbox for localStorage?
                         sessionStorage.setItem("credentials", parseInt(user[0].id))
+                        this.props.setAuth()
                     }
                 }
             )
-            //return to the component they were trying to view in the first place
-            this.props.history.go(0);
         } else {
             //if the user didn't fill all fields, warn
             alert("Please Fill Out Form!")
@@ -53,13 +53,13 @@ export default class Login extends Component {
                         <Form.Label>
                             Username
                         </Form.Label>
-                        <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
+                        <Form.Control onChange={this.handleFieldChange} placeholder="Username" required autoFocus />
                     </Form.Group>
                     <Form.Group controlId="password">
                         <Form.Label>
                             Password
                         </Form.Label>
-                        <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
+                        <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="text-right">
                         <Button variant="primary" type="submit">Sign in</Button>
@@ -71,4 +71,6 @@ export default class Login extends Component {
             </React.Fragment>
         )
     }
-}
+};
+
+export default withRouter(Login);
