@@ -22,7 +22,7 @@ class NavBar extends Component {
                         <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="text-light m-sm-2">
-                        Welcome {this.props.activeUser.username}
+                        Welcome <a href="/profile">{this.props.activeUser.username}</a>
                     </Nav.Item>
                     { this.props.activeUser.role === "admin" 
                     ? 

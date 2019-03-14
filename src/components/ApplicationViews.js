@@ -11,6 +11,7 @@ import StackManager from "../modules/StackManager";
 import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
 import NewType from "./admin/NewType";
+import Profile from "./user/profile";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -76,6 +77,12 @@ export default class ApplicationView extends Component {
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
+    updateUser = updatedUser => {
+        return APIManager.update("users", updatedUser, updatedUser.id)
+            .then(() => StackManager.getAll("users"))
+            .then(users => this.setState({ users: users }))
+    }
+
     render() {
         return (
             //routes go here
@@ -122,6 +129,12 @@ export default class ApplicationView extends Component {
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers}
                         addBCLink={this.addBCLink} 
+                    />
+                }} />
+
+                <Route exact path="/profile" render={(props) => {
+                    return <Profile activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
                     />
                 }} />
 

@@ -30,7 +30,8 @@ export default class Register extends Component {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
-            display_name: this.state.display_name
+            display_name: this.state.display_name,
+            role: "user"
         }
         //compare this object to data from the users table in db
         if (this.state.username && this.state.password) {

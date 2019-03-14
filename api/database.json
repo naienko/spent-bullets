@@ -3,7 +3,7 @@
     {
       "username": "naienko",
       "email": "naienko@gmail.com",
-      "display_name": "Panya",
+      "display_name": "Panya Farnette",
       "password": "oddballwife",
       "id": 1,
       "role": "admin"
@@ -13,7 +13,8 @@
       "password": "st00pid79",
       "email": "oddball79@gmail.com",
       "display_name": "Michael",
-      "id": 2
+      "id": 2,
+      "role": "user"
     }
   ],
   "stacks": [
