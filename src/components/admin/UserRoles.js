@@ -23,9 +23,8 @@ export default class UserRoles extends Component {
         this.setState({ show: false });
     }
     
-    handleShow(event) {
-        let currentUser = this.props.users.find(user => event.target.id === user.id)
-        console.log(event.target.id)
+    handleShow(user) {
+        console.log(user)
         this.setState({ show: true,
             // currentUser : currentUser,
             // user_role: currentUser.role
@@ -56,7 +55,7 @@ export default class UserRoles extends Component {
                                     name: {user.display_name}<br />
                                     role: {user.role}
                                 </Card.Text>
-                                <Button variant="success" id={user.id} onClick={this.handleShow}>Change Role</Button>
+                                <Button variant="success" id={user.id} onClick={this.handleShow(user)}>Change Role</Button>
                             </Card.Body>
                         </Card>
                     )}
