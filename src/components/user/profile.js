@@ -62,7 +62,7 @@ export default class Profile extends Component {
             <React.Fragment>
                 <div id="dashboard">
                     <p>username: {this.props.activeUser.username}</p>
-                    <p>display name: {this.props.activeUser.display_name}<br />
+                    <p>display name: {this.state.display_name}<br />
                     <a href="#" className="small" onClick={this.handleShow}>change display name</a></p>
                     { this.props.activeUser.role === "admin" ? <p>role: {this.props.activeUser.role}</p> : ""}
                     
