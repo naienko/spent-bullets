@@ -27,6 +27,8 @@ class StorageCloset extends Component {
                             { this.props.calibers.find(
                                 caliber => caliber.id === stack.brandCaliber.caliberId
                             ).caliber }
+                            <br />
+                            { !stack.notes.length ? <br /> : `notes: ${stack.notes}` }
                         </Card.Text>
                         <ButtonGroup>
                             <Button variant="success" onClick={() => { this.props.history.push(`/stack/${stack.id}/update`); }}>Update</Button>

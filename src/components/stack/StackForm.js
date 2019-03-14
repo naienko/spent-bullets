@@ -13,7 +13,8 @@ class StackForm extends Component {
         stackAmt: "",
         brandId: "",
         caliberId: "",
-        userId: ""
+        userId: "",
+        stack_notes: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -30,10 +31,11 @@ class StackForm extends Component {
         const stack = {
             userId: parseInt(sessionStorage.getItem("credentials")),
             amount: this.state.stackAmt,
+            notes: this.state.stack_notes
         }
         //check for matching brandCaliber object
         //allow new combos? -- no unless admin, see stretch goal notes
-        if (this.state.brandId && this.state.caliberId) {
+        if (this.state.brandId && this.state.caliberId && this.state.stackAmt) {
             APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
                 res => {
                     if (!res.length) {
@@ -106,10 +108,16 @@ class StackForm extends Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="stackAmt">
-                    <Form.Label className="m-sm-2">
+                    <Form.Label>
                         How many?
                     </Form.Label>
                     <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
+                </Form.Group>
+                <Form.Group controlId="stack_notes">
+                    <Form.Label>
+                        Notes
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} />
                 </Form.Group>
                 <Button variant="success" type="submit">Submit</Button>
             </Form>

@@ -13,39 +13,43 @@
       "email": "oddball79@gmail.com",
       "display_name": "Michael",
       "id": 2
-    },
-    {
-      "username": "autumn",
-      "password": "123",
-      "email": "alexandrine_dream@yahoo.com",
-      "display_name": "Autumn",
-      "id": 3
     }
   ],
   "stacks": [
     {
       "userId": 1,
-      "amount": "2354",
+      "amount": 2354,
       "brandCaliberId": 2,
+      "notes": "",
       "id": 2
     },
     {
       "userId": 1,
       "amount": 185,
       "brandCaliberId": 1,
+      "notes": "",
       "id": 3
     },
     {
       "userId": 2,
       "amount": 1930,
       "brandCaliberId": 3,
+      "notes": "",
       "id": 4
     },
     {
       "userId": 2,
       "amount": 1000,
       "brandCaliberId": 4,
+      "notes": "",
       "id": 5
+    },
+    {
+      "userId": 1,
+      "amount": 160,
+      "notes": "",
+      "brandCaliberId": 6,
+      "id": 6
     }
   ],
   "calibers": [
