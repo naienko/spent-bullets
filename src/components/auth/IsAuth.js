@@ -13,10 +13,13 @@ class IsAuth extends Component {
                     ? 
                     ( <UserAccessLayer {...this.props} /> )
                     :
+                    // if isAuthenticated is false, check where you are
                     ( this.props.location.pathname === "/register"
                         ? 
+                        // did we go to /register? show registration
                         ( <Register {...this.props} /> )
                         :
+                        // else we want to log in
                         ( <Login {...this.props} /> )
                     )
                 }

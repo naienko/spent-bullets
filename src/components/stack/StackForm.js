@@ -39,18 +39,8 @@ class StackForm extends Component {
             APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
                 res => {
                     if (!res.length) {
+                        //if no, warn and refuse
                         alert("This combination doesn't exist in the database!")
-                        //if no, create new brandCaliber object as well
-                        //create toast for new brand/caliber combo
-                        // const brandCaliber = {
-                        //     brandId: this.state.brandId,
-                        //     caliberId: this.state.caliberId
-                        // }
-                        // //add it to the brandCalibers table in the db
-                        // this.props.addBCLink(brandCaliber)
-                        // //get the newly added object's id
-                        // //add that id as brandCaliberId to stack object
-                        //     .then(id => stack.brandCaliberId = id)
                     } else {
                         //if yes, check for pre-existing matching stack
                         if (!this.props.stacks.find(stack => res[0].id === stack.brandCaliberId)) {

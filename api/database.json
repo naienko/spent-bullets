@@ -5,7 +5,8 @@
       "email": "naienko@gmail.com",
       "display_name": "Panya",
       "password": "oddballwife",
-      "id": 1
+      "id": 1,
+      "role": "admin"
     },
     {
       "username": "oddball",

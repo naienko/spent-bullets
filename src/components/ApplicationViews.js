@@ -10,6 +10,7 @@ import StackManager from "../modules/StackManager";
 
 import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
+import NewType from "./admin/NewType";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -103,9 +104,8 @@ export default class ApplicationView extends Component {
                         brandCalibers={this.state.brandCalibers}
                         addStack={this.addStack} 
                         updateStack={this.updateStack} 
-                        addBCLink={this.addBCLink} 
-                    />
-                }} />
+                        />
+                    }} />
 
                 <Route path="/stack/:stackId(\d+)/update" render={(props) => {
                     return <StackUpdate
@@ -113,6 +113,15 @@ export default class ApplicationView extends Component {
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers}
                         updateStack={this.updateStack}
+                    />
+                }} />
+
+                <Route exact path="/admin/new" render={(props) => {
+                    return <NewType 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        addBCLink={this.addBCLink} 
                     />
                 }} />
 
