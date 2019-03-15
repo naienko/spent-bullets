@@ -1,0 +1,1242 @@
+{
+  "users": [
+    {
+    "username": "naienko",
+    "email": "naienko@gmail.com",
+    "display_name": "Panya",
+    "password": "oddballwife",
+    "id": 1
+  }
+],
+  "stacks": [
+    {
+      "userId": 1,
+      "amount": "2354",
+      "brandCaliberId": 2,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "amount": 35,
+      "brandCaliberId": 1,
+      "id": 3
+    }
+  ],
+  "calibers": [
+    {
+      "caliber": "10mm Auto",
+      "id": 1
+    },
+    {
+      "caliber": ".22 Center Fire Magnum",
+      "id": 2
+    },
+    {
+      "caliber": ".22 Jet",
+      "id": 3
+    },
+    {
+      "caliber": ".22 TCM",
+      "id": 4
+    },
+    {
+      "caliber": ".22 TCM 9R",
+      "id": 5
+    },
+    {
+      "caliber": ".25 ACP",
+      "id": 6
+    },
+    {
+      "caliber": ".25 NAA",
+      "id": 7
+    },
+    {
+      "caliber": ".256 Win Mag",
+      "id": 8
+    },
+    {
+      "caliber": ".30 Luger",
+      "id": 9
+    },
+    {
+      "caliber": ".30 Mauser Automatic",
+      "id": 10
+    },
+    {
+      "caliber": ".32 ACP",
+      "id": 11
+    },
+    {
+      "caliber": ".32 H&R Mag",
+      "id": 12
+    },
+    {
+      "caliber": ".32 Long Colt",
+      "id": 13
+    },
+    {
+      "caliber": ".32 NAA",
+      "id": 14
+    },
+    {
+      "caliber": ".32 S&W",
+      "id": 15
+    },
+    {
+      "caliber": ".32 S&W Long",
+      "id": 16
+    },
+    {
+      "caliber": ".32 Short Colt",
+      "id": 17
+    },
+    {
+      "caliber": ".320 Long",
+      "id": 18
+    },
+    {
+      "caliber": ".320 Short",
+      "id": 19
+    },
+    {
+      "caliber": ".327 Federal Mag",
+      "id": 20
+    },
+    {
+      "caliber": ".356 TSW",
+      "id": 21
+    },
+    {
+      "caliber": ".357 Mag",
+      "id": 22
+    },
+    {
+      "caliber": ".357 Rem Max",
+      "id": 23
+    },
+    {
+      "caliber": ".357 SIG",
+      "id": 24
+    },
+    {
+      "caliber": ".357 Super Magnum",
+      "id": 25
+    },
+    {
+      "caliber": ".375 JDJ",
+      "id": 26
+    },
+    {
+      "caliber": ".38 Auto",
+      "id": 27
+    },
+    {
+      "caliber": ".38 Long Colt",
+      "id": 28
+    },
+    {
+      "caliber": ".38 S&W",
+      "id": 29
+    },
+    {
+      "caliber": ".38 Short Colt",
+      "id": 30
+    },
+    {
+      "caliber": ".38 Special",
+      "id": 31
+    },
+    {
+      "caliber": ".38 Super Auto",
+      "id": 32
+    },
+    {
+      "caliber": ".38 Super Comp",
+      "id": 33
+    },
+    {
+      "caliber": ".38-40 Win",
+      "id": 34
+    },
+    {
+      "caliber": ".380 Auto",
+      "id": 35
+    },
+    {
+      "caliber": ".380 Long",
+      "id": 36
+    },
+    {
+      "caliber": "4.6x30mm",
+      "id": 37
+    },
+    {
+      "caliber": ".40 S&W",
+      "id": 38
+    },
+    {
+      "caliber": ".40 Super",
+      "id": 39
+    },
+    {
+      "caliber": ".400 Cor-Bon",
+      "id": 40
+    },
+    {
+      "caliber": ".41 Action Express",
+      "id": 41
+    },
+    {
+      "caliber": ".41 Long Colt",
+      "id": 42
+    },
+    {
+      "caliber": ".41 Rem Mag",
+      "id": 43
+    },
+    {
+      "caliber": ".41 Special",
+      "id": 44
+    },
+    {
+      "caliber": ".429 Desert Eagle",
+      "id": 45
+    },
+    {
+      "caliber": ".44 AMP",
+      "id": 46
+    },
+    {
+      "caliber": ".44 Colt",
+      "id": 47
+    },
+    {
+      "caliber": ".44 Mag",
+      "id": 48
+    },
+    {
+      "caliber": ".44 S&W Russian",
+      "id": 49
+    },
+    {
+      "caliber": ".44 S&W Special",
+      "id": 50
+    },
+    {
+      "caliber": ".440 Cor-Bon",
+      "id": 51
+    },
+    {
+      "caliber": ".445 SuperMag",
+      "id": 52
+    },
+    {
+      "caliber": ".45 ACP/Auto",
+      "id": 53
+    },
+    {
+      "caliber": ".45 Auto Rim",
+      "id": 54
+    },
+    {
+      "caliber": ".45 Colt",
+      "id": 55
+    },
+    {
+      "caliber": ".45 GAP",
+      "id": 56
+    },
+    {
+      "caliber": ".45 HP",
+      "id": 57
+    },
+    {
+      "caliber": ".45 Long Colt",
+      "id": 58
+    },
+    {
+      "caliber": ".45 Schofield",
+      "id": 59
+    },
+    {
+      "caliber": ".45 Special",
+      "id": 60
+    },
+    {
+      "caliber": ".45 Super",
+      "id": 61
+    },
+    {
+      "caliber": ".45 Win Mag",
+      "id": 62
+    },
+    {
+      "caliber": ".450 Adams",
+      "id": 63
+    },
+    {
+      "caliber": ".450 AutoBond",
+      "id": 64
+    },
+    {
+      "caliber": ".450 Boxer Mk I",
+      "id": 65
+    },
+    {
+      "caliber": ".450 Colt",
+      "id": 66
+    },
+    {
+      "caliber": ".450 Corto",
+      "id": 67
+    },
+    {
+      "caliber": ".450 Mark III",
+      "id": 68
+    },
+    {
+      "caliber": ".450 Revolver",
+      "id": 69
+    },
+    {
+      "caliber": ".450 Short",
+      "id": 70
+    },
+    {
+      "caliber": ".454 Casull",
+      "id": 71
+    },
+    {
+      "caliber": ".455 Webley",
+      "id": 72
+    },
+    {
+      "caliber": ".460 Rowland",
+      "id": 73
+    },
+    {
+      "caliber": ".460 S&W Mag",
+      "id": 74
+    },
+    {
+      "caliber": ".475 Linebaugh",
+      "id": 75
+    },
+    {
+      "caliber": ".475 Wildey Magnum",
+      "id": 76
+    },
+    {
+      "caliber": ".480 Ruger",
+      "id": 77
+    },
+    {
+      "caliber": "5.75mm Velo-Dog",
+      "id": 78
+    },
+    {
+      "caliber": "5.7x28mm",
+      "id": 79
+    },
+    {
+      "caliber": ".50 Action Express",
+      "id": 80
+    },
+    {
+      "caliber": ".50 GI",
+      "id": 81
+    },
+    {
+      "caliber": ".500 JRH",
+      "id": 82
+    },
+    {
+      "caliber": ".500 Linebaugh",
+      "id": 83
+    },
+    {
+      "caliber": ".500 S&W Mag",
+      "id": 84
+    },
+    {
+      "caliber": ".500 S&W Special",
+      "id": 85
+    },
+    {
+      "caliber": ".500 Wyoming Express",
+      "id": 86
+    },
+    {
+      "caliber": "6.35mm",
+      "id": 87
+    },
+    {
+      "caliber": "7.5mm Swiss Ordnance",
+      "id": 88
+    },
+    {
+      "caliber": "7.62x25mm Tokarev",
+      "id": 89
+    },
+    {
+      "caliber": "7.62x38 Nagant",
+      "id": 90
+    },
+    {
+      "caliber": "7.63x25mm Mauser",
+      "id": 91
+    },
+    {
+      "caliber": "7.65 Browning",
+      "id": 92
+    },
+    {
+      "caliber": "7.65x20mm Longue",
+      "id": 93
+    },
+    {
+      "caliber": "7.65x21mm",
+      "id": 94
+    },
+    {
+      "caliber": "8mm Gasser",
+      "id": 95
+    },
+    {
+      "caliber": "8mm Lebel Revolver",
+      "id": 96
+    },
+    {
+      "caliber": "8mm Roth Steyr",
+      "id": 97
+    },
+    {
+      "caliber": "8x22mm Nambu",
+      "id": 98
+    },
+    {
+      "caliber": "9mm Browning Long",
+      "id": 99
+    },
+    {
+      "caliber": "9mm Luger",
+      "id": 100
+    },
+    {
+      "caliber": "9mm Makarov",
+      "id": 111
+    },
+    {
+      "caliber": "9mm Police",
+      "id": 101
+    },
+    {
+      "caliber": "9x18mm Ultra",
+      "id": 102
+    },
+    {
+      "caliber": "9x19 Parabellum",
+      "id": 103
+    },
+    {
+      "caliber": "9x20mm Browning Long",
+      "id": 104
+    },
+    {
+      "caliber": "9x21mm",
+      "id": 105
+    },
+    {
+      "caliber": "9x23mm Largo",
+      "id": 106
+    },
+    {
+      "caliber": "9x23mm Steyr",
+      "id": 107
+    },
+    {
+      "caliber": "9x23mm Win",
+      "id": 108
+    },
+    {
+      "caliber": "9x25mm Dillon",
+      "id": 109
+    },
+    {
+      "caliber": "9x25mm Mauser",
+      "id": 110
+    },
+    {
+      "caliber": ".22 LR",
+      "id": 112
+    }
+  ],
+  "brands": [
+    { "id": 376, "brand": "2 Vets Arms Co" },
+{ "id": 277, "brand": "3-D" },
+{ "id": 886, "brand": "406Ammunition" },
+{ "id": 627, "brand": "57 Center" },
+{ "id": 89, "brand": "A-Square" },
+{ "id": 393, "brand": "A-Zoom" },
+{ "id": 464, "brand": "ABM" },
+{ "id": 937, "brand": "Absolute Outdoor" },
+{ "id": 578, "brand": "Accu-Tek" },
+{ "id": 777, "brand": "Accura Premium" },
+{ "id": 182, "brand": "Accurate" },
+{ "id": 476, "brand": "Acme" },
+{ "id": 625, "brand": "ACT Magazines" },
+{ "id": 333, "brand": "Adaptive Tactical" },
+{ "id": 849, "brand": "ADI" },
+{ "id": 129, "brand": "Advanced Armament" },
+{ "id": 747, "brand": "Advanced Ballistic Concepts" },
+{ "id": 630, "brand": "Advanced Technology" },
+{ "id": 263, "brand": "Advantage Arms" },
+{ "id": 1007, "brand": "Aero Precision" },
+{ "id": 720, "brand": "AGB Arms" },
+{ "id": 1, "brand": "Aguila" },
+{ "id": 780, "brand": "Aim Sports" },
+{ "id": 671, "brand": "Alchemist" },
+{ "id": 187, "brand": "Alexander Arms" },
+{ "id": 196, "brand": "Allegiance" },
+{ "id": 582, "brand": "Alliant" },
+{ "id": 101, "brand": "ALS" },
+{ "id": 369, "brand": "AMA DENEX" },
+{ "id": 660, "brand": "AMC" },
+{ "id": 494, "brand": "Amend2" },
+{ "id": 679, "brand": "American Built Arms" },
+{ "id": 195, "brand": "American Bullet" },
+{ "id": 381, "brand": "American Cowboy" },
+{ "id": 303, "brand": "American Eagle" },
+{ "id": 1004, "brand": "American Hunter" },
+{ "id": 963, "brand": "American Munitions" },
+{ "id": 183, "brand": "American Pioneer" },
+{ "id": 288, "brand": "American Precision" },
+{ "id": 192, "brand": "American Quality" },
+{ "id": 81, "brand": "American Tactical" },
+{ "id": 846, "brand": "American Weigh Scales" },
+{ "id": 998, "brand": "Ammo Inc" },
+{ "id": 454, "brand": "Ammo Storage Components" },
+{ "id": 496, "brand": "Ammo Texas" },
+{ "id": 705, "brand": "AmmoValley" },
+{ "id": 371, "brand": "AmmoZone" },
+{ "id": 432, "brand": "AMT" },
+{ "id": 467, "brand": "AngelFire" },
+{ "id": 411, "brand": "Anschutz" },
+{ "id": 943, "brand": "API" },
+{ "id": 945, "brand": "AR Five Seven" },
+{ "id": 559, "brand": "AREX" },
+{ "id": 974, "brand": "ARM" },
+{ "id": 435, "brand": "Armalite" },
+{ "id": 15, "brand": "Armscor" },
+{ "id": 200, "brand": "Arsenal" },
+{ "id": 167, "brand": "Arsenal Bulgarian" },
+{ "id": 889, "brand": "ARX" },
+{ "id": 283, "brand": "ASC" },
+{ "id": 819, "brand": "Asian Military" },
+{ "id": 355, "brand": "ASYM" },
+{ "id": 24, "brand": "ATI" },
+{ "id": 493, "brand": "Atlanta Arms" },
+{ "id": 359, "brand": "Atlantic Marksmen" },
+{ "id": 194, "brand": "Atomic" },
+{ "id": 401, "brand": "Australian Defense Industries" },
+{ "id": 201, "brand": "Australian Outback" },
+{ "id": 441, "brand": "Auto-Ordnance" },
+{ "id": 341, "brand": "B&amp;P" },
+{ "id": 939, "brand": "B&amp;T AG" },
+{ "id": 570, "brand": "B-Square" },
+{ "id": 503, "brand": "Ballistic Performance" },
+{ "id": 613, "brand": "Ballistic Precision" },
+{ "id": 615, "brand": "Ballistic Products" },
+{ "id": 25, "brand": "Barnaul" },
+{ "id": 130, "brand": "Barnes" },
+{ "id": 108, "brand": "Barrett" },
+{ "id": 488, "brand": "Bart&#39;s" },
+{ "id": 506, "brand": "Baschieri &amp; Pellagri" },
+{ "id": 599, "brand": "Battenfeld" },
+{ "id": 756, "brand": "Battle Born Munitions" },
+{ "id": 992, "brand": "Bayou Brass And Ammo" },
+{ "id": 657, "brand": "BBM" },
+{ "id": 353, "brand": "Bear Ammunition" },
+{ "id": 345, "brand": "Beck Ammunition" },
+{ "id": 601, "brand": "Benchmaster" },
+{ "id": 412, "brand": "Beretta" },
+{ "id": 158, "brand": "Berger" },
+{ "id": 184, "brand": "Berry&#39;s" },
+{ "id": 422, "brand": "Bersa" },
+{ "id": 312, "brand": "Bianchi" },
+{ "id": 223, "brand": "Birchwood Casey" },
+{ "id": 299, "brand": "Birds-n-Bullets" },
+{ "id": 100, "brand": "Bismuth" },
+{ "id": 358, "brand": "Bite the Bullet" },
+{ "id": 498, "brand": "Black Butterfly" },
+{ "id": 569, "brand": "Black Dawn" },
+{ "id": 593, "brand": "Black Dog Machine" },
+{ "id": 335, "brand": "Black Gun Industries" },
+{ "id": 44, "brand": "Black Hills" },
+{ "id": 317, "brand": "BlackGun" },
+{ "id": 618, "brand": "Blackhawk" },
+{ "id": 658, "brand": "Blackhorn" },
+{ "id": 462, "brand": "BlackMunitions" },
+{ "id": 246, "brand": "Blackwater Precision" },
+{ "id": 77, "brand": "blanks" },
+{ "id": 235, "brand": "Blazer" },
+{ "id": 470, "brand": "Blok Tactical" },
+{ "id": 1014, "brand": "Blue Lakes" },
+{ "id": 922, "brand": "Bob Allen" },
+{ "id": 594, "brand": "Bob Hahin" },
+{ "id": 440, "brand": "Boberg" },
+{ "id": 614, "brand": "Boker" },
+{ "id": 279, "brand": "Bone Orchard" },
+{ "id": 364, "brand": "Bornaghi" },
+{ "id": 588, "brand": "Brass Guys" },
+{ "id": 96, "brand": "Brenneke" },
+{ "id": 402, "brand": "Brownells" },
+{ "id": 254, "brand": "Browning" },
+{ "id": 361, "brand": "Browning Ammo and More" },
+{ "id": 43, "brand": "Buffalo Bore" },
+{ "id": 398, "brand": "Buffalo Cartridge" },
+{ "id": 397, "brand": "Bulgarian Military" },
+{ "id": 690, "brand": "Bullets 1st" },
+{ "id": 236, "brand": "Bullseye" },
+{ "id": 419, "brand": "Bushmaster" },
+{ "id": 173, "brand": "Butler Creek" },
+{ "id": 48, "brand": "BVAC" },
+{ "id": 538, "brand": "C Products" },
+{ "id": 314, "brand": "C Products Defense" },
+{ "id": 339, "brand": "C&amp;C Ammo" },
+{ "id": 563, "brand": "C-Mag" },
+{ "id": 152, "brand": "C-Products" },
+{ "id": 445, "brand": "CAA" },
+{ "id": 311, "brand": "Caldwell" },
+{ "id": 521, "brand": "Cammenga" },
+{ "id": 305, "brand": "CamPro" },
+{ "id": 392, "brand": "Canadian Military" },
+{ "id": 581, "brand": "Canik" },
+{ "id": 664, "brand": "CAPARMS" },
+{ "id": 332, "brand": "Cape Fear" },
+{ "id": 370, "brand": "Cape Gun Works" },
+{ "id": 702, "brand": "Capital Cartridge" },
+{ "id": 186, "brand": "Captech-Jamison" },
+{ "id": 444, "brand": "Caracal" },
+{ "id": 128, "brand": "Carlsons" },
+{ "id": 892, "brand": "Cartuchos GB" },
+{ "id": 326, "brand": "Cascade Cartridge" },
+{ "id": 765, "brand": "Cascade Industry" },
+{ "id": 635, "brand": "Caspian" },
+{ "id": 591, "brand": "Cast Lead Bullets" },
+{ "id": 406, "brand": "CBC" },
+{ "id": 124, "brand": "CCC" },
+{ "id": 291, "brand": "CCI" },
+{ "id": 27, "brand": "Centurion" },
+{ "id": 131, "brand": "Century" },
+{ "id": 1010, "brand": "Challenger" },
+{ "id": 526, "brand": "Champion" },
+{ "id": 428, "brand": "Check-Mate" },
+{ "id": 584, "brand": "Cheddite" },
+{ "id": 209, "brand": "Chiappa" },
+{ "id": 208, "brand": "Chip McCormick" },
+{ "id": 692, "brand": "Choice Ammunition" },
+{ "id": 387, "brand": "CI Ammunition" },
+{ "id": 446, "brand": "Citadel" },
+{ "id": 648, "brand": "CJN Casting" },
+{ "id": 654, "brand": "Clay Dot" },
+{ "id": 219, "brand": "Claybuster" },
+{ "id": 680, "brand": "Clean Shot Powder" },
+{ "id": 595, "brand": "CleanCast" },
+{ "id": 603, "brand": "Clements" },
+{ "id": 374, "brand": "Clever" },
+{ "id": 256, "brand": "CMMG" },
+{ "id": 451, "brand": "Cobra" },
+{ "id": 199, "brand": "Colorado Buck" },
+{ "id": 202, "brand": "Colt" },
+{ "id": 825, "brand": "Combined Research" },
+{ "id": 433, "brand": "Command Arms" },
+{ "id": 366, "brand": "Commonwealth" },
+{ "id": 952, "brand": "Cooper Cartridge" },
+{ "id": 282, "brand": "COP" },
+{ "id": 649, "brand": "Copper Head" },
+{ "id": 659, "brand": "CopperHead" },
+{ "id": 3, "brand": "Cor-Bon" },
+{ "id": 668, "brand": "Core Ordnance" },
+{ "id": 801, "brand": "Crickett Firearms" },
+{ "id": 590, "brand": "CTX" },
+{ "id": 377, "brand": "Cutting Edge Bullets" },
+{ "id": 215, "brand": "CVA" },
+{ "id": 253, "brand": "CZ USA" },
+{ "id": 549, "brand": "Czechpoint" },
+{ "id": 98, "brand": "D Dupleks" },
+{ "id": 174, "brand": "D&amp;H Tactical" },
+{ "id": 34, "brand": "DAG" },
+{ "id": 678, "brand": "Daniel Defense" },
+{ "id": 646, "brand": "Davey Crickett" },
+{ "id": 571, "brand": "DDM" },
+{ "id": 696, "brand": "Defender Ammunition" },
+{ "id": 280, "brand": "Defensor Ordnance" },
+{ "id": 394, "brand": "Desert Eagle" },
+{ "id": 507, "brand": "Desert Tech" },
+{ "id": 228, "brand": "Dewey" },
+{ "id": 319, "brand": "Diamond K Brass" },
+{ "id": 453, "brand": "Diamondback" },
+{ "id": 110, "brand": "Diana" },
+{ "id": 768, "brand": "Dillon" },
+{ "id": 980, "brand": "Discreet Ballistics" },
+{ "id": 58, "brand": "Double Tap" },
+{ "id": 651, "brand": "Downrange" },
+{ "id": 260, "brand": "DPMS" },
+{ "id": 516, "brand": "Drone Munitions" },
+{ "id": 69, "brand": "DRS" },
+{ "id": 340, "brand": "DRT" },
+{ "id": 442, "brand": "DS Arms" },
+{ "id": 865, "brand": "dummy round" },
+{ "id": 45, "brand": "Dynamic Research" },
+{ "id": 42, "brand": "Dynamit Nobel" },
+{ "id": 527, "brand": "EAA" },
+{ "id": 334, "brand": "Eagle Eye Precision" },
+{ "id": 744, "brand": "East Carolina Cartridges" },
+{ "id": 318, "brand": "East Coast Arsenal" },
+{ "id": 579, "brand": "Ed Brown" },
+{ "id": 475, "brand": "Eggleston Munitions" },
+{ "id": 32, "brand": "Egyptian Military" },
+{ "id": 57, "brand": "Eley" },
+{ "id": 524, "brand": "Elite Tactical Systems" },
+{ "id": 619, "brand": "EMA Tactical" },
+{ "id": 514, "brand": "Engel Ballistic Research" },
+{ "id": 729, "brand": "ENVIRON-METAL" },
+{ "id": 313, "brand": "Ergo" },
+{ "id": 431, "brand": "Escort" },
+{ "id": 92, "brand": "Estate" },
+{ "id": 450, "brand": "ETS Group" },
+{ "id": 347, "brand": "European Am Arms" },
+{ "id": 426, "brand": "European American Armory" },
+{ "id": 463, "brand": "Europlink" },
+{ "id": 452, "brand": "Excel" },
+{ "id": 367, "brand": "Exotic" },
+{ "id": 685, "brand": "Extreme Reloading" },
+{ "id": 4, "brand": "Extreme Shock" },
+{ "id": 528, "brand": "FAB Defense" },
+{ "id": 107, "brand": "Fabrique Nationale" },
+{ "id": 74, "brand": "factory reload" },
+{ "id": 693, "brand": "FAMAE" },
+{ "id": 500, "brand": "FedArm" },
+{ "id": 5, "brand": "Federal" },
+{ "id": 699, "brand": "Fenix Ammunition" },
+{ "id": 804, "brand": "Fime Group" },
+{ "id": 816, "brand": "Finnish Military" },
+{ "id": 16, "brand": "Fiocchi" },
+{ "id": 518, "brand": "Fire Ants" },
+{ "id": 683, "brand": "Fire For Effect" },
+{ "id": 372, "brand": "Firequest" },
+{ "id": 925, "brand": "Flambeau" },
+{ "id": 224, "brand": "Flitz" },
+{ "id": 577, "brand": "FMK" },
+{ "id": 261, "brand": "FN" },
+{ "id": 115, "brand": "FNH" },
+{ "id": 41, "brand": "FNM" },
+{ "id": 480, "brand": "Forster" },
+{ "id": 935, "brand": "Fort Scott Munitions" },
+{ "id": 553, "brand": "FosTech" },
+{ "id": 738, "brand": "Founding Fathers" },
+{ "id": 597, "brand": "Frankford" },
+{ "id": 670, "brand": "Franklin Armory" },
+{ "id": 322, "brand": "Freedom Ammunition" },
+{ "id": 191, "brand": "Freedom Munitions" },
+{ "id": 602, "brand": "Froglube" },
+{ "id": 307, "brand": "Frontier" },
+{ "id": 114, "brand": "Fusion" },
+{ "id": 605, "brand": "G-Outdoors" },
+{ "id": 285, "brand": "G2 Research" },
+{ "id": 461, "brand": "Galati" },
+{ "id": 572, "brand": "Galil Golani" },
+{ "id": 95, "brand": "Gamebore" },
+{ "id": 874, "brand": "Gamo" },
+{ "id": 198, "brand": "GAS" },
+{ "id": 717, "brand": "GBW" },
+{ "id": 1013, "brand": "GCA" },
+{ "id": 190, "brand": "Geco" },
+{ "id": 296, "brand": "GEMTECH" },
+{ "id": 386, "brand": "General Dynamics" },
+{ "id": 548, "brand": "generic" },
+{ "id": 655, "brand": "Georgia Arms" },
+{ "id": 534, "brand": "German Sport Gun" },
+{ "id": 188, "brand": "GGG" },
+{ "id": 662, "brand": "Ghost" },
+{ "id": 546, "brand": "Gibbs Rifle Company" },
+{ "id": 310, "brand": "Ginex" },
+{ "id": 6, "brand": "Glaser" },
+{ "id": 365, "brand": "GLFA" },
+{ "id": 147, "brand": "Glock" },
+{ "id": 87, "brand": "Goex" },
+{ "id": 502, "brand": "Golden Tiger" },
+{ "id": 239, "brand": "Gorilla" },
+{ "id": 585, "brand": "Grace USA" },
+{ "id": 378, "brand": "Graf &amp; Sons" },
+{ "id": 545, "brand": "Grand Power" },
+{ "id": 360, "brand": "Great Lakes" },
+{ "id": 88, "brand": "Grizzly" },
+{ "id": 218, "brand": "GSG" },
+{ "id": 368, "brand": "GTR Munitions" },
+{ "id": 623, "brand": "Guardian" },
+{ "id": 380, "brand": "Guncrafter" },
+{ "id": 689, "brand": "GWT" },
+{ "id": 643, "brand": "Hartford Arms" },
+{ "id": 213, "brand": "Harvester" },
+{ "id": 93, "brand": "Hastings" },
+{ "id": 460, "brand": "Hawk Sight" },
+{ "id": 633, "brand": "HCMags" },
+{ "id": 492, "brand": "Heartland Ammunition" },
+{ "id": 255, "brand": "Heckler &amp; Koch" },
+{ "id": 868, "brand": "Hellfire" },
+{ "id": 525, "brand": "Henry" },
+{ "id": 859, "brand": "Hera USA" },
+{ "id": 971, "brand": "Heritage" },
+{ "id": 112, "brand": "Herter&#39;s" },
+{ "id": 513, "brand": "Hevi-Duty" },
+{ "id": 97, "brand": "HEVI-Shot" },
+{ "id": 301, "brand": "Hexmag" },
+{ "id": 421, "brand": "Hi-Point" },
+{ "id": 242, "brand": "High Country Ammunition" },
+{ "id": 642, "brand": "High Standard" },
+{ "id": 486, "brand": "Highborn" },
+{ "id": 243, "brand": "Highland Lakes" },
+{ "id": 31, "brand": "Hirtenberger" },
+{ "id": 297, "brand": "HKS" },
+{ "id": 177, "brand": "Hodgdon" },
+{ "id": 509, "brand": "Hog Wild" },
+{ "id": 342, "brand": "Homeland Munitions" },
+{ "id": 531, "brand": "Honor Defense" },
+{ "id": 608, "brand": "HOP MOLY" },
+{ "id": 7, "brand": "Hornady" },
+{ "id": 28, "brand": "Hotshot" },
+{ "id": 555, "brand": "Howa" },
+{ "id": 120, "brand": "HPR" },
+{ "id": 294, "brand": "HQ Bullets" },
+{ "id": 547, "brand": "HS Precision" },
+{ "id": 126, "brand": "HSM" },
+{ "id": 676, "brand": "Hyperion Munitions" },
+{ "id": 483, "brand": "I.O." },
+{ "id": 65, "brand": "Igman" },
+{ "id": 72, "brand": "IMI" },
+{ "id": 178, "brand": "IMR" },
+{ "id": 21, "brand": "Independence" },
+{ "id": 491, "brand": "Infinity Ammunition" },
+{ "id": 783, "brand": "Inland Mfg" },
+{ "id": 390, "brand": "International" },
+{ "id": 85, "brand": "International Cartridge" },
+{ "id": 351, "brand": "Intrepid" },
+{ "id": 610, "brand": "Iosso" },
+{ "id": 410, "brand": "Iron Fist" },
+{ "id": 640, "brand": "ISSC" },
+{ "id": 661, "brand": "Iver Johnson" },
+{ "id": 478, "brand": "IWI" },
+{ "id": 636, "brand": "J P Enterprises" },
+{ "id": 276, "brand": "Jack Ross Ammunition" },
+{ "id": 587, "brand": "Jagemann" },
+{ "id": 330, "brand": "Jamison" },
+{ "id": 379, "brand": "Javelin" },
+{ "id": 949, "brand": "Jesse James" },
+{ "id": 425, "brand": "John Masen" },
+{ "id": 726, "brand": "Juggernaut" },
+{ "id": 210, "brand": "Kahr" },
+{ "id": 556, "brand": "KCI" },
+{ "id": 171, "brand": "Kel-Tec" },
+{ "id": 94, "brand": "Kent" },
+{ "id": 558, "brand": "Keystone" },
+{ "id": 269, "brand": "Kimber" },
+{ "id": 907, "brand": "Kinetic Industries" },
+{ "id": 325, "brand": "Kinetic Munitions" },
+{ "id": 328, "brand": "Kinetic Range" },
+{ "id": 624, "brand": "Klimovsk" },
+{ "id": 628, "brand": "Korean" },
+{ "id": 449, "brand": "Kriss" },
+{ "id": 611, "brand": "L.E. Wilson" },
+{ "id": 26, "brand": "Lake City" },
+{ "id": 343, "brand": "Lancer" },
+{ "id": 23, "brand": "Lapua" },
+{ "id": 217, "brand": "Lawrence" },
+{ "id": 308, "brand": "Lax Ammunition" },
+{ "id": 459, "brand": "Leadhead" },
+{ "id": 154, "brand": "Lee" },
+{ "id": 543, "brand": "Legacy Sports International" },
+{ "id": 469, "brand": "Legendary" },
+{ "id": 132, "brand": "Lehigh Defense" },
+{ "id": 140, "brand": "Les Baer" },
+{ "id": 877, "brand": "Leupold" },
+{ "id": 136, "brand": "Liberty" },
+{ "id": 99, "brand": "Lightfield" },
+{ "id": 666, "brand": "Lightning Ammo" },
+{ "id": 71, "brand": "Lithuanian Military" },
+{ "id": 391, "brand": "Load Up" },
+{ "id": 125, "brand": "Load-X" },
+{ "id": 652, "brand": "LoadBook" },
+{ "id": 995, "brand": "Lohman Arms" },
+{ "id": 229, "brand": "LVAmmo" },
+{ "id": 122, "brand": "LVE" },
+{ "id": 575, "brand": "LWRC" },
+{ "id": 104, "brand": "Lyalvale" },
+{ "id": 220, "brand": "Lyman" },
+{ "id": 645, "brand": "M&amp;M" },
+{ "id": 510, "brand": "Magnum Blend" },
+{ "id": 650, "brand": "Magnum Materials" },
+{ "id": 39, "brand": "Magnum Research" },
+{ "id": 484, "brand": "Magnus" },
+{ "id": 146, "brand": "Magpul" },
+{ "id": 19, "brand": "Magsafe" },
+{ "id": 8, "brand": "Magtech" },
+{ "id": 153, "brand": "Mako" },
+{ "id": 47, "brand": "Manufacturing Research" },
+{ "id": 414, "brand": "Marlin" },
+{ "id": 346, "brand": "Mass Ammo" },
+{ "id": 316, "brand": "MAST" },
+{ "id": 251, "brand": "MasterPiece Arms" },
+{ "id": 681, "brand": "Match Rifle Powder" },
+{ "id": 566, "brand": "Matco" },
+{ "id": 536, "brand": "Matrix Diversified Industries" },
+{ "id": 416, "brand": "Mauser" },
+{ "id": 396, "brand": "Maxstop" },
+{ "id": 472, "brand": "MaxxTech" },
+{ "id": 156, "brand": "MEC" },
+{ "id": 247, "brand": "Mec-gar" },
+{ "id": 684, "brand": "MEN" },
+{ "id": 561, "brand": "MetalForm" },
+{ "id": 519, "brand": "Metallwerk Elisenhutte" },
+{ "id": 64, "brand": "MFS" },
+{ "id": 557, "brand": "Microtech" },
+{ "id": 880, "brand": "Mid America Munitions" },
+{ "id": 774, "brand": "Midsouth Bulk Bullets" },
+{ "id": 983, "brand": "Mighty Armory" },
+{ "id": 84, "brand": "Military Ballistics Industries" },
+{ "id": 362, "brand": "military surplus" },
+{ "id": 244, "brand": "MiMC" },
+{ "id": 759, "brand": "Minuteman Munitions" },
+{ "id": 741, "brand": "Mirage" },
+{ "id": 417, "brand": "Mission First" },
+{ "id": 883, "brand": "Mississippi Brass" },
+{ "id": 762, "brand": "Missouri Bullets" },
+{ "id": 49, "brand": "Miwall" },
+{ "id": 375, "brand": "mixed" },
+{ "id": 51, "brand": "MKE" },
+{ "id": 447, "brand": "MKS Supply" },
+{ "id": 674, "brand": "Modern Arms" },
+{ "id": 540, "brand": "Modular Driven Technologies" },
+{ "id": 786, "brand": "Molot" },
+{ "id": 83, "brand": "Monarch" },
+{ "id": 323, "brand": "Mongoose Ammunition" },
+{ "id": 753, "brand": "Montana Ammunition" },
+{ "id": 185, "brand": "Montana Gold" },
+{ "id": 284, "brand": "Mossberg" },
+{ "id": 221, "brand": "MTM" },
+{ "id": 290, "brand": "Multiple Impact" },
+{ "id": 258, "brand": "Munitions, Inc" },
+{ "id": 576, "brand": "MWG" },
+{ "id": 408, "brand": "NAM" },
+{ "id": 274, "brand": "National" },
+{ "id": 137, "brand": "National Police" },
+{ "id": 298, "brand": "NcStar" },
+{ "id": 813, "brand": "Nemo Arms" },
+{ "id": 686, "brand": "Nevada Cartridge" },
+{ "id": 673, "brand": "Nexus" },
+{ "id": 241, "brand": "NGA" },
+{ "id": 551, "brand": "Nighthawk" },
+{ "id": 90, "brand": "Nobelsport" },
+{ "id": 395, "brand": "Norinco" },
+{ "id": 40, "brand": "Norma" },
+{ "id": 157, "brand": "North American Arms" },
+{ "id": 245, "brand": "North Georgia" },
+{ "id": 389, "brand": "Northern Hills" },
+{ "id": 33, "brand": "Nosler" },
+{ "id": 363, "brand": "Noveske" },
+{ "id": 117, "brand": "Novosibirsk" },
+{ "id": 961, "brand": "NovX" },
+{ "id": 550, "brand": "Numrich" },
+{ "id": 474, "brand": "OakIsland" },
+{ "id": 352, "brand": "OATH" },
+{ "id": 941, "brand": "OEM Magazines" },
+{ "id": 792, "brand": "Ohio Ordnance" },
+{ "id": 798, "brand": "OKAY Industries" },
+{ "id": 564, "brand": "OLY Arms" },
+{ "id": 522, "brand": "Olympic Arms" },
+{ "id": 278, "brand": "On Target" },
+{ "id": 189, "brand": "Once Fired Lake City Brass" },
+{ "id": 1001, "brand": "OPS" },
+{ "id": 898, "brand": "ORM Tech" },
+{ "id": 270, "brand": "Ozark Ordnance" },
+{ "id": 230, "brand": "P&amp;G Performance" },
+{ "id": 116, "brand": "Pachmayr" },
+{ "id": 644, "brand": "Pacific Magazine" },
+{ "id": 38, "brand": "Pakistani Military" },
+{ "id": 399, "brand": "Pakistani Ordnance Factory" },
+{ "id": 448, "brand": "Para-Ordnance" },
+{ "id": 302, "brand": "Parabellum Research" },
+{ "id": 357, "brand": "Paraklese" },
+{ "id": 688, "brand": "Patriot Munitions" },
+{ "id": 466, "brand": "PatriotMax" },
+{ "id": 17, "brand": "PCI" },
+{ "id": 687, "brand": "Peak Performance Ammo" },
+{ "id": 910, "brand": "Pearce Grip" },
+{ "id": 928, "brand": "Pelican" },
+{ "id": 723, "brand": "Pendleton" },
+{ "id": 711, "brand": "Perfecta" },
+{ "id": 418, "brand": "Phoenix" },
+{ "id": 237, "brand": "Pierce" },
+{ "id": 54, "brand": "Piney Mountain" },
+{ "id": 586, "brand": "Plano" },
+{ "id": 427, "brand": "Plinker" },
+{ "id": 9, "brand": "PMC" },
+{ "id": 63, "brand": "PMP" },
+{ "id": 197, "brand": "PNW Arms" },
+{ "id": 388, "brand": "Pobjeda" },
+{ "id": 895, "brand": "Polishing Media" },
+{ "id": 327, "brand": "Polycase" },
+{ "id": 667, "brand": "Polyfrang" },
+{ "id": 639, "brand": "Polymaggs USA" },
+{ "id": 523, "brand": "Port City Armory" },
+{ "id": 677, "brand": "Portugal Military" },
+{ "id": 338, "brand": "Powder River Cartridge" },
+{ "id": 647, "brand": "Powerbelt" },
+{ "id": 331, "brand": "Precision Delta" },
+{ "id": 135, "brand": "Precision Gun Works" },
+{ "id": 231, "brand": "Precision One" },
+{ "id": 554, "brand": "Precision Reflex" },
+{ "id": 490, "brand": "Prime Ammunition" },
+{ "id": 233, "brand": "ProGrade" },
+{ "id": 828, "brand": "ProLoading Ammunition" },
+{ "id": 151, "brand": "ProMag" },
+{ "id": 771, "brand": "Proofmark Bullets" },
+{ "id": 22, "brand": "Prvi Partizan" },
+{ "id": 822, "brand": "PTR Industries" },
+{ "id": 262, "brand": "PW Arms" },
+{ "id": 947, "brand": "Quinetic" },
+{ "id": 226, "brand": "Quinetics" },
+{ "id": 904, "brand": "Rafter Seven" },
+{ "id": 306, "brand": "Rainier" },
+{ "id": 139, "brand": "Rainier Ballistics" },
+{ "id": 520, "brand": "RAM Precision Ammunition" },
+{ "id": 181, "brand": "Ramshot" },
+{ "id": 539, "brand": "Ranch Products" },
+{ "id": 977, "brand": "Rapid Ammo" },
+{ "id": 281, "brand": "Rattlesnake" },
+{ "id": 111, "brand": "RBCD" },
+{ "id": 155, "brand": "RCBS" },
+{ "id": 456, "brand": "Ready Reserve Ammo" },
+{ "id": 871, "brand": "Reaper Ammunition" },
+{ "id": 169, "brand": "Red Army Standard" },
+{ "id": 663, "brand": "Red Dog" },
+{ "id": 535, "brand": "Red, White &amp; Blue" },
+{ "id": 479, "brand": "Redding" },
+{ "id": 10, "brand": "Remington" },
+{ "id": 404, "brand": "Rhodesian Jungle" },
+{ "id": 145, "brand": "Right To Bear Ammo" },
+{ "id": 485, "brand": "Rim Rock" },
+{ "id": 91, "brand": "Rio" },
+{ "id": 958, "brand": "RMI" },
+{ "id": 919, "brand": "Roboco" },
+{ "id": 533, "brand": "Rock Island" },
+{ "id": 212, "brand": "Rock River" },
+{ "id": 356, "brand": "Romanian Military" },
+{ "id": 204, "brand": "Rottweil" },
+{ "id": 675, "brand": "Royal Armament" },
+{ "id": 165, "brand": "RUAG Ammotec" },
+{ "id": 172, "brand": "Ruger" },
+{ "id": 458, "brand": "Rush Creek" },
+{ "id": 383, "brand": "Russian Military" },
+{ "id": 439, "brand": "RWB" },
+{ "id": 36, "brand": "RWS" },
+{ "id": 487, "brand": "S&amp;S" },
+{ "id": 573, "brand": "Sabatti" },
+{ "id": 852, "brand": "Safariland" },
+{ "id": 512, "brand": "SafeTech" },
+{ "id": 430, "brand": "Saiga" },
+{ "id": 336, "brand": "Sako" },
+{ "id": 669, "brand": "Sar Arms" },
+{ "id": 607, "brand": "Sartorius" },
+{ "id": 468, "brand": "Sasquatch" },
+{ "id": 837, "brand": "Satern" },
+{ "id": 415, "brand": "Savage" },
+{ "id": 286, "brand": "SBR" },
+{ "id": 504, "brand": "SCCY" },
+{ "id": 176, "brand": "Scherer" },
+{ "id": 403, "brand": "Scorpion" },
+{ "id": 789, "brand": "Scout" },
+{ "id": 11, "brand": "Sellier and Bellot" },
+{ "id": 495, "brand": "SGM Tactical" },
+{ "id": 227, "brand": "Sharp Shoot" },
+{ "id": 465, "brand": "Sharps" },
+{ "id": 840, "brand": "Shellsorter" },
+{ "id": 170, "brand": "Shooters Ammunition" },
+{ "id": 653, "brand": "Shooters Arms" },
+{ "id": 511, "brand": "Shooters Choice" },
+{ "id": 617, "brand": "Shooters Precision" },
+{ "id": 637, "brand": "Shooters Ridge" },
+{ "id": 583, "brand": "Shooters World" },
+{ "id": 616, "brand": "Shooting Chrony" },
+{ "id": 955, "brand": "Sierra" },
+{ "id": 337, "brand": "Sig Sauer" },
+{ "id": 250, "brand": "SigTac" },
+{ "id": 489, "brand": "Silver Creek" },
+{ "id": 75, "brand": "Silver State Armory" },
+{ "id": 968, "brand": "Simbirsk" },
+{ "id": 405, "brand": "Simunition" },
+{ "id": 916, "brand": "Sinclair" },
+{ "id": 30, "brand": "Singapore Military" },
+{ "id": 193, "brand": "SinterFire" },
+{ "id": 37, "brand": "SK" },
+{ "id": 240, "brand": "SK Jagd" },
+{ "id": 855, "brand": "SKS" },
+{ "id": 248, "brand": "SmartReloader" },
+{ "id": 273, "brand": "Smith &amp; Wesson" },
+{ "id": 612, "brand": "Snake River" },
+{ "id": 82, "brand": "snap caps" },
+{ "id": 144, "brand": "SNS Casting" },
+{ "id": 265, "brand": "South Fork" },
+{ "id": 46, "brand": "Southern Ballistic Research" },
+{ "id": 222, "brand": "Southern Bloomer" },
+{ "id": 203, "brand": "Spartan" },
+{ "id": 508, "brand": "Speedball" },
+{ "id": 292, "brand": "Speer" },
+{ "id": 272, "brand": "Sperry" },
+{ "id": 567, "brand": "Sphinx" },
+{ "id": 795, "brand": "Spike" },
+{ "id": 834, "brand": "SportLock" },
+{ "id": 159, "brand": "Springfield" },
+{ "id": 423, "brand": "SPS" },
+{ "id": 455, "brand": "SRA" },
+{ "id": 807, "brand": "SRM Arms" },
+{ "id": 517, "brand": "SSA" },
+{ "id": 530, "brand": "Stag Arms" },
+{ "id": 901, "brand": "Star" },
+{ "id": 267, "brand": "Starline" },
+{ "id": 320, "brand": "Steel Ridge" },
+{ "id": 986, "brand": "Steinel Ammunition" },
+{ "id": 413, "brand": "Steyr" },
+{ "id": 436, "brand": "STI" },
+{ "id": 714, "brand": "Still American" },
+{ "id": 344, "brand": "Stillwood" },
+{ "id": 437, "brand": "Stone Hart" },
+{ "id": 600, "brand": "Stoney Point" },
+{ "id": 856, "brand": "Strike Industries" },
+{ "id": 471, "brand": "Stryker" },
+{ "id": 604, "brand": "Sudden Impact" },
+{ "id": 234, "brand": "Sumbro" },
+{ "id": 329, "brand": "Summit" },
+{ "id": 989, "brand": "Super Vel" },
+{ "id": 175, "brand": "Surefire" },
+{ "id": 373, "brand": "Surplus Ammo" },
+{ "id": 629, "brand": "Swampfox" },
+{ "id": 266, "brand": "Swift" },
+{ "id": 289, "brand": "Swiss P" },
+{ "id": 691, "brand": "TAC" },
+{ "id": 750, "brand": "Tacnition" },
+{ "id": 264, "brand": "TacStar" },
+{ "id": 560, "brand": "Tactical Innovations" },
+{ "id": 542, "brand": "Tactical Solutions" },
+{ "id": 665, "brand": "TangoDown" },
+{ "id": 148, "brand": "Tapco" },
+{ "id": 532, "brand": "Target Sports" },
+{ "id": 106, "brand": "Taurus" },
+{ "id": 552, "brand": "TC Venture" },
+{ "id": 350, "brand": "Team Never Quit" },
+{ "id": 238, "brand": "Ted Nugent" },
+{ "id": 293, "brand": "Ten Ring" },
+{ "id": 86, "brand": "Ten-X" },
+{ "id": 477, "brand": "The Blue Bullets" },
+{ "id": 150, "brand": "Thermold" },
+{ "id": 214, "brand": "Thompson Center" },
+{ "id": 434, "brand": "Tikka" },
+{ "id": 606, "brand": "Timney" },
+{ "id": 127, "brand": "Tipton" },
+{ "id": 934, "brand": "TNS Industries" },
+{ "id": 505, "brand": "TNT Munitions" },
+{ "id": 589, "brand": "Top Brass" },
+{ "id": 324, "brand": "Top Shot" },
+{ "id": 622, "brand": "TR&amp;Z" },
+{ "id": 76, "brand": "tracer ammo" },
+{ "id": 216, "brand": "Traditions" },
+{ "id": 138, "brand": "Trajetech" },
+{ "id": 407, "brand": "Triple Threat" },
+{ "id": 568, "brand": "TRIPLE-K" },
+{ "id": 443, "brand": "Tripp" },
+{ "id": 105, "brand": "Triton" },
+{ "id": 300, "brand": "Triune Defense" },
+{ "id": 149, "brand": "Troy" },
+{ "id": 529, "brand": "TRT Tactical" },
+{ "id": 634, "brand": "Tuff Products" },
+{ "id": 61, "brand": "Tula" },
+{ "id": 515, "brand": "Turkish Military" },
+{ "id": 52, "brand": "UCW" },
+{ "id": 164, "brand": "Ugly" },
+{ "id": 12, "brand": "Ultramax" },
+{ "id": 66, "brand": "Ulyanovsk" },
+{ "id": 574, "brand": "Umarex" },
+{ "id": 232, "brand": "UMC" },
+{ "id": 620, "brand": "UNAC" },
+{ "id": 457, "brand": "Underwood" },
+{ "id": 843, "brand": "Uniquetek" },
+{ "id": 35, "brand": "unknown" },
+{ "id": 708, "brand": "US Cartridge" },
+{ "id": 565, "brand": "US Firearms" },
+{ "id": 73, "brand": "US Military" },
+{ "id": 641, "brand": "US P.A.L.M." },
+{ "id": 931, "brand": "US Peacekeeper" },
+{ "id": 656, "brand": "USAC" },
+{ "id": 541, "brand": "USSG" },
+{ "id": 810, "brand": "UTAS" },
+{ "id": 632, "brand": "UZI" },
+{ "id": 481, "brand": "Vectan" },
+{ "id": 501, "brand": "Velocity Munitions" },
+{ "id": 473, "brand": "Velocity Tactics" },
+{ "id": 103, "brand": "Venatum" },
+{ "id": 134, "brand": "Ventura Heritage" },
+{ "id": 133, "brand": "Ventura Tactical" },
+{ "id": 631, "brand": "VEPR" },
+{ "id": 638, "brand": "Versacarry" },
+{ "id": 257, "brand": "Vet-Made" },
+{ "id": 180, "brand": "Vihtavouri" },
+{ "id": 482, "brand": "Vihtavuori" },
+{ "id": 102, "brand": "Vinci" },
+{ "id": 732, "brand": "Vostok" },
+{ "id": 62, "brand": "Vympel" },
+{ "id": 109, "brand": "Wagner" },
+{ "id": 252, "brand": "Walther" },
+{ "id": 275, "brand": "Wartak" },
+{ "id": 80, "brand": "Weatherby" },
+{ "id": 609, "brand": "Weaver" },
+{ "id": 862, "brand": "Western Ammo" },
+{ "id": 249, "brand": "Wheeler" },
+{ "id": 598, "brand": "Williams" },
+{ "id": 211, "brand": "Wilson Combat" },
+{ "id": 13, "brand": "Winchester" },
+{ "id": 424, "brand": "Windham Weaponry" },
+{ "id": 596, "brand": "Windjammer" },
+{ "id": 14, "brand": "Wolf" },
+{ "id": 626, "brand": "Wolff" },
+{ "id": 682, "brand": "Woodleigh" },
+{ "id": 409, "brand": "WPA" },
+{ "id": 499, "brand": "XCaliber" },
+{ "id": 537, "brand": "Xproducts" },
+{ "id": 315, "brand": "XTreme Bullets" },
+{ "id": 913, "brand": "Xtreme Reloading" },
+{ "id": 544, "brand": "Yankee Hill Machine" },
+{ "id": 497, "brand": "Yavex" },
+{ "id": 53, "brand": "Yugoslavian Military" },
+{ "id": 672, "brand": "Z-Clean" },
+{ "id": 225, "brand": "Zanders" },
+{ "id": 580, "brand": "Zastava" },
+{ "id": 592, "brand": "Zero Bullets" },
+{ "id": 621, "brand": "Zombie Commander" },
+{ "id": 349, "brand": "ZQI" },
+{ "id": 382, "brand": "ZVS" }
+  ],
+  "brandCalibers": [
+    {
+      "brandId": 3,
+      "caliberId": 3,
+      "id": 1
+    },
+    {
+      "brandId": 3,
+      "caliberId": 4,
+      "id": 2
+    }
+  ]
+}

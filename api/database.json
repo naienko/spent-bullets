@@ -84,43 +84,511 @@
   ],
   "calibers": [
     {
-      "caliber": ".22",
+      "caliber": "10mm Auto",
       "id": 1
     },
     {
-      "caliber": ".22 LR",
+      "caliber": ".22 Center Fire Magnum",
       "id": 2
     },
     {
-      "caliber": ".380",
+      "caliber": ".22 Jet",
       "id": 3
+    },
+    {
+      "caliber": ".22 TCM",
+      "id": 4
+    },
+    {
+      "caliber": ".22 TCM 9R",
+      "id": 5
+    },
+    {
+      "caliber": ".25 ACP",
+      "id": 6
+    },
+    {
+      "caliber": ".25 NAA",
+      "id": 7
+    },
+    {
+      "caliber": ".256 Win Mag",
+      "id": 8
+    },
+    {
+      "caliber": ".30 Luger",
+      "id": 9
+    },
+    {
+      "caliber": ".30 Mauser Automatic",
+      "id": 10
+    },
+    {
+      "caliber": ".32 ACP",
+      "id": 11
+    },
+    {
+      "caliber": ".32 H&R Mag",
+      "id": 12
+    },
+    {
+      "caliber": ".32 Long Colt",
+      "id": 13
+    },
+    {
+      "caliber": ".32 NAA",
+      "id": 14
+    },
+    {
+      "caliber": ".32 S&W",
+      "id": 15
+    },
+    {
+      "caliber": ".32 S&W Long",
+      "id": 16
+    },
+    {
+      "caliber": ".32 Short Colt",
+      "id": 17
+    },
+    {
+      "caliber": ".320 Long",
+      "id": 18
+    },
+    {
+      "caliber": ".320 Short",
+      "id": 19
+    },
+    {
+      "caliber": ".327 Federal Mag",
+      "id": 20
+    },
+    {
+      "caliber": ".356 TSW",
+      "id": 21
+    },
+    {
+      "caliber": ".357 Mag",
+      "id": 22
+    },
+    {
+      "caliber": ".357 Rem Max",
+      "id": 23
+    },
+    {
+      "caliber": ".357 SIG",
+      "id": 24
+    },
+    {
+      "caliber": ".357 Super Magnum",
+      "id": 25
+    },
+    {
+      "caliber": ".375 JDJ",
+      "id": 26
+    },
+    {
+      "caliber": ".38 Auto",
+      "id": 27
+    },
+    {
+      "caliber": ".38 Long Colt",
+      "id": 28
+    },
+    {
+      "caliber": ".38 S&W",
+      "id": 29
+    },
+    {
+      "caliber": ".38 Short Colt",
+      "id": 30
+    },
+    {
+      "caliber": ".38 Special",
+      "id": 31
+    },
+    {
+      "caliber": ".38 Super Auto",
+      "id": 32
+    },
+    {
+      "caliber": ".38 Super Comp",
+      "id": 33
+    },
+    {
+      "caliber": ".38-40 Win",
+      "id": 34
+    },
+    {
+      "caliber": ".380 Auto",
+      "id": 35
+    },
+    {
+      "caliber": ".380 Long",
+      "id": 36
+    },
+    {
+      "caliber": "4.6x30mm",
+      "id": 37
     },
     {
       "caliber": ".40 S&W",
-      "id": 4
+      "id": 38
     },
     {
-      "caliber": "9mm",
-      "id": 5
+      "caliber": ".40 Super",
+      "id": 39
+    },
+    {
+      "caliber": ".400 Cor-Bon",
+      "id": 40
+    },
+    {
+      "caliber": ".41 Action Express",
+      "id": 41
+    },
+    {
+      "caliber": ".41 Long Colt",
+      "id": 42
+    },
+    {
+      "caliber": ".41 Rem Mag",
+      "id": 43
+    },
+    {
+      "caliber": ".41 Special",
+      "id": 44
+    },
+    {
+      "caliber": ".429 Desert Eagle",
+      "id": 45
+    },
+    {
+      "caliber": ".44 AMP",
+      "id": 46
+    },
+    {
+      "caliber": ".44 Colt",
+      "id": 47
+    },
+    {
+      "caliber": ".44 Mag",
+      "id": 48
+    },
+    {
+      "caliber": ".44 S&W Russian",
+      "id": 49
+    },
+    {
+      "caliber": ".44 S&W Special",
+      "id": 50
+    },
+    {
+      "caliber": ".440 Cor-Bon",
+      "id": 51
+    },
+    {
+      "caliber": ".445 SuperMag",
+      "id": 52
+    },
+    {
+      "caliber": ".45 ACP/Auto",
+      "id": 53
+    },
+    {
+      "caliber": ".45 Auto Rim",
+      "id": 54
+    },
+    {
+      "caliber": ".45 Colt",
+      "id": 55
+    },
+    {
+      "caliber": ".45 GAP",
+      "id": 56
+    },
+    {
+      "caliber": ".45 HP",
+      "id": 57
+    },
+    {
+      "caliber": ".45 Long Colt",
+      "id": 58
+    },
+    {
+      "caliber": ".45 Schofield",
+      "id": 59
+    },
+    {
+      "caliber": ".45 Special",
+      "id": 60
+    },
+    {
+      "caliber": ".45 Super",
+      "id": 61
+    },
+    {
+      "caliber": ".45 Win Mag",
+      "id": 62
+    },
+    {
+      "caliber": ".450 Adams",
+      "id": 63
+    },
+    {
+      "caliber": ".450 AutoBond",
+      "id": 64
+    },
+    {
+      "caliber": ".450 Boxer Mk I",
+      "id": 65
+    },
+    {
+      "caliber": ".450 Colt",
+      "id": 66
+    },
+    {
+      "caliber": ".450 Corto",
+      "id": 67
+    },
+    {
+      "caliber": ".450 Mark III",
+      "id": 68
+    },
+    {
+      "caliber": ".450 Revolver",
+      "id": 69
+    },
+    {
+      "caliber": ".450 Short",
+      "id": 70
+    },
+    {
+      "caliber": ".454 Casull",
+      "id": 71
+    },
+    {
+      "caliber": ".455 Webley",
+      "id": 72
+    },
+    {
+      "caliber": ".460 Rowland",
+      "id": 73
+    },
+    {
+      "caliber": ".460 S&W Mag",
+      "id": 74
+    },
+    {
+      "caliber": ".475 Linebaugh",
+      "id": 75
+    },
+    {
+      "caliber": ".475 Wildey Magnum",
+      "id": 76
+    },
+    {
+      "caliber": ".480 Ruger",
+      "id": 77
+    },
+    {
+      "caliber": "5.75mm Velo-Dog",
+      "id": 78
+    },
+    {
+      "caliber": "5.7x28mm",
+      "id": 79
+    },
+    {
+      "caliber": ".50 Action Express",
+      "id": 80
+    },
+    {
+      "caliber": ".50 GI",
+      "id": 81
+    },
+    {
+      "caliber": ".500 JRH",
+      "id": 82
+    },
+    {
+      "caliber": ".500 Linebaugh",
+      "id": 83
+    },
+    {
+      "caliber": ".500 S&W Mag",
+      "id": 84
+    },
+    {
+      "caliber": ".500 S&W Special",
+      "id": 85
+    },
+    {
+      "caliber": ".500 Wyoming Express",
+      "id": 86
+    },
+    {
+      "caliber": "6.35mm",
+      "id": 87
+    },
+    {
+      "caliber": "7.5mm Swiss Ordnance",
+      "id": 88
+    },
+    {
+      "caliber": "7.62x25mm Tokarev",
+      "id": 89
+    },
+    {
+      "caliber": "7.62x38 Nagant",
+      "id": 90
+    },
+    {
+      "caliber": "7.63x25mm Mauser",
+      "id": 91
+    },
+    {
+      "caliber": "7.65 Browning",
+      "id": 92
+    },
+    {
+      "caliber": "7.65x20mm Longue",
+      "id": 93
+    },
+    {
+      "caliber": "7.65x21mm",
+      "id": 94
+    },
+    {
+      "caliber": "8mm Gasser",
+      "id": 95
+    },
+    {
+      "caliber": "8mm Lebel Revolver",
+      "id": 96
+    },
+    {
+      "caliber": "8mm Roth Steyr",
+      "id": 97
+    },
+    {
+      "caliber": "8x22mm Nambu",
+      "id": 98
+    },
+    {
+      "caliber": "9mm Browning Long",
+      "id": 99
+    },
+    {
+      "caliber": "9mm Luger",
+      "id": 100
+    },
+    {
+      "caliber": "9mm Makarov",
+      "id": 111
+    },
+    {
+      "caliber": "9mm Police",
+      "id": 101
+    },
+    {
+      "caliber": "9x18mm Ultra",
+      "id": 102
+    },
+    {
+      "caliber": "9x19 Parabellum",
+      "id": 103
+    },
+    {
+      "caliber": "9x20mm Browning Long",
+      "id": 104
+    },
+    {
+      "caliber": "9x21mm",
+      "id": 105
+    },
+    {
+      "caliber": "9x23mm Largo",
+      "id": 106
+    },
+    {
+      "caliber": "9x23mm Steyr",
+      "id": 107
+    },
+    {
+      "caliber": "9x23mm Win",
+      "id": 108
+    },
+    {
+      "caliber": "9x25mm Dillon",
+      "id": 109
+    },
+    {
+      "caliber": "9x25mm Mauser",
+      "id": 110
     }
   ],
   "brands": [
-    {
-      "brand": "Remington",
-      "id": 1
-    },
-    {
-      "brand": "Hornady",
-      "id": 2
-    },
-    {
-      "brand": "Winchester",
-      "id": 3
-    },
-    {
-      "brand": "Cape Fear",
-      "id": 4
-    }
+{ "id": 1, "brand": "Aguila" },
+{ "id": 187, "brand": "Alexander Arms" },
+{ "id": 303, "brand": "American Eagle" },
+{ "id": 15, "brand": "Armscor" },
+{ "id": 194, "brand": "Atomic" },
+{ "id": 130, "brand": "Barnes" },
+{ "id": 44, "brand": "Black Hills" },
+{ "id": 402, "brand": "Brownells" },
+{ "id": 254, "brand": "Browning" },
+{ "id": 43, "brand": "Buffalo Bore" },
+{ "id": 419, "brand": "Bushmaster" },
+{ "id": 332, "brand": "Cape Fear" },
+{ "id": 202, "brand": "Colt" },
+{ "id": 524, "brand": "Elite Tactical Systems" },
+{ "id": 5, "brand": "Federal" },
+{ "id": 16, "brand": "Fiocchi" },
+{ "id": 261, "brand": "FN" },
+{ "id": 307, "brand": "Frontier" },
+{ "id": 147, "brand": "Glock" },
+{ "id": 525, "brand": "Henry" },
+{ "id": 971, "brand": "Heritage" },
+{ "id": 112, "brand": "Herter&#39;s" },
+{ "id": 7, "brand": "Hornady" },
+{ "id": 126, "brand": "HSM" },
+{ "id": 171, "brand": "Kel-Tec" },
+{ "id": 23, "brand": "Lapua" },
+{ "id": 136, "brand": "Liberty" },
+{ "id": 146, "brand": "Magpul" },
+{ "id": 19, "brand": "Magsafe" },
+{ "id": 8, "brand": "Magtech" },
+{ "id": 414, "brand": "Marlin" },
+{ "id": 416, "brand": "Mauser" },
+{ "id": 83, "brand": "Monarch" },
+{ "id": 40, "brand": "Norma" },
+{ "id": 33, "brand": "Nosler" },
+{ "id": 522, "brand": "Olympic Arms" },
+{ "id": 278, "brand": "On Target" },
+{ "id": 9, "brand": "PMC" },
+{ "id": 22, "brand": "Prvi Partizan" },
+{ "id": 871, "brand": "Reaper Ammunition" },
+{ "id": 169, "brand": "Red Army Standard" },
+{ "id": 10, "brand": "Remington" },
+{ "id": 404, "brand": "Rhodesian Jungle" },
+{ "id": 533, "brand": "Rock Island" },
+{ "id": 337, "brand": "Sig Sauer" },
+{ "id": 75, "brand": "Silver State Armory" },
+{ "id": 405, "brand": "Simunition" },
+{ "id": 273, "brand": "Smith &amp; Wesson" },
+{ "id": 159, "brand": "Springfield" },
+{ "id": 517, "brand": "SSA" },
+{ "id": 532, "brand": "Target Sports" },
+{ "id": 106, "brand": "Taurus" },
+{ "id": 350, "brand": "Team Never Quit" },
+{ "id": 238, "brand": "Ted Nugent" },
+{ "id": 324, "brand": "Top Shot" },
+{ "id": 61, "brand": "Tula" },
+{ "id": 73, "brand": "US Military" },
+{ "id": 13, "brand": "Winchester" },
+{ "id": 14, "brand": "Wolf" },
+{ "id": 621, "brand": "Zombie Commander" }
   ],
   "brandCalibers": [
     {
