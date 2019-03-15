@@ -39,8 +39,27 @@ export default class UserRoles extends Component {
         this.setState(stateToChange)
     }
 
+    updateUserRole = event => {
+        //stop the form doing HTML stuff
+        event.preventDefault()
+        if (this.state.currentUser.id === this.props.activeUser.id) {
+            alert("You can't change your own role");
+        } else {
+            //construct the user object
+            const updatedUser = {
+                id: this.state.currentUser.id,
+                display_name: this.state.user_role
+            }
+            
+            this.props.updateUser(updatedUser)
+                .then(() => {
+                    //close the modal
+                    this.setState({ show: false });
+                })
+        }
+    }
+
     render() {
-        console.log("local state:", this.state)
         return (
             <div id="dashboard">
                 <CardDeck>
@@ -54,7 +73,7 @@ export default class UserRoles extends Component {
                                     name: {user.display_name}<br />
                                     role: {user.role}
                                 </Card.Text>
-                                <Button variant="success" id={user.id} onClick={this.handleShow}>Change Role</Button>
+                                { user.id === this.props.activeUser.id ? <b>This is you!</b> : <Button variant="success" id={user.id} onClick={this.handleShow}>Change Role</Button> }
                             </Card.Body>
                         </Card>
                     )}
@@ -79,7 +98,7 @@ export default class UserRoles extends Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                    <Button variant="primary" onClick={this.handleClose}>Save Changes</Button>
+                    <Button variant="primary" onClick={this.updateUserRole}>Save Changes</Button>
                 </Modal.Footer>
                 </Modal>
             </div>

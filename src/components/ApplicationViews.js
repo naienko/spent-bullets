@@ -139,7 +139,10 @@ export default class ApplicationView extends Component {
                 }} />
 
                 <Route exact path="/admin/roles" render={(props) => {
-                    return <UserRoles users={this.state.users} />
+                    return <UserRoles users={this.state.users} 
+                        activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
+                    />
                 }} />
 
             </React.Fragment>
