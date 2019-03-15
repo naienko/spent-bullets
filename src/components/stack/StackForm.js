@@ -43,10 +43,14 @@ class StackForm extends Component {
         //construct the stack object
         const stack = {
             userId: parseInt(sessionStorage.getItem("credentials")),
-            notes: this.state.stack_notes
         }
 
         if (this.state.brandCaliberId && this.state.stackAmt) {
+            if (this.state.stack_notes === undefined) {
+                stack.notes = ""
+            } else {
+                stack.notes = this.state.stack_notes
+            }
             //check for pre-existing matching stack
             if (!this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)) {
                 toast.success("Adding new stack!", {
@@ -66,6 +70,13 @@ class StackForm extends Component {
                     let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
                     stack.amount = multipler_total;
                 }
+                //add stack object in the stacks table in the db using the passed-in function
+                this.props.addStack(stack)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )
             } else {
                 //if yes, alert
                 toast.success("This stack already exists! Updating the count for you ...", {
@@ -86,14 +97,14 @@ class StackForm extends Component {
                     let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
                     stack.amount = multipler_total + parseInt(oldStack.amount);
                 }
+                //update stack object in the stacks table in the db using the passed-in function
+                this.props.updateStack(stack)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )
             }
-            //update stack object in the stacks table in the db using the passed-in function
-            this.props.updateStack(stack)
-                .then(
-                    setTimeout(() => {
-                        this.props.history.push("/")
-                    }, 3500)
-                )
         } else {
             alert("Please complete the form!")
         }

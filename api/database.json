@@ -73,6 +73,13 @@
       "notes": "",
       "brandCaliberId": 11,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 7,
+      "amount": 100,
+      "id": 10
     }
   ],
   "calibers": [
