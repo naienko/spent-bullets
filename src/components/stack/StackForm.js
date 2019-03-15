@@ -95,12 +95,10 @@ class StackForm extends Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="stackAmt">
-                    <Form.Label>
-                        How many?
-                    </Form.Label>
-                    <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                     <Form.Label>Did you buy in boxes?</Form.Label>{" "}
-                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} />
+                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} /><br />
+                    <Form.Label>How many{ this.state.boxIsChecked === false ? " bullets" : " boxes"}?</Form.Label>
+                    <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                 </Form.Group>
                 <Form.Group controlId="stack_notes">
                     <Form.Label>
