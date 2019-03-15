@@ -12,7 +12,7 @@
       "username": "oddball",
       "password": "st00pid79",
       "email": "oddball79@gmail.com",
-      "display_name": "Michael",
+      "display_name": "admin",
       "id": 2,
       "role": "user"
     }
@@ -20,66 +20,24 @@
   "stacks": [
     {
       "userId": 1,
-      "amount": 2304,
-      "brandCaliberId": 2,
       "notes": "",
+      "brandCaliberId": 1,
+      "amount": 750,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "notes": "went to the range",
+      "brandCaliberId": 2,
+      "amount": 1095,
       "id": 2
     },
     {
       "userId": 1,
-      "amount": 185,
-      "brandCaliberId": 1,
-      "notes": "",
+      "notes": "fifteen grain police load",
+      "brandCaliberId": 3,
+      "amount": "10",
       "id": 3
-    },
-    {
-      "userId": 2,
-      "amount": 1930,
-      "brandCaliberId": 3,
-      "notes": "",
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "amount": 1000,
-      "brandCaliberId": 4,
-      "notes": "",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "amount": 160,
-      "notes": "",
-      "brandCaliberId": 6,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "amount": 300,
-      "notes": "",
-      "brandCaliberId": 3,
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "amount": 150,
-      "notes": "",
-      "brandCaliberId": 9,
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "amount": 150,
-      "notes": "",
-      "brandCaliberId": 11,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "notes": "",
-      "brandCaliberId": 7,
-      "amount": 100,
-      "id": 10
     }
   ],
   "calibers": [
@@ -526,136 +484,276 @@
     {
       "caliber": "9x25mm Mauser",
       "id": 110
+    },
+    {
+      "caliber": ".22 LR",
+      "id": 112
     }
   ],
   "brands": [
-{ "id": 1, "brand": "Aguila" },
-{ "id": 187, "brand": "Alexander Arms" },
-{ "id": 303, "brand": "American Eagle" },
-{ "id": 15, "brand": "Armscor" },
-{ "id": 194, "brand": "Atomic" },
-{ "id": 130, "brand": "Barnes" },
-{ "id": 44, "brand": "Black Hills" },
-{ "id": 402, "brand": "Brownells" },
-{ "id": 254, "brand": "Browning" },
-{ "id": 43, "brand": "Buffalo Bore" },
-{ "id": 419, "brand": "Bushmaster" },
-{ "id": 332, "brand": "Cape Fear" },
-{ "id": 202, "brand": "Colt" },
-{ "id": 524, "brand": "Elite Tactical Systems" },
-{ "id": 5, "brand": "Federal" },
-{ "id": 16, "brand": "Fiocchi" },
-{ "id": 261, "brand": "FN" },
-{ "id": 307, "brand": "Frontier" },
-{ "id": 147, "brand": "Glock" },
-{ "id": 525, "brand": "Henry" },
-{ "id": 971, "brand": "Heritage" },
-{ "id": 112, "brand": "Herter&#39;s" },
-{ "id": 7, "brand": "Hornady" },
-{ "id": 126, "brand": "HSM" },
-{ "id": 171, "brand": "Kel-Tec" },
-{ "id": 23, "brand": "Lapua" },
-{ "id": 136, "brand": "Liberty" },
-{ "id": 146, "brand": "Magpul" },
-{ "id": 19, "brand": "Magsafe" },
-{ "id": 8, "brand": "Magtech" },
-{ "id": 414, "brand": "Marlin" },
-{ "id": 416, "brand": "Mauser" },
-{ "id": 83, "brand": "Monarch" },
-{ "id": 40, "brand": "Norma" },
-{ "id": 33, "brand": "Nosler" },
-{ "id": 522, "brand": "Olympic Arms" },
-{ "id": 278, "brand": "On Target" },
-{ "id": 9, "brand": "PMC" },
-{ "id": 22, "brand": "Prvi Partizan" },
-{ "id": 871, "brand": "Reaper Ammunition" },
-{ "id": 169, "brand": "Red Army Standard" },
-{ "id": 10, "brand": "Remington" },
-{ "id": 404, "brand": "Rhodesian Jungle" },
-{ "id": 533, "brand": "Rock Island" },
-{ "id": 337, "brand": "Sig Sauer" },
-{ "id": 75, "brand": "Silver State Armory" },
-{ "id": 405, "brand": "Simunition" },
-{ "id": 273, "brand": "Smith &amp; Wesson" },
-{ "id": 159, "brand": "Springfield" },
-{ "id": 517, "brand": "SSA" },
-{ "id": 532, "brand": "Target Sports" },
-{ "id": 106, "brand": "Taurus" },
-{ "id": 350, "brand": "Team Never Quit" },
-{ "id": 238, "brand": "Ted Nugent" },
-{ "id": 324, "brand": "Top Shot" },
-{ "id": 61, "brand": "Tula" },
-{ "id": 73, "brand": "US Military" },
-{ "id": 13, "brand": "Winchester" },
-{ "id": 14, "brand": "Wolf" },
-{ "id": 621, "brand": "Zombie Commander" }
+    {
+      "brand": "reload (add notes for load)",
+      "id": 1000
+    },
+    {
+      "id": 1,
+      "brand": "Aguila"
+    },
+    {
+      "id": 187,
+      "brand": "Alexander Arms"
+    },
+    {
+      "id": 303,
+      "brand": "American Eagle"
+    },
+    {
+      "id": 15,
+      "brand": "Armscor"
+    },
+    {
+      "id": 194,
+      "brand": "Atomic"
+    },
+    {
+      "id": 130,
+      "brand": "Barnes"
+    },
+    {
+      "id": 44,
+      "brand": "Black Hills"
+    },
+    {
+      "id": 402,
+      "brand": "Brownells"
+    },
+    {
+      "id": 254,
+      "brand": "Browning"
+    },
+    {
+      "id": 43,
+      "brand": "Buffalo Bore"
+    },
+    {
+      "id": 419,
+      "brand": "Bushmaster"
+    },
+    {
+      "id": 332,
+      "brand": "Cape Fear"
+    },
+    {
+      "id": 202,
+      "brand": "Colt"
+    },
+    {
+      "id": 524,
+      "brand": "Elite Tactical Systems"
+    },
+    {
+      "id": 5,
+      "brand": "Federal"
+    },
+    {
+      "id": 16,
+      "brand": "Fiocchi"
+    },
+    {
+      "id": 261,
+      "brand": "FN"
+    },
+    {
+      "id": 307,
+      "brand": "Frontier"
+    },
+    {
+      "id": 147,
+      "brand": "Glock"
+    },
+    {
+      "id": 525,
+      "brand": "Henry"
+    },
+    {
+      "id": 971,
+      "brand": "Heritage"
+    },
+    {
+      "id": 112,
+      "brand": "Herter's"
+    },
+    {
+      "id": 7,
+      "brand": "Hornady"
+    },
+    {
+      "id": 126,
+      "brand": "HSM"
+    },
+    {
+      "id": 171,
+      "brand": "Kel-Tec"
+    },
+    {
+      "id": 23,
+      "brand": "Lapua"
+    },
+    {
+      "id": 136,
+      "brand": "Liberty"
+    },
+    {
+      "id": 146,
+      "brand": "Magpul"
+    },
+    {
+      "id": 19,
+      "brand": "Magsafe"
+    },
+    {
+      "id": 8,
+      "brand": "Magtech"
+    },
+    {
+      "id": 414,
+      "brand": "Marlin"
+    },
+    {
+      "id": 416,
+      "brand": "Mauser"
+    },
+    {
+      "id": 83,
+      "brand": "Monarch"
+    },
+    {
+      "id": 40,
+      "brand": "Norma"
+    },
+    {
+      "id": 33,
+      "brand": "Nosler"
+    },
+    {
+      "id": 522,
+      "brand": "Olympic Arms"
+    },
+    {
+      "id": 278,
+      "brand": "On Target"
+    },
+    {
+      "id": 9,
+      "brand": "PMC"
+    },
+    {
+      "id": 22,
+      "brand": "Prvi Partizan"
+    },
+    {
+      "id": 871,
+      "brand": "Reaper Ammunition"
+    },
+    {
+      "id": 169,
+      "brand": "Red Army Standard"
+    },
+    {
+      "id": 10,
+      "brand": "Remington"
+    },
+    {
+      "id": 404,
+      "brand": "Rhodesian Jungle"
+    },
+    {
+      "id": 533,
+      "brand": "Rock Island"
+    },
+    {
+      "id": 337,
+      "brand": "Sig Sauer"
+    },
+    {
+      "id": 75,
+      "brand": "Silver State Armory"
+    },
+    {
+      "id": 405,
+      "brand": "Simunition"
+    },
+    {
+      "id": 273,
+      "brand": "Smith & Wesson"
+    },
+    {
+      "id": 159,
+      "brand": "Springfield"
+    },
+    {
+      "id": 517,
+      "brand": "SSA"
+    },
+    {
+      "id": 532,
+      "brand": "Target Sports"
+    },
+    {
+      "id": 106,
+      "brand": "Taurus"
+    },
+    {
+      "id": 350,
+      "brand": "Team Never Quit"
+    },
+    {
+      "id": 238,
+      "brand": "Ted Nugent"
+    },
+    {
+      "id": 324,
+      "brand": "Top Shot"
+    },
+    {
+      "id": 61,
+      "brand": "Tula"
+    },
+    {
+      "id": 73,
+      "brand": "US Military"
+    },
+    {
+      "id": 13,
+      "brand": "Winchester"
+    },
+    {
+      "id": 14,
+      "brand": "Wolf"
+    },
+    {
+      "id": 621,
+      "brand": "Zombie Commander"
+    }
   ],
   "brandCalibers": [
     {
-      "brandId": 3,
-      "caliberId": 3,
-      "id": 1,
-      "box_count": 50
+      "brandId": 254,
+      "caliberId": 112,
+      "box_count": 250,
+      "id": 1
     },
     {
-      "brandId": 3,
-      "caliberId": 4,
-      "id": 2,
-      "box_count": 50
+      "brandId": 273,
+      "caliberId": 38,
+      "box_count": 50,
+      "id": 2
     },
     {
-      "brandId": 1,
-      "caliberId": 1,
-      "id": 3,
-      "box_count": 250
-    },
-    {
-      "brandId": 1,
-      "caliberId": 2,
-      "id": 4,
-      "box_count": 250
-    },
-    {
-      "brandId": 1,
-      "caliberId": 3,
-      "id": 5,
-      "box_count": 50
-    },
-    {
-      "brandId": 1,
-      "caliberId": 4,
-      "id": 6,
-      "box_count": 50
-    },
-    {
-      "brandId": 2,
-      "caliberId": 5,
-      "id": 7,
-      "box_count": 50
-    },
-    {
-      "brandId": 2,
-      "caliberId": 2,
-      "id": 8,
-      "box_count": 250
-    },
-    {
-      "brandId": 2,
-      "caliberId": 4,
-      "id": 9,
-      "box_count": 50
-    },
-    {
-      "brandId": 2,
-      "caliberId": 3,
-      "id": 10,
-      "box_count": 50
-    },
-    {
-      "brandId": 4,
-      "caliberId": 4,
-      "id": 11,
-      "box_count": 50
+      "brandId": 1000,
+      "caliberId": 100,
+      "box_count": 0,
+      "id": 3
     }
   ]
 }
