@@ -15,6 +15,7 @@ export default class UserRoles extends Component {
         this.state = {
             show: false,
             user_role: "",
+            userId: "",
             currentUser: ""
         };
     }
@@ -23,12 +24,12 @@ export default class UserRoles extends Component {
         this.setState({ show: false });
     }
     
-    handleShow(user) {
-        console.log(user)
+    handleShow = event => {
+        //in order to pass data to the modal, update local state based on the event target
         this.setState({ show: true,
-            // currentUser : currentUser,
-            // user_role: currentUser.role
-        })
+            userId: event.target.id,
+            currentUser: this.props.users.find(user => parseInt(event.target.id) === user.id)
+        });
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -37,8 +38,6 @@ export default class UserRoles extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
-
-    
 
     render() {
         console.log("local state:", this.state)
@@ -55,33 +54,33 @@ export default class UserRoles extends Component {
                                     name: {user.display_name}<br />
                                     role: {user.role}
                                 </Card.Text>
-                                <Button variant="success" id={user.id} onClick={this.handleShow(user)}>Change Role</Button>
+                                <Button variant="success" id={user.id} onClick={this.handleShow}>Change Role</Button>
                             </Card.Body>
                         </Card>
                     )}
                 </CardDeck>
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header>
-                        Change {this.state.currentUser.username}'s role
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Group controlId="user_role">
-                                <Form.Label>
-                                    User Role
-                                </Form.Label>
-                                <Form.Control onChange={this.handleFieldChange} as="select" value={this.state.user_role}>
-                                    <option>Choose a type</option>
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </Form.Control>
-                            </Form.Group>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                        <Button variant="primary" onClick={this.handleClose}>Save Changes</Button>
-                    </Modal.Footer>
+                <Modal.Header>
+                    Change {this.state.currentUser.username}'s role
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="user_role">
+                            <Form.Label>
+                                User Role
+                            </Form.Label>
+                            <Form.Control onChange={this.handleFieldChange} as="select" value={this.state.currentUser.role}>
+                                <option>Choose a type</option>
+                                <option value="user">user</option>
+                                <option value="admin">admin</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={this.handleClose}>Close</Button>
+                    <Button variant="primary" onClick={this.handleClose}>Save Changes</Button>
+                </Modal.Footer>
                 </Modal>
             </div>
         )
