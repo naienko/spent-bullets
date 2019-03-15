@@ -13,7 +13,8 @@ class NewType extends Component {
     //create empty local state
     state = {
         caliberId: "",
-        brandId: ""
+        brandId: "",
+        box_count: 0
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -29,10 +30,11 @@ class NewType extends Component {
         //construct the stack object
         const brandCaliber = {
             brandId: parseInt(this.state.brandId),
-            caliberId: parseInt(this.state.caliberId)
+            caliberId: parseInt(this.state.caliberId),
+            box_count: parseInt(this.state.box_count)
         }
         //check for matching brandCaliber object
-        if (this.state.brandId && this.state.caliberId) {
+        if (this.state.brandId && this.state.caliberId && this.state.box_count) {
             APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
                 res => {
                     if (!res.length) {
@@ -53,7 +55,6 @@ class NewType extends Component {
             )
         }
     }
-
 
     render() {
         return (
@@ -77,6 +78,10 @@ class NewType extends Component {
                             <option key={caliber.id} value={caliber.id}>{caliber.caliber}</option>
                             )}
                     </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="box_count">
+                    <Form.Label className="m-sm-2">How many in a box?</Form.Label>
+                    <input type="number" onChange={this.handleFieldChange} id="box_count" className="form-control" />
                 </Form.Group>
                 <Button variant="success" type="submit">Submit</Button>
             </Form>

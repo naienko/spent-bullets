@@ -20,7 +20,7 @@
   "stacks": [
     {
       "userId": 1,
-      "amount": 2354,
+      "amount": 2304,
       "brandCaliberId": 2,
       "notes": "",
       "id": 2
@@ -73,6 +73,13 @@
       "notes": "",
       "brandCaliberId": 11,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 7,
+      "amount": 100,
+      "id": 10
     }
   ],
   "calibers": [
@@ -119,57 +126,68 @@
     {
       "brandId": 3,
       "caliberId": 3,
-      "id": 1
+      "id": 1,
+      "box_count": 50
     },
     {
       "brandId": 3,
       "caliberId": 4,
-      "id": 2
+      "id": 2,
+      "box_count": 50
     },
     {
       "brandId": 1,
       "caliberId": 1,
-      "id": 3
+      "id": 3,
+      "box_count": 250
     },
     {
       "brandId": 1,
       "caliberId": 2,
-      "id": 4
+      "id": 4,
+      "box_count": 250
     },
     {
       "brandId": 1,
       "caliberId": 3,
-      "id": 5
+      "id": 5,
+      "box_count": 50
     },
     {
       "brandId": 1,
       "caliberId": 4,
-      "id": 6
+      "id": 6,
+      "box_count": 50
     },
     {
       "brandId": 2,
       "caliberId": 5,
-      "id": 7
+      "id": 7,
+      "box_count": 50
     },
     {
       "brandId": 2,
       "caliberId": 2,
-      "id": 8
+      "id": 8,
+      "box_count": 250
     },
     {
       "brandId": 2,
       "caliberId": 4,
-      "id": 9
+      "id": 9,
+      "box_count": 50
     },
     {
       "brandId": 2,
       "caliberId": 3,
-      "id": 10
+      "id": 10,
+      "box_count": 50
     },
     {
       "brandId": 4,
       "caliberId": 4,
-      "id": 11
+      "id": 11,
+      "box_count": 50
     }
   ]
 }

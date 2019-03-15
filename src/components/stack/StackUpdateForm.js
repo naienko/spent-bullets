@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import "react-toastify/dist/ReactToastify.css";
 
 class StackUpdate extends Component {
     //set empty local state
@@ -22,6 +25,20 @@ class StackUpdate extends Component {
         this.setState(stateToChange)
     }
 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            boxIsChecked: false
+        };
+    
+        this.checkboxToggle = this.checkboxToggle.bind(this);
+    }
+
+    checkboxToggle() {
+        this.setState({ boxIsChecked: !this.state.boxIsChecked });
+    }
+
     updateTheStack = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
@@ -29,10 +46,19 @@ class StackUpdate extends Component {
         let stackAmt = null;
         //check to see if the user changed the amount or just the note
         if (this.state.stackAmt !== 0) {
-            //if they changed the amount check to see which button they pushed and do amth accordingly
-            if (event.target.id === "plus") {
+            //if they changed the amount check to see if they marked the checkbox
+            //AND check to see which button they pushed and do math accordingly
+            if (this.state.boxIsChecked && event.target.id === "plus") {
+                let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                let box_count = type.box_count;
+                stackAmt = parseInt(this.state.stackOldAmt) + (parseInt(this.state.stackAmt) * parseInt(box_count));
+            } else if (this.state.boxIsChecked && event.target.id === "minus") {
+                let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                let box_count = type.box_count;
+                stackAmt = parseInt(this.state.stackOldAmt) - (parseInt(this.state.stackAmt) * parseInt(box_count));
+            } else if (!this.state.boxIsChecked && event.target.id === "plus") {
                 stackAmt = parseInt(this.state.stackOldAmt) + parseInt(this.state.stackAmt)
-            } else if (event.target.id === "minus") {
+            } else if (!this.state.boxIsChecked && event.target.id === "minus") {
                 stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
             }
         } else {
@@ -42,11 +68,23 @@ class StackUpdate extends Component {
         //construct the stack object
         const updatedStack = {
             amount: stackAmt,
-            id: this.props.match.params.stackId,
-            notes: this.state.stack_notes
+            id: parseInt(this.props.match.params.stackId),
         }
+        if (this.state.stack_notes === undefined) {
+            updatedStack.notes = ""
+        } else {
+            updatedStack.notes = this.state.stack_notes
+        }
+        toast.success("Updating stack", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000
+        })
         this.props.updateStack(updatedStack)
-            .then(() => this.props.history.push("/"))
+            .then(
+                setTimeout(() => {
+                    this.props.history.push("/")
+                }, 3500)
+            )
     }
     
     componentDidMount() {
@@ -66,12 +104,13 @@ class StackUpdate extends Component {
     render() {
         return (
             <div id="dashboard">
+                <ToastContainer />
                 <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName}</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
-                        <Form.Label className="m-sm-2">
-                            How many?
-                        </Form.Label>
+                    <Form.Label>Did you buy/shoot in boxes?</Form.Label>{" "}
+                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} /><br />
+                    <Form.Label>How many{ this.state.boxIsChecked === false ? " bullets" : " boxes"}?</Form.Label>
                         <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                     </Form.Group>
                     <Form.Group controlId="stack_notes">
