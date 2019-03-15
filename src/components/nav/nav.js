@@ -15,7 +15,7 @@ class NavBar extends Component {
     render() {
         return (
             <Navbar fixed="top" className="shadow" id="nav" variant="dark" bg="dark">
-                <Nav fill variant="pills">
+                <Nav variant="pills" fill>
                     <Nav.Item>
                         <Nav.Link href="/">Home</Nav.Link>
                     </Nav.Item>
