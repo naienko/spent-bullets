@@ -26,9 +26,11 @@ export default class UserRoles extends Component {
     
     handleShow = event => {
         //in order to pass data to the modal, update local state based on the event target
+        let currentUser = this.props.users.find(user => parseInt(event.target.id) === user.id)
         this.setState({ show: true,
             userId: event.target.id,
-            currentUser: this.props.users.find(user => parseInt(event.target.id) === user.id)
+            currentUser: currentUser,
+            user_role: currentUser.role
         });
     }
 
@@ -48,7 +50,7 @@ export default class UserRoles extends Component {
             //construct the user object
             const updatedUser = {
                 id: this.state.currentUser.id,
-                display_name: this.state.user_role
+                role: this.state.user_role
             }
             
             this.props.updateUser(updatedUser)
@@ -60,6 +62,7 @@ export default class UserRoles extends Component {
     }
 
     render() {
+        console.log("local state:", this.state)
         return (
             <div id="dashboard">
                 <CardDeck>
@@ -88,7 +91,7 @@ export default class UserRoles extends Component {
                             <Form.Label>
                                 User Role
                             </Form.Label>
-                            <Form.Control onChange={this.handleFieldChange} as="select" value={this.state.currentUser.role}>
+                            <Form.Control onChange={this.handleFieldChange} as="select" value={this.state.user_role}>
                                 <option>Choose a type</option>
                                 <option value="user">user</option>
                                 <option value="admin">admin</option>
