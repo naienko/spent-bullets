@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import "react-toastify/dist/ReactToastify.css";
 
 class StackUpdate extends Component {
     //set empty local state
@@ -72,8 +75,16 @@ class StackUpdate extends Component {
         } else {
             updatedStack.notes = this.state.stack_notes
         }
+        toast.success("Updating stack", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000
+        })
         this.props.updateStack(updatedStack)
-            .then(() => this.props.history.push("/"))
+            .then(
+                setTimeout(() => {
+                    this.props.history.push("/")
+                }, 3500)
+            )
     }
     
     componentDidMount() {
@@ -93,6 +104,7 @@ class StackUpdate extends Component {
     render() {
         return (
             <div id="dashboard">
+                <ToastContainer />
                 <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName}</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
