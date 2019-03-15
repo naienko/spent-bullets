@@ -43,12 +43,10 @@ class StackForm extends Component {
         //construct the stack object
         const stack = {
             userId: parseInt(sessionStorage.getItem("credentials")),
-            amount: parseInt(this.state.stackAmt),
             notes: this.state.stack_notes
         }
 
         if (this.state.brandCaliberId && this.state.stackAmt) {
-            
             //check for pre-existing matching stack
             if (!this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)) {
                 toast.success("Adding new stack!", {
@@ -57,6 +55,16 @@ class StackForm extends Component {
                 })
                 //if no, add brandCaliberId to stack object
                 stack.brandCaliberId = parseInt(this.state.brandCaliberId);
+                //check for in boxes
+                if (!this.state.boxIsChecked) {
+                    //if not, stackAmt is total count
+                    stack.amount = this.state.stackAmt;
+                } else {
+                    //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                    let box_count = this.props.brandCalibers.find(bc => this.state.brandCaliberId === bc.id).box_count;
+                    let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                    stack.amount = multipler_total;
+                }
             } else {
                 //if yes, alert
                 toast.success("This stack already exists! Updating the count for you ...", {
@@ -64,23 +72,34 @@ class StackForm extends Component {
                     autoClose: 3000
                 })
                 const oldStack = this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)
-                //and add amount to old stack
-                stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                 stack.id = oldStack.id;
+                //check for in boxes
+                if (!this.state.boxIsChecked) {
+                    //if not, add stackAmt to old stack
+                    stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
+                } else {
+                    //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                    //and add amount to old stack
+                    let box_count = this.props.brandCalibers.find(bc => this.state.brandCaliberId === bc.id).box_count;
+                    let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                    stack.amount = multipler_total + parseInt(oldStack.amount);
+                }
             }
+            console.log("Stack object:", stack)
             //update stack object in the stacks table in the db using the passed-in function
-            this.props.updateStack(stack)
-                .then(
-                    setTimeout(() => {
-                        this.props.history.push("/")
-                    }, 3500)
-                )
+            // this.props.updateStack(stack)
+            //     .then(
+            //         setTimeout(() => {
+            //             this.props.history.push("/")
+            //         }, 3500)
+            //     )
         } else {
             alert("Please complete the form!")
         }
     }
 
     render() {
+        console.log("local state:", this.state)
         return (
             <div id="dashboard">
             <ToastContainer />
