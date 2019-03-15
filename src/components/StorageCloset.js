@@ -11,7 +11,9 @@ class StorageCloset extends Component {
         if (currentStack.length > 0) {
             return <CaliberGroup stacks={currentStack}
                 brands={this.props.brands} 
-                calibers={this.props.calibers} type={type} />
+                calibers={this.props.calibers} 
+                type={type} 
+                deleteStack={this.props.deleteStack} />
         }
     }
 

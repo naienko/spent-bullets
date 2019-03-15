@@ -62,7 +62,6 @@ export default class UserRoles extends Component {
     }
 
     render() {
-        console.log("local state:", this.state)
         return (
             <div id="dashboard">
                 <CardDeck>

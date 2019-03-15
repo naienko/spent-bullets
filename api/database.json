@@ -15,6 +15,14 @@
       "display_name": "Michael",
       "id": 2,
       "role": "admin"
+    },
+    {
+      "username": "autumn",
+      "password": "123",
+      "email": "alexandrine_dream@yahoo.com",
+      "display_name": "Autumn Rainault",
+      "role": "user",
+      "id": 3
     }
   ],
   "stacks": [
@@ -38,6 +46,13 @@
       "brandCaliberId": 3,
       "amount": "10",
       "id": 3
+    },
+    {
+      "userId": 3,
+      "notes": "",
+      "brandCaliberId": 2,
+      "amount": 135,
+      "id": 4
     }
   ],
   "calibers": [
