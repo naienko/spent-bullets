@@ -61,7 +61,8 @@ class StackForm extends Component {
                     stack.amount = this.state.stackAmt;
                 } else {
                     //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
-                    let box_count = this.props.brandCalibers.find(bc => this.state.brandCaliberId === bc.id).box_count;
+                    let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                    let box_count = type.box_count;
                     let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
                     stack.amount = multipler_total;
                 }
@@ -80,26 +81,25 @@ class StackForm extends Component {
                 } else {
                     //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
                     //and add amount to old stack
-                    let box_count = this.props.brandCalibers.find(bc => this.state.brandCaliberId === bc.id).box_count;
+                    let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                    let box_count = type.box_count;
                     let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
                     stack.amount = multipler_total + parseInt(oldStack.amount);
                 }
             }
-            console.log("Stack object:", stack)
             //update stack object in the stacks table in the db using the passed-in function
-            // this.props.updateStack(stack)
-            //     .then(
-            //         setTimeout(() => {
-            //             this.props.history.push("/")
-            //         }, 3500)
-            //     )
+            this.props.updateStack(stack)
+                .then(
+                    setTimeout(() => {
+                        this.props.history.push("/")
+                    }, 3500)
+                )
         } else {
             alert("Please complete the form!")
         }
     }
 
     render() {
-        console.log("local state:", this.state)
         return (
             <div id="dashboard">
             <ToastContainer />
