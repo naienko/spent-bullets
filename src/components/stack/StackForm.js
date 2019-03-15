@@ -15,11 +15,26 @@ class StackForm extends Component {
         brandCaliberId: ""
     }
 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            boxIsChecked: false
+        };
+    
+        this.checkboxToggle = this.checkboxToggle.bind(this);
+    }
+
     // Update state whenever an input field is edited (Steve's code)
     handleFieldChange = event => {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
+    }
+
+    checkboxToggle() {
+        this.setState({ boxIsChecked: !this.state.boxIsChecked });
+        console.log("boxIsChecked: " + this.state.boxIsChecked);
     }
 
     createNewStack = event => {
@@ -33,6 +48,7 @@ class StackForm extends Component {
         }
 
         if (this.state.brandCaliberId && this.state.stackAmt) {
+            
             //check for pre-existing matching stack
             if (!this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)) {
                 toast.success("Adding new stack!", {
@@ -41,13 +57,6 @@ class StackForm extends Component {
                 })
                 //if no, add brandCaliberId to stack object
                 stack.brandCaliberId = parseInt(this.state.brandCaliberId);
-                //add stack object to the stacks table in the db using the passed-in function
-                this.props.addStack(stack)
-                .then(
-                    setTimeout(() => {
-                        this.props.history.push("/")
-                    }, 3500)
-                )
             } else {
                 //if yes, alert
                 toast.success("This stack already exists! Updating the count for you ...", {
@@ -58,14 +67,14 @@ class StackForm extends Component {
                 //and add amount to old stack
                 stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                 stack.id = oldStack.id;
-                //update stack object in the stacks table in the db using the passed-in function
-                this.props.updateStack(stack)
-                    .then(
-                        setTimeout(() => {
-                            this.props.history.push("/")
-                        }, 3500)
-                    )
             }
+            //update stack object in the stacks table in the db using the passed-in function
+            this.props.updateStack(stack)
+                .then(
+                    setTimeout(() => {
+                        this.props.history.push("/")
+                    }, 3500)
+                )
         } else {
             alert("Please complete the form!")
         }
@@ -90,6 +99,8 @@ class StackForm extends Component {
                         How many?
                     </Form.Label>
                     <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
+                    <Form.Label>Did you buy in boxes?</Form.Label>{" "}
+                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} />
                 </Form.Group>
                 <Form.Group controlId="stack_notes">
                     <Form.Label>
