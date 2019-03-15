@@ -34,7 +34,6 @@ class StackForm extends Component {
 
     checkboxToggle() {
         this.setState({ boxIsChecked: !this.state.boxIsChecked });
-        console.log("boxIsChecked: " + this.state.boxIsChecked);
     }
 
     createNewStack = event => {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -41,4 +42,4 @@ class CaliberGroup extends Component {
     }
 };
                 
-export default CaliberGroup;
+export default withRouter(CaliberGroup);
