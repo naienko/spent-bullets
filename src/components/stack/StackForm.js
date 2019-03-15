@@ -1,15 +1,28 @@
 import React, { Component } from "react";
-import APIManager from "../../modules/APIManager";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { ToastContainer, toast } from "react-toastify";
+import { withRouter } from "react-router";
 
-export default class StackForm extends Component {
+import "react-toastify/dist/ReactToastify.css";
+
+class StackForm extends Component {
     //set empty local state
     state = {
         stackAmt: "",
-        brandId: "",
-        caliberId: "",
-        userId: ""
+        stack_notes: "",
+        brandCaliberId: ""
+    }
+
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            boxIsChecked: false
+        };
+    
+        this.checkboxToggle = this.checkboxToggle.bind(this);
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -19,73 +32,108 @@ export default class StackForm extends Component {
         this.setState(stateToChange)
     }
 
+    checkboxToggle() {
+        this.setState({ boxIsChecked: !this.state.boxIsChecked });
+    }
+
     createNewStack = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
         //construct the stack object
         const stack = {
             userId: parseInt(sessionStorage.getItem("credentials")),
-            amount: this.state.stackAmt,
         }
-        //check for matching brandCaliber object
-        //allow new combos? -- no unless admin, see stretch goal notes
-        if (this.state.brandId && this.state.caliberId) {
-            APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
-                res => {
-                    if (!res.length) {
-                        alert("This combination doesn't exist in the database!")
-                        //if no, create new brandCaliber object as well
-                        //create toast for new brand/caliber combo
-                        // const brandCaliber = {
-                        //     brandId: this.state.brandId,
-                        //     caliberId: this.state.caliberId
-                        // }
-                        // //add it to the brandCalibers table in the db
-                        // this.props.addBCLink(brandCaliber)
-                        // //get the newly added object's id
-                        // //add that id as brandCaliberId to stack object
-                        //     .then(id => stack.brandCaliberId = id)
-                    } else {
-                        //if yes, add brandCaliberId to stack object
-                        stack.brandCaliberId = res[0].id;
-                    }
-                    //add stack object to the stacks table in the db using the passed-in function
-                    this.props.addStack(stack)
-                        .then(() => this.props.history.push("/"))
+
+        if (this.state.brandCaliberId && this.state.stackAmt) {
+            if (this.state.stack_notes === undefined) {
+                stack.notes = ""
+            } else {
+                stack.notes = this.state.stack_notes
+            }
+            //check for pre-existing matching stack
+            if (!this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)) {
+                toast.success("Adding new stack!", {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000
                 })
+                //if no, add brandCaliberId to stack object
+                stack.brandCaliberId = parseInt(this.state.brandCaliberId);
+                //check for in boxes
+                if (!this.state.boxIsChecked) {
+                    //if not, stackAmt is total count
+                    stack.amount = this.state.stackAmt;
+                } else {
+                    //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                    let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                    let box_count = type.box_count;
+                    let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                    stack.amount = multipler_total;
+                }
+                //add stack object in the stacks table in the db using the passed-in function
+                this.props.addStack(stack)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )
+            } else {
+                //if yes, alert
+                toast.success("This stack already exists! Updating the count for you ...", {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000
+                })
+                const oldStack = this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)
+                stack.id = oldStack.id;
+                //check for in boxes
+                if (!this.state.boxIsChecked) {
+                    //if not, add stackAmt to old stack
+                    stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
+                } else {
+                    //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                    //and add amount to old stack
+                    let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                    let box_count = type.box_count;
+                    let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                    stack.amount = multipler_total + parseInt(oldStack.amount);
+                }
+                //update stack object in the stacks table in the db using the passed-in function
+                this.props.updateStack(stack)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )
+            }
         } else {
             alert("Please complete the form!")
         }
-
     }
 
     render() {
         return (
             <div id="dashboard">
+            <ToastContainer />
             <Form onSubmit={this.createNewStack}>
-                <Form.Group controlId="brandId">
-                    <Form.Label>Brand</Form.Label>
-                    <Form.Control as="select" onChange={this.handleFieldChange}>
-                        <option>Choose a brand</option>
-                        { this.props.brands.map(brand => 
-                            <option key={brand.id} value={brand.id}>{brand.brand}</option>
-                            )}
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="caliberId">
-                    <Form.Label>Caliber</Form.Label>
+                <Form.Group controlId="brandCaliberId">
+                    <Form.Label>Type</Form.Label>
                     <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a caliber</option>
-                        { this.props.calibers.map(caliber => 
-                            <option key={caliber.id} value={caliber.id}>{caliber.caliber}</option>
+                        <option>Choose a type</option>
+                        { this.props.brandCalibers.map(element => 
+                            <option key={element.id} value={element.id}>{element.caliber.caliber}, {element.brand.brand}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="stackAmt">
-                    <Form.Label className="m-sm-2">
-                        How many?
-                    </Form.Label>
+                    <Form.Label>Did you buy in boxes?</Form.Label>{" "}
+                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} /><br />
+                    <Form.Label>How many{ this.state.boxIsChecked === false ? " bullets" : " boxes"}?</Form.Label>
                     <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
+                </Form.Group>
+                <Form.Group controlId="stack_notes">
+                    <Form.Label>
+                        Notes
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} />
                 </Form.Group>
                 <Button variant="success" type="submit">Submit</Button>
             </Form>
@@ -93,3 +141,5 @@ export default class StackForm extends Component {
         )
     }
 }
+
+export default withRouter(StackForm)

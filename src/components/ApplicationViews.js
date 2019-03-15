@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
-import AuthRoute from "./auth/AuthRoute";
 import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 import StorageCloset from "./StorageCloset";
 import APIManager from "../modules/APIManager";
+import StackManager from "../modules/StackManager";
 
 import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
+import NewType from "./admin/NewType";
+import Profile from "./user/profile";
+import UserRoles from "./admin/UserRoles";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -26,7 +30,7 @@ export default class ApplicationView extends Component {
         APIManager.getAll("users")
             .then(users => newState.users = users)
 
-            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(() => StackManager.getUserStacks())
             .then(stacks => newState.stacks = stacks)
             
             .then(() => APIManager.getQuery("_sort=caliber&_order=asc", "calibers"))
@@ -35,7 +39,7 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers"))
+            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers"))
             .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
             .then(() => this.setState(newState))
@@ -46,7 +50,7 @@ export default class ApplicationView extends Component {
     //add/edit/delete functions go here, to be sent as props to appropriate routes
     addStack = newStack => {
         return APIManager.add("stacks", newStack)
-            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(() => StackManager.getUserStacks())
             .then(stacks => this.setState({ stacks: stacks }))
     }
     addBCLink = newLink => {
@@ -54,7 +58,7 @@ export default class ApplicationView extends Component {
         return APIManager.add("brandCalibers", newLink)
             .then((newLink) => {
                 newId = newLink.id;
-                return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
+                return APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers")
             })
             .then(res => {
                 this.setState({ brandCalibers: res }) 
@@ -64,45 +68,82 @@ export default class ApplicationView extends Component {
 
     deleteStack = id => {
         return APIManager.delete(id, "stacks")
-            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(() => StackManager.getUserStacks())
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
     updateStack = updatedStack => {
         return APIManager.update("stacks", updatedStack, updatedStack.id)
-            .then(() => APIManager.getQuery("_expand=brandCaliber","stacks"))
+            .then(() => StackManager.getUserStacks())
             .then(stacks => this.setState({ stacks: stacks }))
+    }
+
+    updateUser = updatedUser => {
+        return APIManager.update("users", updatedUser, updatedUser.id)
+            .then(() => StackManager.getAll("users"))
+            .then(users => this.setState({ users: users }))
     }
 
     render() {
         return (
             //routes go here
-            // maybe a route to look at an individual stack? why?
-            //note use of HOC component to make sure all <Route>s are authenticated
             <React.Fragment>
-                <Route path="/login" component={Login} />
-
-                <AuthRoute path="/" Destination={StorageCloset}
-                    users={this.state.users} 
-                    stacks={this.state.stacks} 
-                    brands={this.state.brands} 
-                    calibers={this.state.calibers}
-                    brandCalibers={this.state.brandCalibers}
-                    deleteStack={this.deleteStack} />
+                <Route exact path="/login" component={Login} />
                 
-                <AuthRoute path="/stack/new" Destination={StackForm} 
-                    brands={this.state.brands} 
-                    calibers={this.state.calibers}
-                    brandCalibers={this.state.brandCalibers}
-                    addStack={this.addStack} 
-                    addBCLink={this.addBCLink} />
+                <Route exact path="/register" component={Register} />
 
-                <AuthRoute path="/stack/:stackId(\d+)/update" Destination={StackUpdate} 
-                    brands={this.state.brands} 
-                    calibers={this.state.calibers}
-                    brandCalibers={this.state.brandCalibers}
-                    addStack={this.addStack} 
-                    updateStack={this.updateStack} />
+                <Route exact path="/" render={(props) => {
+                    return <StorageCloset
+                        users={this.state.users} 
+                        stacks={this.state.stacks} 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        deleteStack={this.deleteStack}
+                     />
+                }} />
+     
+                <Route path="/stack/new" render={(props) => {
+                    return <StackForm 
+                        stacks={this.state.stacks} 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        addStack={this.addStack} 
+                        updateStack={this.updateStack} 
+                        />
+                    }} />
+
+                <Route path="/stack/:stackId(\d+)/update" render={(props) => {
+                    return <StackUpdate
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        updateStack={this.updateStack}
+                    />
+                }} />
+
+                <Route exact path="/admin/new" render={(props) => {
+                    return <NewType 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        addBCLink={this.addBCLink} 
+                    />
+                }} />
+
+                <Route exact path="/profile" render={(props) => {
+                    return <Profile activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
+                    />
+                }} />
+
+                <Route exact path="/admin/roles" render={(props) => {
+                    return <UserRoles users={this.state.users} 
+                        activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
+                    />
+                }} />
 
             </React.Fragment>
         )

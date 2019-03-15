@@ -18,13 +18,6 @@ export default {
             method: "DELETE"
         })
     },
-    deleteAndFetch: (id, db) => {
-        return fetch(`${RemoteURL}/${db}/${id}`, {
-            method: "DELETE"
-        })
-        .then(() => fetch(`${RemoteURL}/${db}`))
-        .then(results => results.json())
-    },
     add: (db, newObject) => {
         return fetch(`${RemoteURL}/${db}`, {
             method: "POST",

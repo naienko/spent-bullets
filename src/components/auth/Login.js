@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import APIManager from "../../modules/APIManager";
 
-export default class Login extends Component {
+class Login extends Component {
     //empty state to start with, to store input fields in
     state = {
-        email: "",
+        username: "",
         password: ""
     }
 
@@ -17,35 +18,6 @@ export default class Login extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
-
-    //event handler for registration (cribbed from Jenna's code)
-    handleRegister = event => {
-        //stop the form doing HTML stuff
-        event.preventDefault()
-        //create an object using the data pulled from the form fields
-        const newUser = {
-            username: this.state.username,
-            password: this.state.password
-        }
-        //compare this object to data from the users table in db
-        if (this.state.username && this.state.password) {
-            APIManager.getQuery(`username=${this.state.username}`, "users").then(users => {
-            //if it exists, warn and refuse
-                if (users.length) {
-                    alert(`Username ${this.state.username} already exists!`)
-                } else {
-            //if it doesn't exist, create new user and set sessionStorage
-                    APIManager.add("users", newUser).then(user => {
-                        sessionStorage.setItem("credentials", parseInt(user.id))
-                        this.props.setAuth()
-                        })
-                }
-            })
-        } else {
-            //if the user didn't fill all fields, warn
-            alert("Please Fill Out Form!")
-        }
-      }
 
     //event handler for login (cribbed from Jenna's code)
     handleLogin = event => {
@@ -66,8 +38,6 @@ export default class Login extends Component {
                     }
                 }
             )
-            //return to the component they were trying to view in the first place
-            this.props.history.go(0);
         } else {
             //if the user didn't fill all fields, warn
             alert("Please Fill Out Form!")
@@ -76,25 +46,31 @@ export default class Login extends Component {
 
     render() {
         return (
-            //hope I used Reactstrap right here ...
-            <div id="dashboard">
-            <Form onSubmit={this.handleLogin} className="m-sm-3">
-                <h1>Please sign in</h1>
-                <Form.Group controlId="formLoginUser">
-                    <Form.Label>
-                        Username
-                    </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} id="username" placeholder="Username" required autoFocus />
-                </Form.Group>
-                <Form.Group controlId="formLoginPwd">
-                    <Form.Label>
-                        Password
-                    </Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} id="password" type="password" placeholder="Password" required />
-                </Form.Group>
-                <Button variant="primary" type="submit">Sign in</Button>
-            </Form>
-            </div>
+            <React.Fragment>
+                <Form onSubmit={this.handleLogin} className="m-sm-3">
+                    <h1>Please sign in</h1>
+                    <Form.Group controlId="username">
+                        <Form.Label>
+                            Username
+                        </Form.Label>
+                        <Form.Control onChange={this.handleFieldChange} placeholder="Username" required autoFocus />
+                    </Form.Group>
+                    <Form.Group controlId="password">
+                        <Form.Label>
+                            Password
+                        </Form.Label>
+                        <Form.Control onChange={this.handleFieldChange} type="password" placeholder="Password" required />
+                    </Form.Group>
+                    <Form.Group className="text-right">
+                        <Button variant="primary" type="submit">Sign in</Button>
+                    </Form.Group>
+                </Form>
+                <div className="text-center">
+                    Not a member yet? <Button variant="secondary" onClick={() => this.props.history.push("/register")}>Register</Button>
+                </div>
+            </React.Fragment>
         )
     }
-}
+};
+
+export default withRouter(Login);

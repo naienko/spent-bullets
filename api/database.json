@@ -1,25 +1,85 @@
 {
   "users": [
     {
-    "username": "naienko",
-    "email": "naienko@gmail.com",
-    "display_name": "Panya",
-    "password": "oddballwife",
-    "id": 1
-  }
-],
+      "username": "naienko",
+      "email": "naienko@gmail.com",
+      "display_name": "Panya",
+      "password": "oddballwife",
+      "id": 1,
+      "role": "admin"
+    },
+    {
+      "username": "oddball",
+      "password": "st00pid79",
+      "email": "oddball79@gmail.com",
+      "display_name": "Michael",
+      "id": 2,
+      "role": "user"
+    }
+  ],
   "stacks": [
     {
       "userId": 1,
-      "amount": "2354",
+      "amount": 2304,
       "brandCaliberId": 2,
+      "notes": "",
       "id": 2
     },
     {
       "userId": 1,
-      "amount": 35,
+      "amount": 185,
       "brandCaliberId": 1,
+      "notes": "",
       "id": 3
+    },
+    {
+      "userId": 2,
+      "amount": 1930,
+      "brandCaliberId": 3,
+      "notes": "",
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "amount": 1000,
+      "brandCaliberId": 4,
+      "notes": "",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "amount": 160,
+      "notes": "",
+      "brandCaliberId": 6,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "amount": 300,
+      "notes": "",
+      "brandCaliberId": 3,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "amount": 150,
+      "notes": "",
+      "brandCaliberId": 9,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "amount": 150,
+      "notes": "",
+      "brandCaliberId": 11,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 7,
+      "amount": 100,
+      "id": 10
     }
   ],
   "calibers": [
@@ -466,10 +526,6 @@
     {
       "caliber": "9x25mm Mauser",
       "id": 110
-    },
-    {
-      "caliber": ".22 LR",
-      "id": 112
     }
   ],
   "brands": [
@@ -538,12 +594,68 @@
     {
       "brandId": 3,
       "caliberId": 3,
-      "id": 1
+      "id": 1,
+      "box_count": 50
     },
     {
       "brandId": 3,
       "caliberId": 4,
-      "id": 2
+      "id": 2,
+      "box_count": 50
+    },
+    {
+      "brandId": 1,
+      "caliberId": 1,
+      "id": 3,
+      "box_count": 250
+    },
+    {
+      "brandId": 1,
+      "caliberId": 2,
+      "id": 4,
+      "box_count": 250
+    },
+    {
+      "brandId": 1,
+      "caliberId": 3,
+      "id": 5,
+      "box_count": 50
+    },
+    {
+      "brandId": 1,
+      "caliberId": 4,
+      "id": 6,
+      "box_count": 50
+    },
+    {
+      "brandId": 2,
+      "caliberId": 5,
+      "id": 7,
+      "box_count": 50
+    },
+    {
+      "brandId": 2,
+      "caliberId": 2,
+      "id": 8,
+      "box_count": 250
+    },
+    {
+      "brandId": 2,
+      "caliberId": 4,
+      "id": 9,
+      "box_count": 50
+    },
+    {
+      "brandId": 2,
+      "caliberId": 3,
+      "id": 10,
+      "box_count": 50
+    },
+    {
+      "brandId": 4,
+      "caliberId": 4,
+      "id": 11,
+      "box_count": 50
     }
   ]
 }
