@@ -10,6 +10,9 @@ import StackManager from "../modules/StackManager";
 
 import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
+import NewType from "./admin/NewType";
+import Profile from "./user/profile";
+import UserRoles from "./admin/UserRoles";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -36,7 +39,7 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getAll("brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers"))
+            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers"))
             .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
             .then(() => this.setState(newState))
@@ -55,7 +58,7 @@ export default class ApplicationView extends Component {
         return APIManager.add("brandCalibers", newLink)
             .then((newLink) => {
                 newId = newLink.id;
-                return APIManager.getQuery("_expand=brand&_expand=caliber","brandCalibers")
+                return APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers")
             })
             .then(res => {
                 this.setState({ brandCalibers: res }) 
@@ -75,10 +78,15 @@ export default class ApplicationView extends Component {
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
+    updateUser = updatedUser => {
+        return APIManager.update("users", updatedUser, updatedUser.id)
+            .then(() => StackManager.getAll("users"))
+            .then(users => this.setState({ users: users }))
+    }
+
     render() {
         return (
             //routes go here
-            // maybe a route to look at an individual stack? why?
             <React.Fragment>
                 <Route exact path="/login" component={Login} />
                 
@@ -103,9 +111,8 @@ export default class ApplicationView extends Component {
                         brandCalibers={this.state.brandCalibers}
                         addStack={this.addStack} 
                         updateStack={this.updateStack} 
-                        addBCLink={this.addBCLink} 
-                    />
-                }} />
+                        />
+                    }} />
 
                 <Route path="/stack/:stackId(\d+)/update" render={(props) => {
                     return <StackUpdate
@@ -113,6 +120,28 @@ export default class ApplicationView extends Component {
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers}
                         updateStack={this.updateStack}
+                    />
+                }} />
+
+                <Route exact path="/admin/new" render={(props) => {
+                    return <NewType 
+                        brands={this.state.brands} 
+                        calibers={this.state.calibers}
+                        brandCalibers={this.state.brandCalibers}
+                        addBCLink={this.addBCLink} 
+                    />
+                }} />
+
+                <Route exact path="/profile" render={(props) => {
+                    return <Profile activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
+                    />
+                }} />
+
+                <Route exact path="/admin/roles" render={(props) => {
+                    return <UserRoles users={this.state.users} 
+                        activeUser={this.props.activeUser} 
+                        updateUser={this.updateUser}
                     />
                 }} />
 

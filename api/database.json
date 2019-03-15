@@ -5,14 +5,16 @@
       "email": "naienko@gmail.com",
       "display_name": "Panya",
       "password": "oddballwife",
-      "id": 1
+      "id": 1,
+      "role": "admin"
     },
     {
       "username": "oddball",
       "password": "st00pid79",
       "email": "oddball79@gmail.com",
       "display_name": "Michael",
-      "id": 2
+      "id": 2,
+      "role": "user"
     }
   ],
   "stacks": [
@@ -50,6 +52,27 @@
       "notes": "",
       "brandCaliberId": 6,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "amount": 300,
+      "notes": "",
+      "brandCaliberId": 3,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "amount": 150,
+      "notes": "",
+      "brandCaliberId": 9,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "amount": 150,
+      "notes": "",
+      "brandCaliberId": 11,
+      "id": 9
     }
   ],
   "calibers": [
@@ -86,6 +109,10 @@
     {
       "brand": "Winchester",
       "id": 3
+    },
+    {
+      "brand": "Cape Fear",
+      "id": 4
     }
   ],
   "brandCalibers": [
@@ -118,6 +145,31 @@
       "brandId": 1,
       "caliberId": 4,
       "id": 6
+    },
+    {
+      "brandId": 2,
+      "caliberId": 5,
+      "id": 7
+    },
+    {
+      "brandId": 2,
+      "caliberId": 2,
+      "id": 8
+    },
+    {
+      "brandId": 2,
+      "caliberId": 4,
+      "id": 9
+    },
+    {
+      "brandId": 2,
+      "caliberId": 3,
+      "id": 10
+    },
+    {
+      "brandId": 4,
+      "caliberId": 4,
+      "id": 11
     }
   ]
 }
