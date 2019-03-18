@@ -11,7 +11,7 @@ class CaliberGroup extends Component {
     render() {
         return (
             <CardDeck>
-                <Card><h3 className="text-center pt-sm-5">{this.props.type}</h3></Card>
+                <Card bg="light" border="info"><h3 className="text-center pt-sm-5">{this.props.type}</h3></Card>
             { this.props.stacks.map(stack => 
                 <Card key={stack.id}>
                     <Card.Body className="text-center">

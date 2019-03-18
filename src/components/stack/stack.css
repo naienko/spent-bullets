@@ -3,4 +3,7 @@
         min-width: 200px;
         max-width: 200px;
     }
+    .card-deck {
+        margin-bottom: 10px;
+    }
 }
