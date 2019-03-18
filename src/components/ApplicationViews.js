@@ -119,6 +119,7 @@ export default class ApplicationView extends Component {
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
                         brandCalibers={this.state.brandCalibers}
+                        deleteStack={this.deleteStack}
                         updateStack={this.updateStack}
                     />
                 }} />

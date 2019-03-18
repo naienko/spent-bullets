@@ -75,16 +75,31 @@ class StackUpdate extends Component {
         } else {
             updatedStack.notes = this.state.stack_notes
         }
-        toast.success("Updating stack", {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 3000
-        })
-        this.props.updateStack(updatedStack)
-            .then(
-                setTimeout(() => {
-                    this.props.history.push("/")
-                }, 3500)
-            )
+        if (stackAmt <= 0) {
+            if (window.confirm("Are you sure you want to delete this stack?")) {
+                toast.success("Stack amount decreased to 0; deleting stack", {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000
+                })
+                this.props.deleteStack(updatedStack.id)
+                    .then(
+                        setTimeout(() => {
+                            this.props.history.push("/")
+                        }, 3500)
+                    )        
+            }
+        } else {
+            toast.success("Updating stack", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000
+            })
+            this.props.updateStack(updatedStack)
+                .then(
+                    setTimeout(() => {
+                        this.props.history.push("/")
+                    }, 3500)
+                )
+        }
     }
     
     componentDidMount() {

@@ -28,24 +28,10 @@
   "stacks": [
     {
       "userId": 1,
-      "notes": "",
-      "brandCaliberId": 1,
-      "amount": 750,
-      "id": 1
-    },
-    {
-      "userId": 1,
       "notes": "went to the range",
       "brandCaliberId": 2,
       "amount": 1095,
       "id": 2
-    },
-    {
-      "userId": 1,
-      "notes": "fifteen grain police load",
-      "brandCaliberId": 3,
-      "amount": "10",
-      "id": 3
     },
     {
       "userId": 3,
@@ -53,6 +39,55 @@
       "brandCaliberId": 2,
       "amount": 135,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "notes": "WWB",
+      "brandCaliberId": 3,
+      "amount": 150,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "notes": "Fiochi",
+      "brandCaliberId": 2,
+      "amount": 100,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "notes": "",
+      "brandCaliberId": 4,
+      "amount": 50,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "notes": "",
+      "brandCaliberId": 5,
+      "amount": 150,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "notes": "",
+      "brandCaliberId": 4,
+      "amount": 27,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 1,
+      "amount": 750,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 3,
+      "amount": "12",
+      "id": 11
     }
   ],
   "calibers": [
@@ -769,6 +804,18 @@
       "caliberId": 100,
       "box_count": 0,
       "id": 3
+    },
+    {
+      "brandId": 112,
+      "caliberId": 6,
+      "box_count": 50,
+      "id": 4
+    },
+    {
+      "brandId": 303,
+      "caliberId": 38,
+      "box_count": 50,
+      "id": 5
     }
   ]
 }
