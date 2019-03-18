@@ -4,8 +4,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Dropdown from "react-bootstrap/Dropdown"
 
-import NavDropdown from "react-bootstrap/NavDropdown"
-
 import "./nav.css"
 
 class NavBar extends Component {
