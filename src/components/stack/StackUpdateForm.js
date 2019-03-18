@@ -45,7 +45,7 @@ class StackUpdate extends Component {
 
         let stackAmt = null;
         //check to see if the user changed the amount or just the note
-        if (this.state.stackAmt !== 0) {
+        if (this.state.stackAmt > 0) {
             //if they changed the amount check to see if they marked the checkbox
             //AND check to see which button they pushed and do math accordingly
             if (this.state.boxIsChecked && event.target.id === "plus") {
@@ -76,7 +76,7 @@ class StackUpdate extends Component {
             updatedStack.notes = this.state.stack_notes
         }
         if (stackAmt <= 0) {
-            if (window.confirm("Are you sure you want to delete this stack?")) {
+            if (window.confirm("Are you sure you want to delete this stack? You've set the count to 0 or less.")) {
                 toast.success("Stack amount decreased to 0; deleting stack", {
                     position: toast.POSITION.TOP_CENTER,
                     autoClose: 3000
