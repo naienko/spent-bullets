@@ -48,8 +48,10 @@ class StackForm extends Component {
             if (this.state.stackAmt < 0) {
                 alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, please use the update button on the home screen.")
             } else {
-                console.log(this.state)
-                if (this.state.stack_notes === undefined) {
+                let all_reloads = this.props.brandCalibers.filter(bclink => parseInt(bclink.brandId) === 1000);
+                if (all_reloads.find(type_num => parseInt(type_num.id) === parseInt(this.state.brandCaliberId)) && this.state.stack_notes === undefined) {
+                    stack.notes = "(update notes for load details)"
+                } else if (this.state.stack_notes === undefined) {
                     stack.notes = ""
                 } else {
                     stack.notes = this.state.stack_notes
@@ -82,31 +84,58 @@ class StackForm extends Component {
                         )
                 } else {
                     //if yes, alert
-                    toast.success("This stack already exists! Updating the count for you ...", {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 3000
-                    })
-                    const oldStack = this.props.stacks.find(stack => this.state.brandCaliberId === stack.brandCaliberId)
-                    stack.id = oldStack.id;
-                    //check for in boxes
-                    if (!this.state.boxIsChecked) {
-                        //if not, add stackAmt to old stack
-                        stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
-                    } else {
-                        //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
-                        //and add amount to old stack
-                        let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                        let box_count = type.box_count;
-                        let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
-                        stack.amount = multipler_total + parseInt(oldStack.amount);
-                    }
-                    //update stack object in the stacks table in the db using the passed-in function
-                    this.props.updateStack(stack)
+                    if (window.confirm("This stack already exists! Do you want to update this stack? Cancel will create a new stack of this type.")) {
+                        toast.success("This stack already exists! Updating the count for you ...", {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 3000
+                        })
+                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandCaliberId) === parseInt(stack.brandCaliberId))
+                        stack.id = oldStack.id;
+                        //check for in boxes
+                        if (!this.state.boxIsChecked) {
+                            //if not, add stackAmt to old stack
+                            stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
+                        } else {
+                            //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                            //and add amount to old stack
+                            let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                            let box_count = type.box_count;
+                            let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                            stack.amount = multipler_total + parseInt(oldStack.amount);
+                        }
+                        //update stack object in the stacks table in the db using the passed-in function
+                        this.props.updateStack(stack)
                         .then(
                             setTimeout(() => {
                                 this.props.history.push("/")
                             }, 3500)
                         )
+                    } else {
+                        toast.success("Adding new stack!", {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 3000
+                        })
+                        //if no, add brandCaliberId to stack object
+                        stack.brandCaliberId = parseInt(this.state.brandCaliberId);
+                        //check for in boxes
+                        if (!this.state.boxIsChecked) {
+                            //if not, stackAmt is total count
+                            stack.amount = this.state.stackAmt;
+                        } else {
+                            //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
+                            let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
+                            let box_count = type.box_count;
+                            let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
+                            stack.amount = multipler_total;
+                        }
+                        //add stack object in the stacks table in the db using the passed-in function
+                        this.props.addStack(stack)
+                            .then(
+                                setTimeout(() => {
+                                    this.props.history.push("/")
+                                }, 3500)
+                            )    
+                    }
                 }
             }
         } else {

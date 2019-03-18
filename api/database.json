@@ -14,7 +14,7 @@
       "email": "oddball79@gmail.com",
       "display_name": "Michael",
       "id": 2,
-      "role": "admin"
+      "role": "user"
     },
     {
       "username": "autumn",
@@ -28,9 +28,9 @@
   "stacks": [
     {
       "userId": 1,
-      "notes": "went to the range",
+      "notes": "this is a test",
       "brandCaliberId": 2,
-      "amount": 1095,
+      "amount": 1195,
       "id": 2
     },
     {
@@ -79,15 +79,22 @@
       "userId": 1,
       "notes": "",
       "brandCaliberId": 1,
-      "amount": 750,
+      "amount": 1000,
       "id": 10
     },
     {
       "userId": 1,
-      "notes": "",
+      "notes": "(update notes for load details)",
       "brandCaliberId": 3,
       "amount": "12",
       "id": 11
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 4,
+      "amount": 250,
+      "id": 12
     }
   ],
   "calibers": [
@@ -816,6 +823,12 @@
       "caliberId": 38,
       "box_count": 50,
       "id": 5
+    },
+    {
+      "brandId": 533,
+      "caliberId": 55,
+      "box_count": 15,
+      "id": 6
     }
   ]
 }
