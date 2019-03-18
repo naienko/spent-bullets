@@ -14,19 +14,21 @@ class NavBar extends Component {
     
     render() {
         return (
-            <Navbar fixed="top" className="shadow" id="nav" variant="dark" bg="dark">
-                <Nav variant="pills" fill>
-                    <Nav.Item>
-                        <Nav.Link href="/">Home</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item className="text-light m-sm-2">
-                        Welcome <a href="/profile">{this.props.activeUser.username}</a>
-                    </Nav.Item>
-                    { this.props.activeUser.role === "admin" 
-                    ? 
+            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="shadow" id="nav">
+                <Nav.Item>
+                    <Nav.Link href="/">Home</Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="text-light m-sm-2">
+                    Welcome <a href="/profile">{this.props.activeUser.username}</a>
+                </Nav.Item>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto" variant="pills" fill>
+                        <Nav.Item>
+                            <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
+                        </Nav.Item>
+                        { this.props.activeUser.role === "admin" 
+                        ? 
                         <Dropdown as={Nav.Item}>
                             <Dropdown.Toggle as={Nav.Link}>Admin Menu</Dropdown.Toggle>
                             <Dropdown.Menu>
@@ -34,13 +36,14 @@ class NavBar extends Component {
                                 <Dropdown.Item href="/admin/roles">Change User Roles</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    :
+                        :
                         ""
-                    }
-                    <Nav.Item>
-                        <Nav.Link onClick={this.logout}>Logout</Nav.Link>
-                    </Nav.Item>
-                </Nav>
+                        }
+                        <Nav.Item>
+                            <Nav.Link onClick={this.logout}>Logout</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
         )
     }

@@ -95,6 +95,20 @@
       "brandCaliberId": 4,
       "amount": 250,
       "id": 12
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 6,
+      "amount": "12412",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 5,
+      "amount": 50,
+      "id": 14
     }
   ],
   "calibers": [
@@ -545,11 +559,15 @@
     {
       "caliber": ".22 LR",
       "id": 112
+    },
+    {
+      "caliber": "7.62 Creedmoor",
+      "id": 113
     }
   ],
   "brands": [
     {
-      "brand": "reload (add notes for load)",
+      "brand": "reload",
       "id": 1000
     },
     {

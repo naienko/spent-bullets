@@ -1,4 +1,9 @@
-.card {
-    min-width: 13rem;
-    max-width: 13rem;
+@media only screen and (min-width: 400px) {
+    .card {
+        min-width: 200px;
+        max-width: 200px;
+    }
+    .card-deck {
+        margin-bottom: 10px;
+    }
 }

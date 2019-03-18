@@ -19,7 +19,7 @@ class StorageCloset extends Component {
 
     render () {
         return (
-            <div id="dashboard" className="">
+            <div id="dashboard">
             {
                 //map all the calibers in the db and create an array of stacks using that caliber
                 this.props.calibers.map(c => {
