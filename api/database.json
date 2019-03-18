@@ -109,6 +109,13 @@
       "brandCaliberId": 5,
       "amount": 50,
       "id": 14
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "brandCaliberId": 7,
+      "amount": "23456",
+      "id": 15
     }
   ],
   "calibers": [
@@ -847,6 +854,12 @@
       "caliberId": 55,
       "box_count": 15,
       "id": 6
+    },
+    {
+      "brandId": 254,
+      "caliberId": 2,
+      "box_count": 100,
+      "id": 7
     }
   ]
 }
