@@ -61,6 +61,8 @@ class StackUpdate extends Component {
             } else if (!this.state.boxIsChecked && event.target.id === "minus") {
                 stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
             }
+        } else if (this.state.stackAmt < 0) {
+            alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, input a positive number and click remove.")
         } else {
             //otherwise just use the old amount
             stackAmt = parseInt(this.state.stackOldAmt)

@@ -77,13 +77,6 @@
     },
     {
       "userId": 1,
-      "notes": "",
-      "brandCaliberId": 1,
-      "amount": 1000,
-      "id": 10
-    },
-    {
-      "userId": 1,
       "notes": "(update notes for load details)",
       "brandCaliberId": 3,
       "amount": "12",
@@ -93,7 +86,7 @@
       "userId": 1,
       "notes": "",
       "brandCaliberId": 4,
-      "amount": 250,
+      "amount": 400,
       "id": 12
     },
     {
@@ -112,10 +105,24 @@
     },
     {
       "userId": 1,
-      "notes": "",
+      "notes": "Fiochi",
       "brandCaliberId": 7,
-      "amount": "23456",
+      "amount": 23456,
       "id": 15
+    },
+    {
+      "userId": 1,
+      "notes": "this is a test",
+      "brandCaliberId": 4,
+      "amount": 50,
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "notes": "25 grain",
+      "brandCaliberId": 9,
+      "amount": 50,
+      "id": 17
     }
   ],
   "calibers": [
@@ -860,6 +867,18 @@
       "caliberId": 2,
       "box_count": 100,
       "id": 7
+    },
+    {
+      "brandId": 159,
+      "caliberId": 45,
+      "box_count": 50,
+      "id": 8
+    },
+    {
+      "brandId": 1000,
+      "caliberId": 112,
+      "box_count": 0,
+      "id": 9
     }
   ]
 }
