@@ -1,6 +1,4 @@
-const port = process.env.PORT || 4000;
-
-const RemoteURL = `https://spent-bullets.herokuapp.com:${port}`
+const RemoteURL = `https://spent-bullets.herokuapp.com`
 
 //const RemoteURL = "http://localhost:8081"
 
