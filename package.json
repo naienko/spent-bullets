@@ -2,6 +2,7 @@
   "name": "spent-bullets",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "moment": "^2.24.0",
@@ -14,10 +15,12 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "react-toastify": "^4.5.2",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "json-server": "^0.12.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
