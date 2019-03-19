@@ -1,4 +1,6 @@
-const RemoteURL = "http://localhost:8081"
+const port = process.env.PORT || 4000;
+
+const RemoteURL = `http://spent-bullets.herokuapp.com:${port}`
 
 export default {
     getOne: (id, db) => {
