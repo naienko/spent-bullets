@@ -1,5 +1,6 @@
 #dashboard {
     margin: 10px;
     padding: 10px;
-    margin-top: 65px;
+    margin-top: 165px;
+    background: url("./nav/mixed-bullets.png") no-repeat fixed bottom right;
 }

@@ -14,11 +14,11 @@ class NavBar extends Component {
     
     render() {
         return (
-            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="shadow" id="nav">
+            <Navbar collapseOnSelect expand="md" variant="light" bg="light" fixed="top" className="shadow" id="nav">
                 <Nav.Item>
                     <Nav.Link href="/">Home</Nav.Link>
                 </Nav.Item>
-                <Nav.Item className="text-light m-sm-2">
+                <Nav.Item className="m-sm-2">
                     Welcome <a href="/profile">{this.props.activeUser.username}</a>
                 </Nav.Item>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

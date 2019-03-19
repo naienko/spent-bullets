@@ -1,3 +1,27 @@
 .navbar-nav {
     width: 100%;
 }
+
+#nav {
+    background: url("./Bullet-Page-Header-1110x355.jpg") no-repeat;
+    background-position: center -60px;
+    background-size: 600px;
+    height: 135px;
+    padding-top: 90px;
+}
+.nav-item {
+    background: white;
+}
+
+@media only screen and (min-width: 400px) {
+    #nav {
+        background: url("./Bullet-Page-Header-1110x355.jpg") no-repeat;
+        background-position: center -80px;
+        background-size: 800px;
+        height: 155px;
+        padding-top: 120px;
+    }
+    .nav-item {
+        background: none;
+    }
+}
