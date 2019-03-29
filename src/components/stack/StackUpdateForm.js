@@ -13,7 +13,8 @@ class StackUpdate extends Component {
         stackAmt: 0,
         brandName: "",
         caliberName: "",
-        stackOldAmt: "",
+        grainCt: 0,
+        stackOldAmt: 0,
         stack_notes: ""
     }
     
@@ -87,6 +88,7 @@ class StackUpdate extends Component {
                 stackOldAmt: stack.amount,
                 brandName: stack.brand.brand,
                 caliberName: stack.caliber.caliber,
+                grainCt: stack.grain,
                 stack_notes: stack.notes
             })
         })
@@ -96,7 +98,7 @@ class StackUpdate extends Component {
         return (
             <div id="dashboard">
                 <ToastContainer />
-                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName}</div>
+                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName} {this.state.grainCt} grain</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
                     <Form.Label>How many bullets?</Form.Label>

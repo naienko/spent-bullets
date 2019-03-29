@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { withRouter } from "react-router";
 
 import "react-toastify/dist/ReactToastify.css";
+import { parse } from "querystring";
 
 class StackForm extends Component {
     //set empty local state
@@ -13,7 +14,8 @@ class StackForm extends Component {
         stackAmt: "",
         stack_notes: "",
         caliberId: "",
-        brandId: ""
+        brandId: "",
+        grainCt: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -43,15 +45,16 @@ class StackForm extends Component {
                     stack.notes = this.state.stack_notes
                 }
                 //check for pre-existing matching stack
-                if (!this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId))) {
+                if (!this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))) {
                     toast.success("Adding new stack!", {
                         position: toast.POSITION.TOP_CENTER,
                         autoClose: 3000
                     })
                     //if no, add brandCaliberId to stack object
                     stack.caliberId = parseInt(this.state.caliberId);
-                    stack.brandId = parseInt(this.state.brandId)
-                    stack.amount = this.state.stackAmt;
+                    stack.brandId = parseInt(this.state.brandId);
+                    stack.amount = parseInt(this.state.stackAmt);
+                    stack.grain = parseInt(this.state.grainCt);
                     //add stack object in the stacks table in the db using the passed-in function
                     this.props.addStack(stack)
                         .then(
@@ -66,7 +69,7 @@ class StackForm extends Component {
                             position: toast.POSITION.TOP_CENTER,
                             autoClose: 3000
                         })
-                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId))
+                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))
                         stack.id = oldStack.id;
                         stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                         //update stack object in the stacks table in the db using the passed-in function
@@ -83,8 +86,9 @@ class StackForm extends Component {
                         })
                         //if no, add brandCaliberId to stack object
                         stack.caliberId = parseInt(this.state.caliberId);
-                        stack.brandId = parseInt(this.state.brandId)
-                        stack.amount = this.state.stackAmt;
+                        stack.brandId = parseInt(this.state.brandId);
+                        stack.amount = parseInt(this.state.stackAmt);
+                        stack.grain = parseInt(this.state.grainCt);
                         //add stack object in the stacks table in the db using the passed-in function
                         this.props.addStack(stack)
                             .then(
@@ -125,9 +129,7 @@ class StackForm extends Component {
                 </Form.Group>
                 <Form.Group controlId="grainCt">
                     <Form.Label>Grain</Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>What grain?</option>
-                    </Form.Control>
+                    <input type="number" onChange={this.handleFieldChange} id="grainCt" className="form-control" />
                 </Form.Group>
                 <Form.Group controlId="stackAmt">
                     <Form.Label>How many bullets?</Form.Label>

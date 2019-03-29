@@ -25,6 +25,14 @@
       "brandId": 419,
       "amount": 12445,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 113,
+      "brandId": 13,
+      "amount": "3245",
+      "id": 2
     }
   ],
   "calibers": [
