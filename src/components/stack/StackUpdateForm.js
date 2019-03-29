@@ -85,8 +85,8 @@ class StackUpdate extends Component {
         .then(stack => {
             this.setState({
                 stackOldAmt: stack.amount,
-                brandName: stack.brandId,
-                caliberName: stack.caliberId,
+                brandName: stack.brand.brand,
+                caliberName: stack.caliber.caliber,
                 stack_notes: stack.notes
             })
         })

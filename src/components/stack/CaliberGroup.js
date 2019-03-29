@@ -21,9 +21,9 @@ class CaliberGroup extends Component {
                             {stack.amount} <span className="text-muted small">count</span>
                         </Card.Title>
                     <Card.Text>
-                        {stack.brandId}
+                        {stack.brand.brand}
                         {" "}
-                        {stack.caliberId}
+                        {stack.caliber.caliber}
                         <br />
                         { !stack.notes.length ? <br /> : `notes: ${stack.notes}` }
                     </Card.Text>
