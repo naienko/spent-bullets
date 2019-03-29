@@ -11,7 +11,6 @@ class StackUpdate extends Component {
     //set empty local state
     state = {
         stackAmt: 0,
-        brandCaliberId: "",
         brandName: "",
         caliberName: "",
         stackOldAmt: "",
@@ -25,20 +24,6 @@ class StackUpdate extends Component {
         this.setState(stateToChange)
     }
 
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-            boxIsChecked: false
-        };
-    
-        this.checkboxToggle = this.checkboxToggle.bind(this);
-    }
-
-    checkboxToggle() {
-        this.setState({ boxIsChecked: !this.state.boxIsChecked });
-    }
-
     updateTheStack = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
@@ -46,19 +31,10 @@ class StackUpdate extends Component {
         let stackAmt = null;
         //check to see if the user changed the amount or just the note
         if (this.state.stackAmt > 0) {
-            //if they changed the amount check to see if they marked the checkbox
-            //AND check to see which button they pushed and do math accordingly
-            if (this.state.boxIsChecked && event.target.id === "plus") {
-                let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                let box_count = type.box_count;
-                stackAmt = parseInt(this.state.stackOldAmt) + (parseInt(this.state.stackAmt) * parseInt(box_count));
-            } else if (this.state.boxIsChecked && event.target.id === "minus") {
-                let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                let box_count = type.box_count;
-                stackAmt = parseInt(this.state.stackOldAmt) - (parseInt(this.state.stackAmt) * parseInt(box_count));
-            } else if (!this.state.boxIsChecked && event.target.id === "plus") {
+            //if they changed the amount check to see  which button they pushed and do math accordingly
+            if (event.target.id === "plus") {
                 stackAmt = parseInt(this.state.stackOldAmt) + parseInt(this.state.stackAmt)
-            } else if (!this.state.boxIsChecked && event.target.id === "minus") {
+            } else if (event.target.id === "minus") {
                 stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
             }
         } else if (this.state.stackAmt < 0) {
@@ -107,12 +83,10 @@ class StackUpdate extends Component {
     componentDidMount() {
         APIManager.getOne(this.props.match.params.stackId, "stacks")
         .then(stack => {
-            let bcId = this.props.brandCalibers.find(bcLink => stack.brandCaliberId === bcLink.id)
             this.setState({
                 stackOldAmt: stack.amount,
-                brandCaliberId: stack.brandCaliberId,
-                brandName: bcId.brand.brand,
-                caliberName: bcId.caliber.caliber,
+                brandName: stack.brandId,
+                caliberName: stack.caliberId,
                 stack_notes: stack.notes
             })
         })
@@ -122,12 +96,10 @@ class StackUpdate extends Component {
         return (
             <div id="dashboard">
                 <ToastContainer />
-                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName}</div>
+                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandId} {this.state.caliberId}</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
-                    <Form.Label>Did you buy/shoot in boxes?</Form.Label>{" "}
-                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} /><br />
-                    <Form.Label>How many{ this.state.boxIsChecked === false ? " bullets" : " boxes"}?</Form.Label>
+                    <Form.Label>How many bullets?</Form.Label>
                         <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                     </Form.Group>
                     <Form.Group controlId="stack_notes">

@@ -32,7 +32,6 @@ class NavBar extends Component {
                         <Dropdown as={Nav.Item}>
                             <Dropdown.Toggle as={Nav.Link}>Admin Menu</Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item href="/admin/new">Add New Type</Dropdown.Item>
                                 <Dropdown.Item href="/admin/roles">Change User Roles</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

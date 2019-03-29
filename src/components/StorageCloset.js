@@ -23,7 +23,7 @@ class StorageCloset extends Component {
             {
                 //map all the calibers in the db and create an array of stacks using that caliber
                 this.props.calibers.map(c => {
-                    let currentStack = this.props.stacks.filter(stack => stack.brandCaliber.caliberId === c.id)
+                    let currentStack = this.props.stacks.filter(stack => stack.caliberId === c.id)
                     let type = c.caliber
                     //call the function because map method is picky
                     //can I put an if-else based on a state element that calls a different sort?

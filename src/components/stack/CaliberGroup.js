@@ -21,13 +21,9 @@ class CaliberGroup extends Component {
                             {stack.amount} <span className="text-muted small">count</span>
                         </Card.Title>
                     <Card.Text>
-                        { this.props.brands.find(
-                            brand => brand.id === stack.brandCaliber.brandId
-                            ).brand }
+                        {stack.brandId}
                         {" "}
-                        { this.props.calibers.find(
-                            caliber => caliber.id === stack.brandCaliber.caliberId
-                            ).caliber }
+                        {stack.caliberId}
                         <br />
                         { !stack.notes.length ? <br /> : `notes: ${stack.notes}` }
                     </Card.Text>

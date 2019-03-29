@@ -21,7 +21,6 @@ export default class ApplicationView extends Component {
         calibers: [],
         brands: [],
         stacks: [],
-        brandCalibers: []
     };
 
     componentDidMount() {
@@ -39,8 +38,6 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
             .then(brands => newState.brands = brands)
 
-            .then(() => APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers"))
-            .then(brandCalibers => newState.brandCalibers = brandCalibers)
         //then fill state
             .then(() => this.setState(newState))
             .then(() => console.log("State is:", this.state))
@@ -52,18 +49,6 @@ export default class ApplicationView extends Component {
         return APIManager.add("stacks", newStack)
             .then(() => StackManager.getUserStacks())
             .then(stacks => this.setState({ stacks: stacks }))
-    }
-    addBCLink = newLink => {
-        let newId = null;
-        return APIManager.add("brandCalibers", newLink)
-            .then((newLink) => {
-                newId = newLink.id;
-                return APIManager.getQuery("_expand=brand&_expand=caliber&_sort=caliberId&_order=asc","brandCalibers")
-            })
-            .then(res => {
-                this.setState({ brandCalibers: res }) 
-                return newId;
-        })
     }
 
     deleteStack = id => {
@@ -98,7 +83,6 @@ export default class ApplicationView extends Component {
                         stacks={this.state.stacks} 
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers}
                         deleteStack={this.deleteStack}
                      />
                 }} />
@@ -108,7 +92,6 @@ export default class ApplicationView extends Component {
                         stacks={this.state.stacks} 
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers}
                         addStack={this.addStack} 
                         updateStack={this.updateStack} 
                         />
@@ -118,7 +101,6 @@ export default class ApplicationView extends Component {
                     return <StackUpdate
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers}
                         deleteStack={this.deleteStack}
                         updateStack={this.updateStack}
                     />
@@ -128,8 +110,6 @@ export default class ApplicationView extends Component {
                     return <NewType 
                         brands={this.state.brands} 
                         calibers={this.state.calibers}
-                        brandCalibers={this.state.brandCalibers}
-                        addBCLink={this.addBCLink} 
                     />
                 }} />
 
