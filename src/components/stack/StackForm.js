@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { withRouter } from "react-router";
 
 import "react-toastify/dist/ReactToastify.css";
-import { parse } from "querystring";
 
 class StackForm extends Component {
     //set empty local state

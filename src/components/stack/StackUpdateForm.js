@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
-import APIManager from "../../modules/APIManager";
+import StackManager from "../../modules/StackManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -82,7 +82,7 @@ class StackUpdate extends Component {
     }
     
     componentDidMount() {
-        APIManager.getOne(this.props.match.params.stackId, "stacks")
+        StackManager.getOneStack(this.props.match.params.stackId)
         .then(stack => {
             this.setState({
                 stackOldAmt: stack.amount,
@@ -98,7 +98,7 @@ class StackUpdate extends Component {
         return (
             <div id="dashboard">
                 <ToastContainer />
-                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName} {this.state.grainCt} grain</div>
+                <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span><br /> {this.state.brandName} {this.state.caliberName} {this.state.grainCt} grain</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
                     <Form.Label>How many bullets?</Form.Label>
