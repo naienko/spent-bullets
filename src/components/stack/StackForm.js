@@ -12,17 +12,9 @@ class StackForm extends Component {
     state = {
         stackAmt: "",
         stack_notes: "",
-        brandCaliberId: ""
-    }
-
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-            boxIsChecked: false
-        };
-    
-        this.checkboxToggle = this.checkboxToggle.bind(this);
+        caliberId: "",
+        brandId: "",
+        grainCt: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -30,10 +22,6 @@ class StackForm extends Component {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
-    }
-
-    checkboxToggle() {
-        this.setState({ boxIsChecked: !this.state.boxIsChecked });
     }
 
     createNewStack = event => {
@@ -44,12 +32,11 @@ class StackForm extends Component {
             userId: parseInt(sessionStorage.getItem("credentials")),
         }
 
-        if (this.state.brandCaliberId && this.state.stackAmt) {
+        if (this.state.caliberId && this.state.brandId && this.state.stackAmt) {
             if (this.state.stackAmt < 0) {
                 alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, please use the update button on the home screen.")
             } else {
-                let all_reloads = this.props.brandCalibers.filter(bclink => parseInt(bclink.brandId) === 1000);
-                if (all_reloads.find(type_num => parseInt(type_num.id) === parseInt(this.state.brandCaliberId)) && this.state.stack_notes === undefined) {
+                if (this.state.brandId === 1000 && this.state.stack_notes === undefined) {
                     stack.notes = "(update notes for load details)"
                 } else if (this.state.stack_notes === undefined) {
                     stack.notes = ""
@@ -57,24 +44,16 @@ class StackForm extends Component {
                     stack.notes = this.state.stack_notes
                 }
                 //check for pre-existing matching stack
-                if (!this.props.stacks.find(stack => parseInt(this.state.brandCaliberId) === parseInt(stack.brandCaliberId))) {
+                if (!this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))) {
                     toast.success("Adding new stack!", {
                         position: toast.POSITION.TOP_CENTER,
                         autoClose: 3000
                     })
                     //if no, add brandCaliberId to stack object
-                    stack.brandCaliberId = parseInt(this.state.brandCaliberId);
-                    //check for in boxes
-                    if (!this.state.boxIsChecked) {
-                        //if not, stackAmt is total count
-                        stack.amount = this.state.stackAmt;
-                    } else {
-                        //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
-                        let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                        let box_count = type.box_count;
-                        let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
-                        stack.amount = multipler_total;
-                    }
+                    stack.caliberId = parseInt(this.state.caliberId);
+                    stack.brandId = parseInt(this.state.brandId);
+                    stack.amount = parseInt(this.state.stackAmt);
+                    stack.grain = parseInt(this.state.grainCt);
                     //add stack object in the stacks table in the db using the passed-in function
                     this.props.addStack(stack)
                         .then(
@@ -89,20 +68,9 @@ class StackForm extends Component {
                             position: toast.POSITION.TOP_CENTER,
                             autoClose: 3000
                         })
-                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandCaliberId) === parseInt(stack.brandCaliberId))
+                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))
                         stack.id = oldStack.id;
-                        //check for in boxes
-                        if (!this.state.boxIsChecked) {
-                            //if not, add stackAmt to old stack
-                            stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
-                        } else {
-                            //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
-                            //and add amount to old stack
-                            let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                            let box_count = type.box_count;
-                            let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
-                            stack.amount = multipler_total + parseInt(oldStack.amount);
-                        }
+                        stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                         //update stack object in the stacks table in the db using the passed-in function
                         this.props.updateStack(stack)
                         .then(
@@ -116,18 +84,10 @@ class StackForm extends Component {
                             autoClose: 3000
                         })
                         //if no, add brandCaliberId to stack object
-                        stack.brandCaliberId = parseInt(this.state.brandCaliberId);
-                        //check for in boxes
-                        if (!this.state.boxIsChecked) {
-                            //if not, stackAmt is total count
-                            stack.amount = this.state.stackAmt;
-                        } else {
-                            //if yes, multiply stackAmt (as # of boxes) by # in boxes for that type
-                            let type = this.props.brandCalibers.find(bc => parseInt(this.state.brandCaliberId) === bc.id)
-                            let box_count = type.box_count;
-                            let multipler_total = parseInt(this.state.stackAmt) * parseInt(box_count);
-                            stack.amount = multipler_total;
-                        }
+                        stack.caliberId = parseInt(this.state.caliberId);
+                        stack.brandId = parseInt(this.state.brandId);
+                        stack.amount = parseInt(this.state.stackAmt);
+                        stack.grain = parseInt(this.state.grainCt);
                         //add stack object in the stacks table in the db using the passed-in function
                         this.props.addStack(stack)
                             .then(
@@ -148,19 +108,30 @@ class StackForm extends Component {
             <div id="dashboard">
             <ToastContainer />
             <Form onSubmit={this.createNewStack}>
-                <Form.Group controlId="brandCaliberId">
-                    <Form.Label>Type</Form.Label>
+                <Form.Group controlId="caliberId">
+                    <Form.Label>Caliber</Form.Label>
                     <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a type</option>
-                        { this.props.brandCalibers.map(element => 
-                            <option key={element.id} value={element.id}>{element.caliber.caliber}, {element.brand.brand}</option>
+                        <option>Choose a caliber</option>
+                        { this.props.calibers.map(element => 
+                            <option key={element.id} value={element.id}>{element.caliber}</option>
                             )}
                     </Form.Control>
                 </Form.Group>
+                <Form.Group controlId="brandId">
+                    <Form.Label>Brand</Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} as="select">
+                        <option>Choose a brand</option>
+                        { this.props.brands.map(element => 
+                            <option key={element.id} value={element.id}>{element.brand}</option>
+                            )}
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="grainCt">
+                    <Form.Label>Grain</Form.Label>
+                    <input type="number" onChange={this.handleFieldChange} id="grainCt" className="form-control" />
+                </Form.Group>
                 <Form.Group controlId="stackAmt">
-                    <Form.Label>Did you buy in boxes?</Form.Label>{" "}
-                    <input type="checkbox" id="is_box" name="completed" value={this.state.boxIsChecked} onClick={this.checkboxToggle} /><br />
-                    <Form.Label>How many{ this.state.boxIsChecked === false ? " bullets" : " boxes"}?</Form.Label>
+                    <Form.Label>How many bullets?</Form.Label>
                     <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
                 </Form.Group>
                 <Form.Group controlId="stack_notes">

@@ -20,101 +20,30 @@
   "stacks": [
     {
       "userId": 1,
-      "notes": "this is a test",
-      "brandCaliberId": 2,
-      "amount": 1195,
+      "notes": "",
+      "caliberId": 112,
+      "brandId": 13,
+      "amount": 45678,
+      "grain": 100,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 113,
+      "brandId": 13,
+      "amount": 150,
+      "grain": 150,
       "id": 2
     },
     {
-      "userId": 3,
-      "notes": "",
-      "brandCaliberId": 2,
-      "amount": 135,
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "notes": "WWB",
-      "brandCaliberId": 3,
-      "amount": 150,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "notes": "Fiochi",
-      "brandCaliberId": 2,
-      "amount": 100,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "notes": "",
-      "brandCaliberId": 4,
-      "amount": 50,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "notes": "",
-      "brandCaliberId": 5,
-      "amount": 150,
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "notes": "",
-      "brandCaliberId": 4,
-      "amount": 27,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "notes": "(update notes for load details)",
-      "brandCaliberId": 3,
-      "amount": "12",
-      "id": 11
-    },
-    {
       "userId": 1,
       "notes": "",
-      "brandCaliberId": 4,
-      "amount": 400,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "notes": "",
-      "brandCaliberId": 6,
-      "amount": 12062,
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "notes": "",
-      "brandCaliberId": 5,
-      "amount": 50,
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "notes": "Fiochi",
-      "brandCaliberId": 7,
-      "amount": 23456,
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "notes": "this is a test",
-      "brandCaliberId": 4,
-      "amount": 50,
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "notes": "25 grain",
-      "brandCaliberId": 9,
-      "amount": 50,
-      "id": 17
+      "caliberId": 112,
+      "brandId": 13,
+      "amount": 750,
+      "grain": 20,
+      "id": 3
     }
   ],
   "calibers": [
@@ -815,68 +744,6 @@
     {
       "id": 621,
       "brand": "Zombie Commander"
-    }
-  ],
-  "brandCalibers": [
-    {
-      "brandId": 254,
-      "caliberId": 112,
-      "box_count": 250,
-      "id": 1
-    },
-    {
-      "brandId": 273,
-      "caliberId": 38,
-      "box_count": 50,
-      "id": 2
-    },
-    {
-      "brandId": 1000,
-      "caliberId": 100,
-      "box_count": 0,
-      "id": 3
-    },
-    {
-      "brandId": 112,
-      "caliberId": 6,
-      "box_count": 50,
-      "id": 4
-    },
-    {
-      "brandId": 303,
-      "caliberId": 38,
-      "box_count": 50,
-      "id": 5
-    },
-    {
-      "brandId": 533,
-      "caliberId": 55,
-      "box_count": 15,
-      "id": 6
-    },
-    {
-      "brandId": 254,
-      "caliberId": 2,
-      "box_count": 100,
-      "id": 7
-    },
-    {
-      "brandId": 159,
-      "caliberId": 45,
-      "box_count": 50,
-      "id": 8
-    },
-    {
-      "brandId": 1000,
-      "caliberId": 112,
-      "box_count": 0,
-      "id": 9
-    },
-    {
-      "brandId": 332,
-      "caliberId": 17,
-      "box_count": 150,
-      "id": 10
     }
   ]
 }

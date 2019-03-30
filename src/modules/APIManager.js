@@ -1,4 +1,4 @@
-//const RemoteURL = `https://bullets-database.herokuapp.com`
+//const RemoteURL = "https://bullets-database.herokuapp.com";
 
 const RemoteURL = "http://localhost:8081"
 
@@ -13,6 +13,10 @@ export default {
     },
     getQuery: (query, db) => {
         return fetch(`${RemoteURL}/${db}/?${query}`)
+            .then(results => results.json())
+    },
+    getOneQuery: (id, query, db) => {
+        return fetch(`${RemoteURL}/${db}/${id}/?${query}`)
             .then(results => results.json())
     },
     delete: (id, db) => {
