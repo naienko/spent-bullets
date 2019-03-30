@@ -1,7 +1,5 @@
 const RemoteURL = "https://bullets-database.herokuapp.com";
 
-//const RemoteURL = "http://localhost:8081"
-
 export default {
     getOne: (id, db) => {
         return fetch(`${RemoteURL}/${db}/${id}`)
