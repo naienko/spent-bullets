@@ -15,10 +15,6 @@ export default {
         return fetch(`${RemoteURL}/${db}/?${query}`)
             .then(results => results.json())
     },
-    getOneQuery: (id, query, db) => {
-        return fetch(`${RemoteURL}/${db}/${id}/?${query}`)
-            .then(results => results.json())
-    },
     delete: (id, db) => {
         return fetch(`${RemoteURL}/${db}/${id}`, {
             method: "DELETE"

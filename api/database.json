@@ -22,9 +22,8 @@
       "userId": 1,
       "notes": "",
       "caliberId": 112,
-      "brandId": 13,
-      "amount": 45678,
-      "grain": 100,
+      "brandId": 419,
+      "amount": 12445,
       "id": 1
     },
     {
@@ -32,18 +31,8 @@
       "notes": "",
       "caliberId": 113,
       "brandId": 13,
-      "amount": 150,
-      "grain": 150,
+      "amount": "3245",
       "id": 2
-    },
-    {
-      "userId": 1,
-      "notes": "",
-      "caliberId": 112,
-      "brandId": 13,
-      "amount": 750,
-      "grain": 20,
-      "id": 3
     }
   ],
   "calibers": [
