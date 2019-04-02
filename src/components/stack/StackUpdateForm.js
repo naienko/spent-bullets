@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
-import APIManager from "../../modules/APIManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import StackManager from "../../modules/StackManager";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -82,7 +83,7 @@ class StackUpdate extends Component {
     }
     
     componentDidMount() {
-        APIManager.getOne(this.props.match.params.stackId, "stacks")
+        StackManager.getOneStack(this.props.match.params.stackId, "stacks")
         .then(stack => {
             this.setState({
                 stackOldAmt: stack.amount,
