@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { withRouter } from "react-router";
 
 import "react-toastify/dist/ReactToastify.css";
-import { parse } from "querystring";
 
 class StackForm extends Component {
     //set empty local state
@@ -37,10 +36,10 @@ class StackForm extends Component {
             if (this.state.stackAmt < 0) {
                 alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, please use the update button on the home screen.")
             } else {
-                if (this.state.brandId === 1000 && this.state.stack_notes === undefined) {
-                    stack.notes = "(update notes for load details)"
-                } else if (this.state.stack_notes === undefined) {
+                if (this.state.stack_notes === undefined && this.state.brandId !== 1000) {
                     stack.notes = ""
+                } else if (this.state.brandId === 1000 && this.state.stack_notes === undefined) {
+                    stack.notes = "(update notes for load details)"
                 } else {
                     stack.notes = this.state.stack_notes
                 }

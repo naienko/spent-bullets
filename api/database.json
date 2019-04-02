@@ -33,6 +33,24 @@
       "brandId": 13,
       "amount": "3245",
       "id": 2
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 13,
+      "brandId": 1000,
+      "amount": 10,
+      "grain": 100,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 48,
+      "brandId": 1000,
+      "amount": 10,
+      "grain": 100,
+      "id": 4
     }
   ],
   "calibers": [
