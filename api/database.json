@@ -21,14 +21,6 @@
     {
       "userId": 1,
       "notes": "",
-      "caliberId": 112,
-      "brandId": 419,
-      "amount": 12445,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "notes": "",
       "caliberId": 113,
       "brandId": 13,
       "amount": "3245",
@@ -37,20 +29,56 @@
     {
       "userId": 1,
       "notes": "",
-      "caliberId": 13,
-      "brandId": 1000,
-      "amount": 10,
-      "grain": 100,
-      "id": 3
+      "caliberId": 112,
+      "brandId": 13,
+      "amount": 2775,
+      "grain": 25,
+      "id": 5
     },
     {
       "userId": 1,
       "notes": "",
-      "caliberId": 48,
-      "brandId": 1000,
-      "amount": 10,
+      "caliberId": 112,
+      "brandId": 419,
+      "amount": 1500,
+      "grain": 25,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 15,
+      "brandId": 332,
+      "amount": 200,
+      "grain": 50,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 29,
+      "brandId": 332,
+      "amount": 240,
       "grain": 100,
-      "id": 4
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "notes": "",
+      "caliberId": 15,
+      "brandId": 332,
+      "amount": 100,
+      "grain": 100,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "notes": "box is crushed",
+      "caliberId": 15,
+      "brandId": 332,
+      "amount": 100,
+      "grain": 100,
+      "id": 11
     }
   ],
   "calibers": [
