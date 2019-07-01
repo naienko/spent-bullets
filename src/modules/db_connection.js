@@ -10,4 +10,13 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+  });
 });
+
+// create 'export default' class
+// duplicate class methods from APIManager
+// test test test
+// then convert ApplicationViews to SQL database
