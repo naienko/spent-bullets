@@ -1,22 +1,61 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "localhost",
-  port: "3311",
-  user: "root",
-  password: "h1s3k117"
-});
+class Database {
+    constructor() {
+        this.connection = mysql.createConnection( {
+          //remember when going to live to insert live connection data here
+            host: "localhost",
+            port: "3311",
+            user: "root",
+            password: "h1s3k117",
+            database: "spent_bullets"
+          });
+    }
+    query( sql, args ) {
+        return new Promise( ( resolve, reject ) => {
+            this.connection.query( sql, args, ( err, rows ) => {
+                if ( err )
+                    return reject( err );
+                resolve( rows );
+            } );
+        } );
+    }
+    close() {
+        return new Promise( ( resolve, reject ) => {
+            this.connection.end( err => {
+                if ( err )
+                    return reject( err );
+                resolve();
+            } );
+        } );
+    }
+}
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Result: " + result);
-  });
-});
-
-// create 'export default' class
-// duplicate class methods from APIManager
 // test test test
 // then convert ApplicationViews to SQL database
+
+export default {
+  getOne: (id, db) => {
+    return Database.query(`SELECT * FROM ${db} WHERE id = ${id}`)
+      .then(results => results.json())
+  },
+  getAll: function(db) {
+    return Database.query(`SELECT * FROM ${db}`)
+      .then(results => results.json())
+  },
+  //DELETE method
+  delete: (id, db) => {
+    return Database.query(`DELETE FROM ${db} WHERE id = ${id}`)
+  },
+  //POST method
+  add: (db, newObject) => {
+    return Database.query(`INSERT INTO ${db} SET ?`, newObject)
+      .then(results => results.json())
+  },
+  //PUT method
+  update: (db, newObject, id) => {
+    return Database.query(`UPDATE ${db} SET ? WHERE id = ${id}`, newObject)
+      .then(results => results.json())
+  }
+  //figure out how to do the query methods
+}
