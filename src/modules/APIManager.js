@@ -31,8 +31,6 @@ class Database {
 	}
 }
 
-var userId = parseInt(sessionStorage.getItem("credentials"));
-
 export default {
 	getOne: (id, db) => {
 		return Database.query(`SELECT * FROM ${db} WHERE id = ${id}`)
@@ -88,7 +86,6 @@ export default {
 			.then(results => results.json())
 	}
 	
-	//figure out how to do the query methods
 	//queries appear in StackManager, ApplicationViews, Register, Login
 	//shove queries into querymanager?
 	//fix users db to default role to 'user'

@@ -35,7 +35,8 @@ export default class Register extends Component {
         }
         //compare this object to data from the users table in db
         if (this.state.username && this.state.password) {
-            APIManager.getQuery(`username=${this.state.username}`, "users").then(users => {
+            //APIManager.getQuery(`username=${this.state.username}`, "users").then(users => {
+            APIManager.registerCheck(this.state.username).then(users => {
             //if it exists, warn and refuse
                 if (users.length) {
                     alert(`Username ${this.state.username} already exists!`)

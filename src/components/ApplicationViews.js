@@ -6,7 +6,7 @@ import Register from "./auth/Register";
 
 import StorageCloset from "./StorageCloset";
 import APIManager from "../modules/APIManager";
-import StackManager from "../modules/StackManager";
+//import StackManager from "../modules/StackManager";
 
 import StackForm from "./stack/StackForm";
 import StackUpdate from "./stack/StackUpdateForm";
@@ -29,13 +29,16 @@ export default class ApplicationView extends Component {
         APIManager.getAll("users")
             .then(users => newState.users = users)
 
-            .then(() => StackManager.getUserStacks())
+            //.then(() => StackManager.getUserStacks())
+            .then(() => APIManager.getUserStacks(parseInt(sessionStorage.getItem("credentials"))))
             .then(stacks => newState.stacks = stacks)
             
-            .then(() => APIManager.getQuery("_sort=caliber&_order=asc", "calibers"))
+            //.then(() => APIManager.getQuery("_sort=caliber&_order=asc", "calibers"))
+            .then(() => APIManager.caliberSort())
             .then(calibers => newState.calibers = calibers)
             
-            .then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
+            //.then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
+            .then(() => APIManager.brandSort())
             .then(brands => newState.brands = brands)
 
         //then fill state
@@ -47,25 +50,25 @@ export default class ApplicationView extends Component {
     //add/edit/delete functions go here, to be sent as props to appropriate routes
     addStack = newStack => {
         return APIManager.add("stacks", newStack)
-            .then(() => StackManager.getUserStacks())
+            .then(() => APIManager.getUserStacks(parseInt(sessionStorage.getItem("credentials"))))
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
     deleteStack = id => {
         return APIManager.delete(id, "stacks")
-            .then(() => StackManager.getUserStacks())
+            .then(() => APIManager.getUserStacks(parseInt(sessionStorage.getItem("credentials"))))
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
     updateStack = updatedStack => {
         return APIManager.update("stacks", updatedStack, updatedStack.id)
-            .then(() => StackManager.getUserStacks())
+            .then(() => APIManager.getUserStacks(parseInt(sessionStorage.getItem("credentials"))))
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
     updateUser = updatedUser => {
         return APIManager.update("users", updatedUser, updatedUser.id)
-            .then(() => StackManager.getAll("users"))
+            .then(() => APIManager.getAll("users"))
             .then(users => this.setState({ users: users }))
     }
 

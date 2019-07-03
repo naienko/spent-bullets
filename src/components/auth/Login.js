@@ -25,7 +25,8 @@ class Login extends Component {
         event.preventDefault()
         //compare the data in the form fields to data pulled from users table in db
         if (this.state.username && this.state.password) {
-            APIManager.getQuery(`username=${this.state.username}&password=${this.state.password}`, "users").then(
+            //APIManager.getQuery(`username=${this.state.username}&password=${this.state.password}`, "users").then(
+            APIManager.loginCheck(this.state.username, this.state.password).then(
                 user => {
                     //if nothing matches, warn and refuse
                     if (!user.length) {
