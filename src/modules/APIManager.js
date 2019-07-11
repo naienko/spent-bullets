@@ -1,3 +1,5 @@
+//this is not the right approach, too insecure
+//dead branch
 const mysql = require('mysql');
 
 class Database {
