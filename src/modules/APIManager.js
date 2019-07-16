@@ -34,16 +34,6 @@ export default {
         })
         .then(results => results.json())
     },
-    update: (db, newObject, id) => {
-        return fetch(`${RemoteURL}/${db}/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newObject)
-        })
-        .then(results => results.json())
-    },
     edit: (db, newObject, id) => {
         return fetch(`${RemoteURL}/${db}/${id}`, {
             method: "PUT",
