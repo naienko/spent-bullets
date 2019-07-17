@@ -32,10 +32,10 @@ export default class ApplicationView extends Component {
             .then(() => StackManager.getUserStacks())
             .then(stacks => newState.stacks = stacks)
             
-            .then(() => APIManager.getQuery("_sort=caliber&_order=asc", "calibers"))
+            .then(() => APIManager.getQuery("orderBy=caliber", "calibers"))
             .then(calibers => newState.calibers = calibers)
             
-            .then(() => APIManager.getQuery("_sort=brand&_order=asc", "brands"))
+            .then(() => APIManager.getQuery("orderBy= brand", "brands"))
             .then(brands => newState.brands = brands)
 
         //then fill state
@@ -58,13 +58,13 @@ export default class ApplicationView extends Component {
     }
 
     updateStack = updatedStack => {
-        return APIManager.update("stacks", updatedStack, updatedStack.id)
+        return APIManager.edit("stacks", updatedStack, updatedStack.id)
             .then(() => StackManager.getUserStacks())
             .then(stacks => this.setState({ stacks: stacks }))
     }
 
     updateUser = updatedUser => {
-        return APIManager.update("users", updatedUser, updatedUser.id)
+        return APIManager.edit("users", updatedUser, updatedUser.id)
             .then(() => StackManager.getAll("users"))
             .then(users => this.setState({ users: users }))
     }

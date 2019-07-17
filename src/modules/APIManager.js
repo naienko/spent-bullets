@@ -1,6 +1,6 @@
 //const RemoteURL = "https://bullets-database.herokuapp.com";
 
-const RemoteURL = "http://localhost:8081"
+const RemoteURL = "http://localhost:5000/api"
 
 export default {
     getOne: (id, db) => {
@@ -27,16 +27,6 @@ export default {
     add: (db, newObject) => {
         return fetch(`${RemoteURL}/${db}`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newObject)
-        })
-        .then(results => results.json())
-    },
-    update: (db, newObject, id) => {
-        return fetch(`${RemoteURL}/${db}/${id}`, {
-            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
