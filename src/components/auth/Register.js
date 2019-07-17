@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
@@ -42,8 +42,10 @@ export default class Register extends Component {
                 if (users.length) {
                     alert(`Username ${this.state.username} already exists!`)
                 } else {
-                    bcrypt.hash(this.state.password, 10, function(err, hash) {
-                       this.setState ({password : hash}) 
+                    bcrypt.genSalt(10, function(err, salt) {
+                        bcrypt.hash(this.state.password, salt, function(err, hash) {
+                            this.setState ({password : hash}) 
+                         });
                     });
             //if it doesn't exist, create new user and set sessionStorage
                     APIManager.add("users", newUser).then(user => {
