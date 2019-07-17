@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import Form from "react-bootstrap/Form";
@@ -25,16 +27,23 @@ class Login extends Component {
         event.preventDefault()
         //compare the data in the form fields to data pulled from users table in db
         if (this.state.username && this.state.password) {
-            APIManager.getQuery(`username=${this.state.username}&password=${this.state.password}`, "users").then(
+            APIManager.getQuery(`username=${this.state.username}`, "users").then(
                 user => {
                     //if nothing matches, warn and refuse
                     if (!user.length) {
                         alert("Wrong username or password!")
                     } else {
-                    //store the input data in sessionStorage (like a cookie)
+                        var hash = user[0].password;
+                        var plainText = this.state.password;
+                        var hashBool = bcrypt.compareSync(plainText, hash);
+                        if (hashBool === true) {
+                            //store the input data in sessionStorage (like a cookie)
+                            sessionStorage.setItem("credentials", parseInt(user[0].id))
+                            this.props.setAuth()
+                        } else {
+                            alert("Wrong username or password!")
+                        }
                     //consider a checkbox for localStorage?
-                        sessionStorage.setItem("credentials", parseInt(user[0].id))
-                        this.props.setAuth()
                     }
                 }
             )

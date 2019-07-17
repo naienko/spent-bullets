@@ -27,10 +27,14 @@ export default class Register extends Component {
     handleRegister = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
+
+        //hash the password for security purposes
+        var hash = bcrypt.hashSync(this.state.password, 10);
+
         //create an object using the data pulled from the form fields
         const newUser = {
             username: this.state.username,
-            password: this.state.password,
+            password: hash,
             email: this.state.email,
             display_name: this.state.display_name,
             role: "user"
@@ -42,11 +46,6 @@ export default class Register extends Component {
                 if (users.length) {
                     alert(`Username ${this.state.username} already exists!`)
                 } else {
-                    bcrypt.genSalt(10, function(err, salt) {
-                        bcrypt.hash(this.state.password, salt, function(err, hash) {
-                            this.setState ({password : hash}) 
-                         });
-                    });
             //if it doesn't exist, create new user and set sessionStorage
                     APIManager.add("users", newUser).then(user => {
                         sessionStorage.setItem("credentials", parseInt(user.id))
