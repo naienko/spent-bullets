@@ -40,7 +40,7 @@ export default class ApplicationView extends Component {
 
         //then fill state
             .then(() => this.setState(newState))
-            .then(() => console.log("State is:", this.state))
+            //.then(() => console.log("State is:", this.state))
         //re-rendering will happen
     };
 
