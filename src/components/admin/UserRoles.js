@@ -16,7 +16,8 @@ export default class UserRoles extends Component {
             show: false,
             user_role: "",
             userId: "",
-            currentUser: "",
+            currentUser: ""
+            //TODO: filtering: create a variable here for the list of users
         };
     }
 
@@ -40,6 +41,11 @@ export default class UserRoles extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
+    //TODO: filtering: do I need a new handlechange function for the search input?
+    //TODO: filtering: learn about componentwillmount -- is this lifecycle stage still valid?
+    //TODO: filtering: create a function to apply .filter method and search string to list of users
+    //TODO: filtering: once the .filter method is applied, we set state to it, which triggers rerender and makes the search a live search?
+    //https://medium.com/@AndrewBonner2/filter-results-with-react-f746dc7984c
 
     updateUserRole = event => {
         //stop the form doing HTML stuff
