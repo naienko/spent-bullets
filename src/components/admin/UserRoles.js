@@ -69,7 +69,7 @@ export default class UserRoles extends Component {
         return (
             <div id="dashboard">
                 <CardDeck>
-                    { this.props.users.map(user => 
+                    { this.props.users.reverse().map(user => 
                         <Card key={user.id}>
                             <Card.Body className="text-center">
                                 <Card.Title>
