@@ -16,7 +16,7 @@ export default class UserRoles extends Component {
             show: false,
             user_role: "",
             userId: "",
-            currentUser: ""
+            currentUser: "",
         };
     }
 
@@ -50,9 +50,13 @@ export default class UserRoles extends Component {
             //construct the user object
             const updatedUser = {
                 id: this.state.currentUser.id,
+                username: this.state.currentUser.username,
+                password: this.state.currentUser.password,
+                email: this.state.currentUser.email,
+                display_name: this.state.currentUser.display_name,
                 role: this.state.user_role
             }
-            
+
             this.props.updateUser(updatedUser)
                 .then(() => {
                     //close the modal
@@ -65,7 +69,7 @@ export default class UserRoles extends Component {
         return (
             <div id="dashboard">
                 <CardDeck>
-                    { this.props.users.map(user => 
+                    { this.props.users.reverse().map(user => 
                         <Card key={user.id}>
                             <Card.Body className="text-center">
                                 <Card.Title>

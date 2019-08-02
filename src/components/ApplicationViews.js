@@ -35,7 +35,7 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getQuery("orderBy=caliber", "calibers"))
             .then(calibers => newState.calibers = calibers)
             
-            .then(() => APIManager.getQuery("orderBy= brand", "brands"))
+            .then(() => APIManager.getQuery("orderBy=brand", "brands"))
             .then(brands => newState.brands = brands)
 
         //then fill state

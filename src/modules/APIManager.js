@@ -1,4 +1,4 @@
-//const RemoteURL = "https://bullets-database.herokuapp.com";
+//const RemoteURL = "https://api.firechildren.net/api";
 
 const RemoteURL = "http://localhost:5000/api"
 
