@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Select from "react-select";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,9 +23,17 @@ class StackForm extends Component {
     handleFieldChange = event => {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value
-        this.setState(stateToChange)
+        this.setState(stateToChange);
     }
 
+    handleCaliberChange = caliberId => {
+        this.setState({ caliberId });
+      };
+
+    handleBrandChange = brandId => {
+        this.setState({ brandId });
+      };
+    
     createNewStack = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
@@ -36,22 +46,22 @@ class StackForm extends Component {
             if (this.state.stackAmt < 0) {
                 alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, please use the update button on the home screen.")
             } else {
-                if (this.state.stack_notes === undefined && this.state.brandId !== 1000) {
+                if (this.state.stack_notes === undefined && this.state.brandId.value !== 1000) {
                     stack.notes = ""
-                } else if (this.state.brandId === 1000 && this.state.stack_notes === undefined) {
+                } else if (this.state.brandId.value === 1000 && this.state.stack_notes === undefined) {
                     stack.notes = "(update notes for load details)"
                 } else {
                     stack.notes = this.state.stack_notes
                 }
                 //check for pre-existing matching stack
-                if (!this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))) {
+                if (!this.props.stacks.find(stack => parseInt(this.state.brandId.value) === parseInt(stack.brandId) && parseInt(this.state.caliberId.value) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))) {
                     toast.success("Adding new stack!", {
                         position: toast.POSITION.TOP_CENTER,
                         autoClose: 3000
                     })
                     //if no, add brandCaliberId to stack object
-                    stack.caliberId = parseInt(this.state.caliberId);
-                    stack.brandId = parseInt(this.state.brandId);
+                    stack.caliberId = parseInt(this.state.caliberId.value);
+                    stack.brandId = parseInt(this.state.brandId.value);
                     stack.amount = parseInt(this.state.stackAmt);
                     stack.grain = parseInt(this.state.grainCt);
                     //add stack object in the stacks table in the db using the passed-in function
@@ -68,7 +78,7 @@ class StackForm extends Component {
                             position: toast.POSITION.TOP_CENTER,
                             autoClose: 3000
                         })
-                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandId) === parseInt(stack.brandId) && parseInt(this.state.caliberId) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))
+                        const oldStack = this.props.stacks.find(stack => parseInt(this.state.brandId.value) === parseInt(stack.brandId) && parseInt(this.state.caliberId.value) === parseInt(stack.caliberId) && parseInt(this.state.grainCt) === parseInt(stack.grain))
                         stack.id = oldStack.id;
                         stack.amount = parseInt(this.state.stackAmt) + parseInt(oldStack.amount);
                         //update stack object in the stacks table in the db using the passed-in function
@@ -84,10 +94,11 @@ class StackForm extends Component {
                             autoClose: 3000
                         })
                         //if no, add brandCaliberId to stack object
-                        stack.caliberId = parseInt(this.state.caliberId);
-                        stack.brandId = parseInt(this.state.brandId);
+                        stack.caliberId = parseInt(this.state.caliberId.value);
+                        stack.brandId = parseInt(this.state.brandId.value);
                         stack.amount = parseInt(this.state.stackAmt);
                         stack.grain = parseInt(this.state.grainCt);
+                        console.log("stack is: ", stack);
                         //add stack object in the stacks table in the db using the passed-in function
                         this.props.addStack(stack)
                             .then(
@@ -104,27 +115,30 @@ class StackForm extends Component {
     }
 
     render() {
+        let caliberOptions = [];
+        this.props.calibers.map(element => 
+            caliberOptions.push({value: element.id, label: element.caliber})
+            );
+
+        let brandOptions = [];
+        this.props.brands.map(element => 
+            brandOptions.push({value: element.id, label: element.brand})
+            );
+
+        const { caliberId } = this.state;
+        const { brandId } = this.state;
+
         return (
             <div id="dashboard">
             <ToastContainer />
             <Form onSubmit={this.createNewStack}>
                 <Form.Group controlId="caliberId">
                     <Form.Label>Caliber</Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a caliber</option>
-                        { this.props.calibers.map(element => 
-                            <option key={element.id} value={element.id}>{element.caliber}</option>
-                            )}
-                    </Form.Control>
+                    <Select value={caliberId} onChange={this.handleCaliberChange} options={caliberOptions} />
                 </Form.Group>
                 <Form.Group controlId="brandId">
                     <Form.Label>Brand</Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a brand</option>
-                        { this.props.brands.map(element => 
-                            <option key={element.id} value={element.id}>{element.brand}</option>
-                            )}
-                    </Form.Control>
+                    <Select value={brandId} onChange={this.handleBrandChange} options={brandOptions} />
                 </Form.Group>
                 <Form.Group controlId="grainCt">
                     <Form.Label>Grain</Form.Label>
