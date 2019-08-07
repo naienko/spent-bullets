@@ -1,4 +1,4 @@
-//const RemoteURL = "https://api.firechildren.net/api";
+//const RemoteURL = "http://api.firechildren.net/api";
 
 const RemoteURL = "http://localhost:5000/api"
 

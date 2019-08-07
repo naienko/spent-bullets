@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
+import Card from "react-bootstrap/Card";
+
 import "./StorageCloset.css"
 import CaliberGroup from "./stack/CaliberGroup";
 
@@ -14,6 +16,12 @@ class StorageCloset extends Component {
                 calibers={this.props.calibers} 
                 type={type} 
                 deleteStack={this.props.deleteStack} />
+        } else {
+            return <Card bg="info">
+                <p>To inventory a new stack of ammunition, click the 'Add New Stack' button in the navigation bar. Choose what caliber and what brand from the dropdown lists (they're searchable!), then enter in the number of grains and the total count of bullets you have. You can add individual notes to any stack of ammunition.</p>
+                <p>Once you have stacks of ammunition, you can update their counts or delete a whole stack from this main page. If you use the 'Add New Stack' page, and all the details there match a stack you already have, you will be asked if you want to create a new stack with those details, or update the existing stack. This will allow you to have different notes on stacks of ammunition that are otherwise the same.</p>
+                <p>If the caliber or brand you are looking for doesn't appear in the dropdown lists, please hop over to the suggestions page (forthcoming) and let us know! An admin will try to review your suggestion quickly and get it added to the database.</p>
+            </Card>
         }
     }
 

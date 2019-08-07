@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 
 import StackManager from "../../modules/StackManager";
@@ -40,7 +41,8 @@ class StackUpdate extends Component {
                 stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
             }
         } else if (this.state.stackAmt < 0) {
-            alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, input a positive number and click remove.")
+            alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, input a positive number and click remove.");
+            this.setState({stackAmt: 0});
         } else {
             //otherwise just use the old amount
             stackAmt = parseInt(this.state.stackOldAmt)
@@ -99,6 +101,9 @@ class StackUpdate extends Component {
         return (
             <div id="dashboard">
                 <ToastContainer />
+                <Alert variant="warning">
+                    Please use positive numbers here. Click 'Add' if you have gotten more bullets, and 'Remove' if you have used or given some away.
+                </Alert>
                 <div className="text-center h3">{this.state.stackOldAmt} <span className="text-muted">count</span> {this.state.brandName} {this.state.caliberName} {this.state.grainCt} grain</div>
                 <Form>
                     <Form.Group controlId="stackAmt">
