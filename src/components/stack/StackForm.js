@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 class StackForm extends Component {
     //set empty local state
     state = {
-        stackAmt: "",
+        stackAmt: 0,
         stack_notes: "",
         caliberId: "",
         brandId: "",
@@ -39,7 +39,7 @@ class StackForm extends Component {
         event.preventDefault()
         //construct the stack object
         const stack = {
-            userId: parseInt(sessionStorage.getItem("credentials")),
+            userId: parseInt(sessionStorage.getItem("credentials"))
         }
 
         if (this.state.caliberId && this.state.brandId && this.state.stackAmt) {
