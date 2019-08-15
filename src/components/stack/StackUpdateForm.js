@@ -34,16 +34,15 @@ class StackUpdate extends Component {
         let stackAmt = null;
         //check to see if the user changed the amount or just the note
         if (this.state.stackAmt > 0) {
-            //if they changed the amount check to see  which button they pushed and do math accordingly
+            //if they changed the amount check to see which button they pushed and do math accordingly
             if (event.target.id === "plus") {
                 stackAmt = parseInt(this.state.stackOldAmt) + parseInt(this.state.stackAmt)
             } else if (event.target.id === "minus") {
                 stackAmt = parseInt(this.state.stackOldAmt) - parseInt(this.state.stackAmt)
             }
-        } else if (this.state.stackAmt < 0) {
+        } else if (this.state.stackAmt <= -1) {
             alert("Hey, you can't have a negative amount! If you want to remove ammo from a stack, input a positive number and click remove.");
-            this.setState({stackAmt: 0});
-        } else {
+        } else if (this.state.stackAmt == 0) {
             //otherwise just use the old amount
             stackAmt = parseInt(this.state.stackOldAmt)
         }
@@ -57,7 +56,10 @@ class StackUpdate extends Component {
         } else {
             updatedStack.notes = this.state.stack_notes
         }
-        if (stackAmt <= 0) {
+
+        if (stackAmt == null) {
+            this.setState({ stackAmt: 0 })
+        } else if (stackAmt <= 0) {
             if (window.confirm("Are you sure you want to delete this stack? You've set the count to 0 or less.")) {
                 toast.success("Stack amount decreased to 0; deleting stack", {
                     position: toast.POSITION.TOP_CENTER,
@@ -108,7 +110,7 @@ class StackUpdate extends Component {
                 <Form>
                     <Form.Group controlId="stackAmt">
                     <Form.Label>How many bullets?</Form.Label>
-                        <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" />
+                        <input type="number" onChange={this.handleFieldChange} id="stackAmt" className="form-control" value={this.state.stackAmt} />
                     </Form.Group>
                     <Form.Group controlId="stack_notes">
                         <Form.Label>
