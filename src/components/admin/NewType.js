@@ -12,9 +12,8 @@ class NewType extends Component {
 
     //create empty local state
     state = {
-        caliberId: "",
-        brandId: "",
-        box_count: 0
+        request_name: "",
+        typeId: 0
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -27,62 +26,34 @@ class NewType extends Component {
     createNewLink = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
-        //construct the stack object
-        const brandCaliber = {
-            brandId: parseInt(this.state.brandId),
-            caliberId: parseInt(this.state.caliberId),
-            box_count: parseInt(this.state.box_count)
-        }
-        //check for matching brandCaliber object
-        if (this.state.brandId && this.state.caliberId && this.state.box_count) {
-            APIManager.getQuery(`brandId=${this.state.brandId}&caliberId=${this.state.caliberId}`, "brandCalibers").then(
-                res => {
-                    if (!res.length) {
-                        //if no, add it to the brandCalibers table in the db
-                        toast.success("Adding new type of ammunition", {
-                            position: toast.POSITION.TOP_CENTER,
-                            autoClose: 3000
-                        })
-                        this.props.addBCLink(brandCaliber)
-                            .then(setTimeout(() => {
-                                this.props.history.push("/")
-                            }, 3500))
-                    } else {
-                        //if yes, warn and refuse
-                        alert("This combination already exists in the database!")
-                    }
-                }
-            )
-        }
+        //do stuff with form data
+
     }
 
     render() {
         return (
             <div id="dashboard">
             <ToastContainer />
+            <div>If there's a caliber or brand missing from the lists, please enter it below, along with a link to where it can be acquired (for accuracy), and our admins will review your request.</div>
             <Form onSubmit={this.createNewLink}>
-                <Form.Group controlId="brandId">
-                    <Form.Label>Brand</Form.Label>
-                    <Form.Control as="select" onChange={this.handleFieldChange}>
-                        <option>Choose a brand</option>
-                        { this.props.brands.map(brand => 
-                            <option key={brand.id} value={brand.id}>{brand.brand}</option>
-                            )}
-                    </Form.Control>
+                <Form.Group controlId="request_name">
+                    <Form.Label>
+                        Name
+                    </Form.Label>
+                    <Form.Control onChange={this.handleFieldChange} placeholder="name of the requested brand or caliber" />
                 </Form.Group>
-                <Form.Group controlId="caliberId">
-                    <Form.Label>Caliber</Form.Label>
-                    <Form.Control onChange={this.handleFieldChange} as="select">
-                        <option>Choose a caliber</option>
-                        { this.props.calibers.map(caliber => 
-                            <option key={caliber.id} value={caliber.id}>{caliber.caliber}</option>
-                            )}
-                    </Form.Control>
+
+                <Form.Group controlId="typeId">
+                    <Form.Label>Type</Form.Label>
+                    <Form.Check inline label="brand" type="radio" id="1" />
+                    <Form.Check inline label="caliber" type="radio" id="2" />
                 </Form.Group>
-                <Form.Group controlId="box_count">
-                    <Form.Label className="m-sm-2">How many in a box?</Form.Label>
-                    <input type="number" onChange={this.handleFieldChange} id="box_count" className="form-control" />
+
+                <Form.Group controlId="request_desc">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control type="textarea" placeholder="put a link or other information proving the existence of this brand or caliber here" onChange={this.handleFieldChange} />
                 </Form.Group>
+
                 <Button variant="success" type="submit">Submit</Button>
             </Form>
             </div>
