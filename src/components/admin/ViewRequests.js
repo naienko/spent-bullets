@@ -28,8 +28,6 @@ export default class ViewRequests extends Component {
         }
     }
 
-    //let currentRequest = this.props.requests.find(request => parseInt(event.target.id) === request.id)
-    
     render() {
         return (
             <div id="dashboard">

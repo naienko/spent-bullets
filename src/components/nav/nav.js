@@ -27,12 +27,16 @@ class NavBar extends Component {
                         <Nav.Item>
                             <Nav.Link href="/stack/new">Add New Stack</Nav.Link>
                         </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/admin/request">Request New Item</Nav.Link>
+                        </Nav.Item>
                         { this.props.activeUser.role === "admin" 
                         ? 
                         <Dropdown as={Nav.Item}>
                             <Dropdown.Toggle as={Nav.Link}>Admin Menu</Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item href="/admin/roles">Change User Roles</Dropdown.Item>
+                                <Dropdown.Item href="/admin/requestlist">View Requests</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         :
