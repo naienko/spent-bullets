@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { withRouter } from "react-router";
 
-import APIManager from "../../modules/APIManager";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -52,7 +51,7 @@ class NewType extends Component {
                 autoClose: 3000
             })
             //add object in the table in the db using the passed-in function
-            this.props.AddRequest(request)
+            this.props.addRequest(request)
             .then(
                 setTimeout(() => {
                     this.props.history.push("/")

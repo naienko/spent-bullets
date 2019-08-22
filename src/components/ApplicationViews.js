@@ -21,6 +21,7 @@ export default class ApplicationView extends Component {
         calibers: [],
         brands: [],
         stacks: [],
+        requests: []
     };
 
     componentDidMount() {
@@ -38,9 +39,11 @@ export default class ApplicationView extends Component {
             .then(() => APIManager.getQuery("orderBy=brand", "brands"))
             .then(brands => newState.brands = brands)
 
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => newState.requests = requests)
+
         //then fill state
             .then(() => this.setState(newState))
-            //.then(() => console.log("State is:", this.state))
         //re-rendering will happen
     };
 
@@ -67,6 +70,12 @@ export default class ApplicationView extends Component {
         return APIManager.edit("users", updatedUser, updatedUser.id)
             .then(() => StackManager.getAll("users"))
             .then(users => this.setState({ users: users }))
+    }
+
+    addRequest = newRequest => {
+        return APIManager.add("requests", newRequest)
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => this.setState({ requests: requests }))
     }
 
     render() {
@@ -106,10 +115,9 @@ export default class ApplicationView extends Component {
                     />
                 }} />
 
-                <Route exact path="/admin/new" render={(props) => {
+                <Route exact path="/admin/request" render={(props) => {
                     return <NewType 
-                        brands={this.state.brands} 
-                        calibers={this.state.calibers}
+                        addRequest={this.addRequest}
                     />
                 }} />
 
