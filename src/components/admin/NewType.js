@@ -13,7 +13,8 @@ class NewType extends Component {
     //create empty local state
     state = {
         request_name: "",
-        request_type: ""
+        request_type: "",
+        request_desc: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -33,7 +34,33 @@ class NewType extends Component {
         //stop the form doing HTML stuff
         event.preventDefault()
         //do stuff with form data
+        const request = {
+            userId: parseInt(sessionStorage.getItem("credentials"))
+        }
 
+        if (this.state.request_desc && this.state.request_name && this.state.request_type) {
+            request.request_desc = this.state.request_desc
+            request.request_name = this.state.request_name
+            if (this.state.request_type == "brand") {
+                request.request_type = 1
+            } else if (this.state.request_type == "caliber") {
+                request.request_type = 2
+            }
+            
+            toast.success("Adding your request!", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000
+            })
+            //add object in the table in the db using the passed-in function
+            this.props.AddRequest(request)
+            .then(
+                setTimeout(() => {
+                    this.props.history.push("/")
+                }, 3500)
+                )
+        } else {
+            alert("Please complete the form!")
+        }
     }
 
     render() {
