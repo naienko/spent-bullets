@@ -13,6 +13,7 @@ import StackUpdate from "./stack/StackUpdateForm";
 import NewType from "./admin/NewType";
 import Profile from "./user/profile";
 import UserRoles from "./admin/UserRoles";
+import ViewRequests from "./admin/ViewRequests";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -78,6 +79,10 @@ export default class ApplicationView extends Component {
             .then(requests => this.setState({ requests: requests }))
     }
 
+    addBrand
+    addCaliber
+    deleteRequest
+
     render() {
         return (
             //routes go here
@@ -118,6 +123,15 @@ export default class ApplicationView extends Component {
                 <Route exact path="/admin/request" render={(props) => {
                     return <NewType 
                         addRequest={this.addRequest}
+                    />
+                }} />
+
+                <Route exact path="/admin/requestlist" render={(props) => {
+                    return <ViewRequests 
+                        requests={this.state.requests}
+                        addBrand={this.addBrand}
+                        addCaliber={this.addCaliber}
+                        deleteRequest={this.deleteRequest}
                     />
                 }} />
 
