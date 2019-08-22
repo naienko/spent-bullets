@@ -13,7 +13,7 @@ class NewType extends Component {
     //create empty local state
     state = {
         request_name: "",
-        typeId: 0
+        request_type: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -21,6 +21,12 @@ class NewType extends Component {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
+    }
+
+    handleRadioChange = event => {
+        this.setState({
+            request_type: event.currentTarget.value
+        })
     }
 
     createNewLink = event => {
@@ -43,10 +49,10 @@ class NewType extends Component {
                     <Form.Control onChange={this.handleFieldChange} placeholder="name of the requested brand or caliber" />
                 </Form.Group>
 
-                <Form.Group controlId="typeId">
+                <Form.Group controlId="request_type">
                     <Form.Label>Type</Form.Label>
-                    <Form.Check inline label="brand" type="radio" id="1" />
-                    <Form.Check inline label="caliber" type="radio" id="2" />
+                    <Form.Check inline label="brand" value="brand" type="radio" id="1" onChange={this.handleRadioChange} />
+                    <Form.Check inline label="caliber" value="caliber" type="radio" id="2" onChange={this.handleRadioChange} />
                 </Form.Group>
 
                 <Form.Group controlId="request_desc">
