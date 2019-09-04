@@ -13,7 +13,7 @@ class NewType extends Component {
     state = {
         request_name: "",
         request_type: "",
-        request_desc: ""
+        request_about: ""
     }
 
     // Update state whenever an input field is edited (Steve's code)
@@ -34,18 +34,18 @@ class NewType extends Component {
         event.preventDefault()
         //do stuff with form data
         const request = {
-            userId: parseInt(sessionStorage.getItem("credentials"))
+            UserId: parseInt(sessionStorage.getItem("credentials"))
         }
 
-        if (this.state.request_desc && this.state.request_name && this.state.request_type) {
-            request.request_desc = this.state.request_desc
-            request.request_name = this.state.request_name
+        if (this.state.request_about && this.state.request_name && this.state.request_type) {
+            request.about = this.state.request_about
+            request.name = this.state.request_name
             if (this.state.request_type == "brand") {
-                request.request_type = 1
+                request.TypeId = 1
             } else if (this.state.request_type == "caliber") {
-                request.request_type = 2
+                request.TypeId = 2
             }
-            
+
             toast.success("Adding your request!", {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 3000
@@ -76,12 +76,12 @@ class NewType extends Component {
                 </Form.Group>
 
                 <Form.Group controlId="request_type">
-                    <Form.Label>Type</Form.Label>
+                    <Form.Label>Type</Form.Label><br />
                     <Form.Check inline label="brand" value="brand" type="radio" id="1" onChange={this.handleRadioChange} />
                     <Form.Check inline label="caliber" value="caliber" type="radio" id="2" onChange={this.handleRadioChange} />
                 </Form.Group>
 
-                <Form.Group controlId="request_desc">
+                <Form.Group controlId="request_about">
                     <Form.Label>Description</Form.Label>
                     <Form.Control type="textarea" placeholder="put a link or other information proving the existence of this brand or caliber here" onChange={this.handleFieldChange} />
                 </Form.Group>

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router";
 
-export default class ViewRequests extends Component {
+class ViewRequests extends Component {
     state = {
     };
     
@@ -13,7 +14,7 @@ export default class ViewRequests extends Component {
         //construct the object
         let currentRequest = this.props.requests.find(request => parseInt(event.target.id) === request.id)
         const newRequest = {
-            name = currentRequest.name
+            name: currentRequest.name
         }
         if (currentRequest.typeId == 1) {
             this.props.addBrand(newRequest)
@@ -41,7 +42,7 @@ export default class ViewRequests extends Component {
                                 <Card.Text>
                                     submitted by: <a href="mailto:${request.user.email}">{request.user.username}</a><br />
                                     type: {request.typeId === 1 ? "brand" : "caliber"}<br />
-                                    {request.desc}
+                                    {request.about}
                                 </Card.Text>
                                 <Button variant="success" id={request.id} onClick={this.approveRequest}>Approve</Button>
                                 <Button variant="danger" id={request.id} onClick={() => window.confirm("Are you sure you want to deny this request?") && this.props.deleteRequest(request.id)
