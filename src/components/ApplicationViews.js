@@ -79,9 +79,21 @@ export default class ApplicationView extends Component {
             .then(requests => this.setState({ requests: requests }))
     }
 
-    addBrand
-    addCaliber
-    deleteRequest
+    addBrand = newBrand => {
+        return APIManager.add("brands", newBrand)
+            .then(() => APIManager.getQuery("orderBy=brand", "brands"))
+            .then(brands => this.setState({ brands: brands }))
+    }
+    addCaliber = newCaliber => {
+        return APIManager.add("calibers", newCaliber)
+            .then(() => APIManager.getQuery("orderBy=caliber", "calibers"))
+            .then(calibers => this.setState({ calibers: calibers }))
+    }
+    deleteRequest = id => {
+        return APIManager.delete(id, "requests")
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => this.setState({ requests: requests }))
+    }
 
     render() {
         return (

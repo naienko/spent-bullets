@@ -8,21 +8,27 @@ class ViewRequests extends Component {
     state = {
     };
     
-    updateRequest = event => {
+    approveRequest = event => {
         //stop the form doing HTML stuff
         event.preventDefault()
         //construct the object
         let currentRequest = this.props.requests.find(request => parseInt(event.target.id) === request.id)
-        const newRequest = {
-            name: currentRequest.name
-        }
+        
         if (currentRequest.typeId == 1) {
+            const newRequest = {
+                brand: currentRequest.name
+            }
             this.props.addBrand(newRequest)
+                .then(() => {this.props.deleteRequest(currentRequest.id)})
                 .then(() => {
                     this.props.history.push("/admin/requestlist")
                 })
         } else {
+            const newRequest = {
+                caliber: currentRequest.name
+            }
             this.props.addCaliber(newRequest)
+            .then(() => {this.props.deleteRequest(currentRequest.id)})
                 .then(() => {
                     this.props.history.push("/admin/requestlist")
                 })
@@ -40,7 +46,7 @@ class ViewRequests extends Component {
                                     {request.name}
                                 </Card.Title>
                                 <Card.Text>
-                                    submitted by: <a href="mailto:${request.user.email}">{request.user.username}</a><br />
+                                    submitted by: <a href="${request.user.email}">{request.user.username}</a><br />
                                     type: {request.typeId === 1 ? "brand" : "caliber"}<br />
                                     {request.about}
                                 </Card.Text>
