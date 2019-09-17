@@ -13,6 +13,7 @@ import StackUpdate from "./stack/StackUpdateForm";
 import NewType from "./admin/NewType";
 import Profile from "./user/profile";
 import UserRoles from "./admin/UserRoles";
+import ViewRequests from "./admin/ViewRequests";
 
 export default class ApplicationView extends Component {
     //empty state to start with, while initial components render
@@ -21,6 +22,7 @@ export default class ApplicationView extends Component {
         calibers: [],
         brands: [],
         stacks: [],
+        requests: []
     };
 
     componentDidMount() {
@@ -37,6 +39,9 @@ export default class ApplicationView extends Component {
             
             .then(() => APIManager.getQuery("orderBy=brand", "brands"))
             .then(brands => newState.brands = brands)
+
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => newState.requests = requests)
 
         //then fill state
             .then(() => this.setState(newState))
@@ -66,6 +71,28 @@ export default class ApplicationView extends Component {
         return APIManager.edit("users", updatedUser, updatedUser.id)
             .then(() => StackManager.getAll("users"))
             .then(users => this.setState({ users: users }))
+    }
+
+    addRequest = newRequest => {
+        return APIManager.add("requests", newRequest)
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => this.setState({ requests: requests }))
+    }
+
+    addBrand = newBrand => {
+        return APIManager.add("brands", newBrand)
+            .then(() => APIManager.getQuery("orderBy=brand", "brands"))
+            .then(brands => this.setState({ brands: brands }))
+    }
+    addCaliber = newCaliber => {
+        return APIManager.add("calibers", newCaliber)
+            .then(() => APIManager.getQuery("orderBy=caliber", "calibers"))
+            .then(calibers => this.setState({ calibers: calibers }))
+    }
+    deleteRequest = id => {
+        return APIManager.delete(id, "requests")
+            .then(() => APIManager.getAll("requests"))
+            .then(requests => this.setState({ requests: requests }))
     }
 
     render() {
@@ -105,10 +132,18 @@ export default class ApplicationView extends Component {
                     />
                 }} />
 
-                <Route exact path="/admin/new" render={(props) => {
+                <Route exact path="/admin/request" render={(props) => {
                     return <NewType 
-                        brands={this.state.brands} 
-                        calibers={this.state.calibers}
+                        addRequest={this.addRequest}
+                    />
+                }} />
+
+                <Route exact path="/admin/requestlist" render={(props) => {
+                    return <ViewRequests 
+                        requests={this.state.requests}
+                        addBrand={this.addBrand}
+                        addCaliber={this.addCaliber}
+                        deleteRequest={this.deleteRequest}
                     />
                 }} />
 

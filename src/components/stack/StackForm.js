@@ -98,7 +98,6 @@ class StackForm extends Component {
                         stack.brandId = parseInt(this.state.brandId.value);
                         stack.amount = parseInt(this.state.stackAmt);
                         stack.grain = parseInt(this.state.grainCt);
-                        console.log("stack is: ", stack);
                         //add stack object in the stacks table in the db using the passed-in function
                         this.props.addStack(stack)
                             .then(

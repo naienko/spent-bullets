@@ -24,7 +24,7 @@ class StorageCloset extends Component {
             <div id="dashboard">
                 {
                     (this.props.stacks.length != 0) ? "" :
-                    <Card bg="info" text="light" style={{ 'max-width': '50%' }}>
+                    <Card bg="info" text="light" style={{ 'maxWidth': '50%' }}>
                         <Card.Body>
                         <p>To inventory a new stack of ammunition, click the 'Add New Stack' button in the navigation bar. Choose what caliber and what brand from the dropdown lists (they're searchable!), then enter in the number of grains and the total count of bullets you have. You can add individual notes to any stack of ammunition.</p>
                         <p>Once you have stacks of ammunition, you can update their counts or delete a whole stack from this main page. If you use the 'Add New Stack' page, and all the details there match a stack you already have, you will be asked if you want to create a new stack with those details, or update the existing stack. This will allow you to have different notes on stacks of ammunition that are otherwise the same.</p>
