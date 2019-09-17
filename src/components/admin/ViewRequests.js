@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 import { withRouter } from "react-router";
 
 class ViewRequests extends Component {
@@ -38,15 +39,18 @@ class ViewRequests extends Component {
     render() {
         return (
             <div id="dashboard">
+                <Alert variant="warning">
+                    Please review requests carefully. Approved requests will immediately go into the correct database for use.
+                </Alert>
                 <CardDeck>
                     { this.props.requests.map(request => 
-                        <Card key={request.id}>
+                        <Card key={request.id} style={{ maxWidth:'350px' }}>
                             <Card.Body className="text-center">
                                 <Card.Title>
                                     {request.name}
                                 </Card.Title>
                                 <Card.Text>
-                                    submitted by: <a href="${request.user.email}">{request.user.username}</a><br />
+                                    submitted by: <a href={`mailto:${request.user.email}`}>{request.user.username}</a><br />
                                     type: {request.typeId === 1 ? "brand" : "caliber"}<br />
                                     {request.about}
                                 </Card.Text>

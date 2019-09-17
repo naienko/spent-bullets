@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 import { withRouter } from "react-router";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -66,7 +67,9 @@ class NewType extends Component {
         return (
             <div id="dashboard">
             <ToastContainer />
-            <div>If there's a caliber or brand missing from the lists, please enter it below, along with a link to where it can be acquired (for accuracy), and our admins will review your request.</div>
+            <Alert variant="warning">
+                If there's a caliber or brand missing from the lists, please enter it below, along with a link to where it can be acquired (for accuracy), and our admins will review your request.
+            </Alert>
             <Form onSubmit={this.createNewLink}>
                 <Form.Group controlId="request_name">
                     <Form.Label>
