@@ -42,6 +42,5 @@ export default {
             },
             body: JSON.stringify(newObject)
         })
-        .then(results => results.json())
     }
 }
