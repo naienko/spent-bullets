@@ -16,19 +16,19 @@ class ViewRequests extends Component {
         let currentRequest = this.props.requests.find(request => parseInt(event.target.id) === request.id)
         
         if (currentRequest.typeId == 1) {
-            const newRequest = {
+            const brandRequest = {
                 brand: currentRequest.name
             }
-            this.props.addBrand(newRequest)
+            this.props.addBrand(brandRequest)
                 .then(() => {this.props.deleteRequest(currentRequest.id)})
                 .then(() => {
                     this.props.history.push("/admin/requestlist")
                 })
         } else {
-            const newRequest = {
+            const caliberRequest = {
                 caliber: currentRequest.name
             }
-            this.props.addCaliber(newRequest)
+            this.props.addCaliber(caliberRequest)
             .then(() => {this.props.deleteRequest(currentRequest.id)})
                 .then(() => {
                     this.props.history.push("/admin/requestlist")
